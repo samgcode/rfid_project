@@ -5,8 +5,22 @@ class TimeController {
     }
 
     async getTimes(ctx) {
-        const times = await this._timeRepository.getTimes();
-        ctx.body = times;
+        try {
+            const times = await this._timeRepository.getTimes();
+            ctx.body = times;
+        } catch(err) {
+            console.log(err);    
+        }
+    }
+    
+    async getTimeById(ctx) {
+        try {
+            const uid = ctx.params.uid;
+            const time = await this._timeRepository.getTimeByUid(uid);
+            ctx.body = time;
+        } catch(err) {
+            console.log(err);    
+        }
     }
 }
 

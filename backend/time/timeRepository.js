@@ -16,17 +16,17 @@ class TimeRepository {
         return data;
     } 
 
-    // async getTimeById(id) {
-    //     const fileContent = await fs.readFile(filePath);
-    //     const data = parse(fileContent, {columns: true});
-    //     let time;
-    //     data.forEach(element => {
-    //         if(element.id === id) {
-    //             time = element;
-    //         }
-    //     });
-    //     return time;
-    // }
+    async getTimeByUid(uid) {
+        const fileContent = await fs.readFile(filePath);
+        const data = parse(fileContent, {columns: true});
+        let time;
+        data.forEach(element => {
+            if(element.uid === uid) {
+                time = element;
+            }
+        });
+        return time;
+    }
 }
 
 module.exports = TimeRepository;
