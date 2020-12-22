@@ -2,8 +2,16 @@ const Koa = require('koa');
 const cors = require('cors');
 const app = new Koa();
 
-app.use(ctx => {
-    ctx.body = 'Hello koa';
-});
+const router = require('./routes');
 
-app.listen(3000);
+const port = 3000;
+
+// app.use(ctx => {
+//     ctx.body = 'Hello koa';
+// });
+
+app.use(router.routes()).use(router.allowedMethods());
+
+app.listen(port, function() {
+    console.log(`API is running at localhost:${port}`);
+});

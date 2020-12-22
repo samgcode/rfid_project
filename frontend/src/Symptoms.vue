@@ -6,18 +6,19 @@
 
         <hr> 
         <h5 class="symptoms">
-            test
+            insert symptom here
         </h5> 
         
         <hr>
         <h5 class="symptoms">
-            lmao
+            insert symptom here
         </h5>
 
-        <!-- <router-link :to="{ name: 'Home' }" class="btn btn-success"><h4>I do not have any of these symptoms</h4></router-link> -->
-        <button type="button" class="btn btn-success" @click="submit()">
+        <hr>
+        <router-link :to="{ name: 'Home' }" class="btn btn-success"><h4>I do not have any of these symptoms</h4></router-link>
+        <!-- <button type="button" class="btn btn-success" @click="submit()">
             <h4>Reviews</h4>
-        </button>
+        </button> -->
     </div>
 </template>
 
