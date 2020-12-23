@@ -38,10 +38,8 @@ class TimeRepository {
         await this.readFile();
         this._written = true;
         this._data.map(element => {
-            console.log(uid);
             if(element.uid === uid) {
                 element.timeOut = timeOut;
-                console.log('test');
             }
             return element;
         });
