@@ -22,11 +22,21 @@ class TimeController {
             console.log(err);    
         }
     }
+    async addTime(ctx) {
+        try {
+            const { uid, timeOut, timeIn, checkedSymptoms } = ctx.request.body;
+            const response = await this._timeRepository.addTime(uid, timeOut, timeIn, checkedSymptoms);
+            ctx.body = response;
+        } catch(err) {
+            console.log(err);
+        }
+    }
 
     async updateTime(ctx) {
         try {
             const { uid, timeOut } = ctx.request.body;
-            await this._timeRepository.updateTime(uid, timeOut);
+            const response = await this._timeRepository.updateTime(uid, timeOut);
+            ctx.body = response;
         } catch(err) {
             console.log(err);
         }

@@ -13,6 +13,7 @@ router.get('/', function(ctx) {
 
 router.get('/times', timeController.getTimes.bind(timeController));
 router.get('/times/:uid', timeController.getTimeById.bind(timeController));
+router.post('/times', timeController.addTime.bind(timeController));
 router.put('/time', timeController.updateTime.bind(timeController));
 
 module.exports = router;

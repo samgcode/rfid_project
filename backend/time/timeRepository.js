@@ -34,6 +34,19 @@ class TimeRepository {
         return time;
     }
     
+    async addTime(uid, timeIn, timeOut, checkedSymptoms) {
+        await this.readFile();
+        this._written = true;
+        this._data.push({
+            uid: uid,
+            timeIn: timeIn,
+            timeOut: timeOut,
+            checkedSymptoms: checkedSymptoms,
+            day: 'jan22'
+        });
+        return `Added: ${uid}`;
+    }
+
     async updateTime(uid, timeOut) {
         await this.readFile();
         this._written = true;
@@ -43,7 +56,7 @@ class TimeRepository {
             }
             return element;
         });
-        
+        return `Updated: ${uid}`;
     }
 }
 
