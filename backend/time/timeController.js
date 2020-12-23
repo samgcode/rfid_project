@@ -1,12 +1,12 @@
 
 class TimeController {
     constructor(serviceLocator) {
-        this._timeRepository = serviceLocator.repositories.timeRepository;
+        this._timeService = serviceLocator.services.timeService;
     }
 
     async getTimes(ctx) {
         try {
-            const times = await this._timeRepository.getTimes();
+            const times = await this._timeService.getTimes();
             ctx.body = times;
         } catch(err) {
             console.log(err);    
@@ -16,7 +16,7 @@ class TimeController {
     async getTimeById(ctx) {
         try {
             const uid = ctx.params.uid;
-            const time = await this._timeRepository.getTimeByUid(uid);
+            const time = await this._timeService.getTimeByUid(uid);
             ctx.body = time;
         } catch(err) {
             console.log(err);    
@@ -25,7 +25,7 @@ class TimeController {
     async addTime(ctx) {
         try {
             const { uid, checkedSymptoms } = ctx.request.body;
-            const response = await this._timeRepository.addTime(uid, checkedSymptoms);
+            const response = await this._timeService.addTime(uid, checkedSymptoms);
             ctx.body = response;
         } catch(err) {
             console.log(err);
@@ -35,7 +35,7 @@ class TimeController {
     async updateTime(ctx) {
         try {
             const { uid, timeOut } = ctx.request.body;
-            const response = await this._timeRepository.updateTime(uid, timeOut);
+            const response = await this._timeService.updateTime(uid, timeOut);
             ctx.body = response;
         } catch(err) {
             console.log(err);
