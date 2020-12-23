@@ -24,8 +24,8 @@ class TimeController {
     }
     async addTime(ctx) {
         try {
-            const { uid, timeOut, timeIn, checkedSymptoms } = ctx.request.body;
-            const response = await this._timeRepository.addTime(uid, timeOut, timeIn, checkedSymptoms);
+            const { uid, checkedSymptoms } = ctx.request.body;
+            const response = await this._timeRepository.addTime(uid, checkedSymptoms);
             ctx.body = response;
         } catch(err) {
             console.log(err);
