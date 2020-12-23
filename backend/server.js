@@ -1,14 +1,13 @@
 const Koa = require('koa');
 const cors = require('cors');
+const bodyParser = require('koa-bodyparser');
 const app = new Koa();
 
 const router = require('./routes');
 
 const port = 3000;
 
-// app.use(ctx => {
-//     ctx.body = 'Hello koa';
-// });
+app.use(bodyParser());
 
 app.use(router.routes()).use(router.allowedMethods());
 

@@ -22,6 +22,16 @@ class TimeController {
             console.log(err);    
         }
     }
+
+    async updateTime(ctx) {
+        try {
+            const { uid, timeOut } = ctx.request.body;
+            console.log(uid);
+            await this._timeRepository.updateTime(uid, timeOut);
+        } catch(err) {
+            console.log(err);
+        }
+    }
 }
 
 module.exports = TimeController;
