@@ -11,21 +11,21 @@ const softSPI = new SoftSPI({
 
 const rfid = new Mfrc522(softSPI).setResetPin(22);
 
-const admin = "208 31 23 37";
-
 const loopTime = 500;
 
 class ReadRfid {
-    constructor() {
-        setInterval(this.loop, loopTime);
+    constructor(serviceLocator) {
+        this._timeService = serviceLocator.services.timeService;
+        console.log('this._timeService', this._timeService);
+        setInterval(this.loop, loopTime, this._timeService);
     }
 
-    async loop() {
+    async loop(timeService) {
         rfid.reset();
+        // console.log(timeService);
         
         let response = rfid.findCard();
         if (!response.status) {
-            // console.log("No Card");
             return;
         }
 
@@ -35,17 +35,21 @@ class ReadRfid {
             return;
         }
 
-        const uid = response.data;
-        uid.map(e => {
+        const id = response.data;
+        id.map(e => {
             return e.toString(16);
         });
-        const id = `${uid[0]} ${uid[1]} ${uid[2]} ${uid[3]}`;
+        const uid = `${id[0]} ${id[1]} ${id[2]} ${id[3]}`;
 
-        if(id === admin) {
-            console.log("access granted");
+        console.log(uid);
+        const time = await timeService.getTimeByUid(uid);
+        // console.log(time);
+        if(time) {
+            timeService.updateTime(uid);
         } else {
-            console.log("access denied");
+            await timeService.addTime(uid, true);
         }
+
 
         rfid.stopCrypto();
     }

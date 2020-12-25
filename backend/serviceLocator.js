@@ -1,6 +1,7 @@
 const TimeController = require('./time/timeController');
 const TimeRepository = require('./time/timeRepository');
 const TimeService = require('./time/timeService');
+const Rfid = require('./rfid/read_rfid');
 
 const serviceLocator = {
     repositories: { },
@@ -15,5 +16,7 @@ serviceLocator.repositories['timeRepository'] = timeRepository;
 serviceLocator.services['timeService'] = new TimeService(serviceLocator);
 
 serviceLocator.controllers['timeController'] = new TimeController(serviceLocator);
+
+const rfid = new Rfid(serviceLocator);
 
 module.exports = serviceLocator;

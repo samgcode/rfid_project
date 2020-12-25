@@ -4,12 +4,8 @@ const bodyParser = require('koa-bodyparser');
 const app = new Koa();
 
 const router = require('./routes');
-const Rfid = require('./rfid/read_rfid');
-
-const rfid = new Rfid();
 
 const port = 3000;
-
 
 app.use(bodyParser());
 

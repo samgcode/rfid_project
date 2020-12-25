@@ -29,9 +29,9 @@ class TimeService {
         }
     }
 
-    async updateTime(uid, timeOut) {
+    async updateTime(uid) {
         try {
-            const response = await this._timeRepository.updateTime(uid, timeOut);
+            const response = await this._timeRepository.updateTime(uid);
             return response;
         } catch(err) {
             console.log(err);

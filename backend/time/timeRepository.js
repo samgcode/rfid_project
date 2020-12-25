@@ -54,12 +54,14 @@ class TimeRepository {
         return `Added: ${uid}`;
     }
 
-    async updateTime(uid, timeOut) {
+    async updateTime(uid) {
         await this.readFile();
         this._written = true;
+        const the_date = new Date();
+        const time = `${the_date.getHours()}:${the_date.getMinutes()}`;
         this._data.map(element => {
             if(element.uid === uid) {
-                element.timeOut = timeOut;
+                element.timeOut = time;
             }
             return element;
         });

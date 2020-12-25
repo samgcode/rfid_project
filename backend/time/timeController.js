@@ -34,8 +34,8 @@ class TimeController {
 
     async updateTime(ctx) {
         try {
-            const { uid, timeOut } = ctx.request.body;
-            const response = await this._timeService.updateTime(uid, timeOut);
+            const { uid } = ctx.request.body;
+            const response = await this._timeService.updateTime(uid);
             ctx.body = response;
         } catch(err) {
             console.log(err);
