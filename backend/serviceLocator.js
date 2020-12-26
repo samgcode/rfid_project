@@ -18,5 +18,6 @@ serviceLocator.services['timeService'] = new TimeService(serviceLocator);
 serviceLocator.controllers['timeController'] = new TimeController(serviceLocator);
 
 const rfid = new Rfid(serviceLocator);
+rfid.start();
 
 module.exports = serviceLocator;
