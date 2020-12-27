@@ -1,0 +1,4 @@
+add logic for if they dont check and then scan again
+add update check symptms
+use a date time object
+make an export class

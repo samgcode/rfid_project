@@ -41,6 +41,16 @@ class TimeController {
             console.log(err);
         }
     }
+
+    async updateChecked(ctx) {
+        try {
+            const { uid, checkedSymptoms } = ctx.request.body;
+            const response = await this._timeService.updateChecked(uid, checkedSymptoms);
+            ctx.body = response;
+        } catch(err) {
+            console.log(err);
+        }
+    }
 }
 
 module.exports = TimeController;

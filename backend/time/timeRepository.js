@@ -67,6 +67,17 @@ class TimeRepository {
         });
         return `Updated: ${uid}`;
     }
+
+    async updateChecked(uid, checkedSymptoms) {
+        await this.readFile();
+        this._data.map(element => {
+            if(element.uid === uid) {
+                element.checkedSymptoms = checkedSymptoms;
+            }
+            return element;
+        });
+        return `Updated: ${uid}`;
+    }
 }
 
 module.exports = TimeRepository;

@@ -37,6 +37,15 @@ class TimeService {
             console.log(err);
         }
     }
+
+    async updateChecked(uid, checkedSymptoms) {
+        try {
+            const response = await this._timeRepository.updateChecked(uid, checkedSymptoms);
+            return response;
+        } catch(err) {
+            console.log(err);
+        }
+    }
 }
 
 module.exports = TimeService;
