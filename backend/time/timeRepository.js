@@ -4,9 +4,6 @@ const parse = require('csv-parse/lib/sync');
 
 const filePath = './data/times.csv';
 
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
 class TimeRepository {
     constructor() {
        this._data;
@@ -40,16 +37,12 @@ class TimeRepository {
     async addTime(uid, checkedSymptoms) {
         await this.readFile();
         this._written = true;
-        const the_date = new Date();
-        const time = `${the_date.getHours()}:${the_date.getMinutes()}`;
-        const month = monthNames[the_date.getMonth()];
-        const day = `${month}${the_date.getDate()}`;
+        const time = new Date();
         this._data.push({
             uid: uid,
             timeIn: time,
             timeOut: '',
             checkedSymptoms: checkedSymptoms,
-            day: day
         });
         return `Added: ${uid}`;
     }
@@ -57,8 +50,7 @@ class TimeRepository {
     async updateTime(uid) {
         await this.readFile();
         this._written = true;
-        const the_date = new Date();
-        const time = `${the_date.getHours()}:${the_date.getMinutes()}`;
+        const time = new Date();
         this._data.map(element => {
             if(element.uid === uid) {
                 element.timeOut = time;
