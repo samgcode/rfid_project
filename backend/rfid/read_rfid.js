@@ -58,19 +58,36 @@ class ReadRfid {
             const time = await this._timeService.getTimeByUid(uid);
             console.log(time);
             if(time) {
-                this._timeService.updateTime(uid);
+                if(time.checkedSymptoms) {
+                    this._timeService.updateTime(uid);
+                    this.addScanned();
+                } else {
+                    //ping frontend
+                    console.log('@FRONTEND');
+                    const checked = true;
+                    this._timeService.updateChecked(uid, checked);
+                    this.addScanned();
+                }
             } else {
-                await this._timeService.addTime(uid, true);
+                //ping frontend
+                console.log('@FRONTEND');
+                const checked = false;
+                await this._timeService.addTime(uid, checked);
+                if(checked) {
+                    this.addScanned();
+                }
             }
-            const date = new Date();
-            scannedUids.push({
-                uid: uid,
-                time: date
-            });
-            console.log(scannedUids);
         }
 
         rfid.stopCrypto();
+    }
+
+    addScanned(uid) {
+        const date = new Date();
+        scannedUids.push({
+            uid: uid,
+            time: date
+        });
     }
 
     canScan(uid){
@@ -80,9 +97,9 @@ class ReadRfid {
                 current: uid,
                 element: element.uid
             })
-            console.log('check: ', (element.uid === uid));
+            // console.log('check: ', (element.uid === uid));
             if(element.uid === uid) {
-                console.log('FALSE');
+                // console.log('FALSE');
                 canScan = false;
             }
         }); 
