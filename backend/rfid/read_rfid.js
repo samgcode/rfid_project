@@ -54,7 +54,6 @@ class ReadRfid {
         const uid = `${id[0]} ${id[1]} ${id[2]} ${id[3]}`;
 
         console.log(uid);
-        console.log(this.canScan(uid));
         if(this.canScan(uid) === true) {
             const time = await this._timeService.getTimeByUid(uid);
             console.log(time);
@@ -66,7 +65,7 @@ class ReadRfid {
             const date = new Date();
             scannedUids.push({
                 uid: uid,
-                time: date.getMinutes()
+                time: date
             });
             console.log(scannedUids);
         }
@@ -93,11 +92,16 @@ class ReadRfid {
     updateScannedUids() {
         const date = new Date();
         const min = date.getMinutes();
+        const day = date.getDate();
         let tempScanned = [];
         scannedUids.forEach(element => {
-            if(min - element.time < scanCoolDown) {
-                
-                tempScanned.push(element);
+            const elementDay = element.time.getDate();
+            if(day === elementDay) {
+                const elementMin = element.time.getMinutes();
+                console.log(`day: ${elementDay}, min: ${elementMin}`);
+                if(min - elementMin < scanCoolDown) {
+                    tempScanned.push(element);
+                }
             }
         });
         scannedUids = tempScanned;

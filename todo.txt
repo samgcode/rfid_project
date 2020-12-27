@@ -1,4 +1,2 @@
 add logic for if they dont check and then scan again
-add logic for checking based on the same day
-use a date time object
 make an export class
