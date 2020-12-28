@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const parse = require('csv-parse/lib/sync');
-// const csv = require('csv-parse');
+const moment = require('moment');
 
 const filePath = './data/times.csv';
 
@@ -13,6 +13,9 @@ class TimeRepository {
         if(!this._written) {
             const fileContent = await fs.readFile(filePath);
             this._data = parse(fileContent, {columns: true});
+            this._data.map(element => {
+                element.timeIn = moment.utc(element.timeIn).toDate();
+            })
         } else {
             return this._data;
         }
@@ -32,6 +35,28 @@ class TimeRepository {
             }
         });
         return time;
+    }
+
+    async getTimesByDate(startDate, endDate) {
+        console.log(startDate);
+        await this.readFile();
+        const startDay = startDate.getDate();
+        const startMonth = startDate.getMonth();
+        const endDay = endDate.getDate();
+        const endMonth = endDate.getMonth();
+        let times = [];
+
+        this._data.forEach(time => {
+            const timeDay = time.timeIn.getDate();
+            const timeMonth = time.timeIn.getMonth();
+            if(timeDay >= startDay && timeMonth >= startMonth) {
+                if(timeDay <= endDay && timeMonth <= endMonth) {
+                    times.push(time);
+                }
+            }
+        })
+
+        return times;
     }
     
     async addTime(uid, checkedSymptoms) {
