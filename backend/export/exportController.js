@@ -31,9 +31,12 @@ class ExportController {
 
     async writeData(input) {
         input.map(time => {
-            time.timeIn = moment(time.timeIn).toString();
-            time.timeOut = moment(time.timeOut).toString();
-            return time;
+            return {
+                uid: time.uid,
+                timeIn: moment(time.timeIn).toString(),
+                timeOut: moment(time.timeOut).toString(),
+                checkedSypmtoms: time.checkedSypmtoms
+            };
         });
         stringify(input, {
             header: true
