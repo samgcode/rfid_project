@@ -1,0 +1,5 @@
+add server events
+move rfid api code to the rigth place
+add export ui
+add goodby page
+add post functionality to frontend
