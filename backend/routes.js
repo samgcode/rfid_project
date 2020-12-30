@@ -17,6 +17,6 @@ router.get('/times/:uid', timeController.getTimeById.bind(timeController));
 router.get('/export/all', exportController.getTimes.bind(exportController));
 router.get('/export', exportController.getTimesByDate.bind(exportController));
 router.post('/times', timeController.addTime.bind(timeController));
-router.put('/time', timeController.updateTime.bind(timeController));
+router.put('/time', timeController.updateChecked.bind(timeController));
 
 module.exports = router;

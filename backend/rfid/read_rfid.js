@@ -11,21 +11,14 @@ const softSPI = new SoftSPI({
 
 const rfid = new Mfrc522(softSPI).setResetPin(22);
 
-const loopTime = 500;
+const loopTime = 1000;
 
 let scannedUids = [];
 const scanCoolDown = 1;//min
 
 class ReadRfid {
     constructor(serviceLocator) {
-        this._timeService = serviceLocator.services.timeService;
-        console.log('this._timeService', this._timeService);
-        this.test();
-    }
-
-    test() {
-        console.log('test');
-        console.log(this._timeService);
+        this._eventService = serviceLocator.services.rfidEventService;
     }
     start() {
         setInterval(() => {
@@ -55,27 +48,10 @@ class ReadRfid {
 
         console.log(uid);
         if(this.canScan(uid) === true) {
-            const time = await this._timeService.getTimeByUid(uid);
-            console.log(time);
-            if(time) {
-                if(time.checkedSymptoms) {
-                    this._timeService.updateTime(uid);
-                    this.addScanned();
-                } else {
-                    //ping frontend
-                    console.log('@FRONTEND');
-                    const checked = true;
-                    this._timeService.updateChecked(uid, checked);
-                    this.addScanned();
-                }
-            } else {
-                //ping frontend
-                console.log('@FRONTEND');
-                const checked = false;
-                await this._timeService.addTime(uid, checked);
-                if(checked) {
-                    this.addScanned();
-                }
+            const canAdd = await this._eventService.checkRfid(uid);
+            console.log(canAdd);
+            if(canAdd) {
+                this.addScanned(uid);
             }
         }
 
@@ -122,6 +98,7 @@ class ReadRfid {
             }
         });
         scannedUids = tempScanned;
+        console.log(scannedUids);
     }
 }
 
