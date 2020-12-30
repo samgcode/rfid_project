@@ -3,6 +3,7 @@ import Router from 'vue-router';
 
 import Home from '../components/Home';
 import Symptoms from '../components/Symptoms';
+import Export from '../components/Export';
 
 Vue.use(Router);
 
@@ -16,6 +17,10 @@ export default new Router({
       path: '/symptoms',
       name: 'Symptoms',
       component: Symptoms
+    }, {
+      path: '/export',
+      name: 'Export',
+      component: Export
     }
   ],
   scrollBehavior() {
