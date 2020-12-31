@@ -4,8 +4,8 @@ import url from '../urlConfig';
 const baseUrl = url.baseUrl;
 
 class TimeService {
-    async addTime(uid, checkedSymptoms) {
-        const response = await axios.post(`http://${baseUrl}/times`, {
+    async updateTime(uid, checkedSymptoms) {
+        const response = await axios.put(`http://${baseUrl}/times`, {
             uid, 
             checkedSymptoms
         });

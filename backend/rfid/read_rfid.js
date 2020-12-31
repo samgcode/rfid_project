@@ -27,7 +27,6 @@ class ReadRfid {
     }
     async loop() {
         rfid.reset();
-        this.updateScannedUids();
         
         let response = rfid.findCard();
         if (!response.status) {
@@ -47,58 +46,10 @@ class ReadRfid {
         const uid = `${id[0]}${id[1]}${id[2]}${id[3]}`;
 
         console.log(uid);
-        if(this.canScan(uid) === true) {
-            const canAdd = await this._eventService.checkRfid(uid);
-            console.log(canAdd);
-            if(canAdd) {
-                this.addScanned(uid);
-            }
-        }
+        await this._eventService.handleRfidEvent(uid);
+
 
         rfid.stopCrypto();
-    }
-
-    addScanned(uid) {
-        const date = new Date();
-        scannedUids.push({
-            uid: uid,
-            time: date
-        });
-    }
-
-    canScan(uid){
-        let canScan = true;
-        scannedUids.forEach(element => {
-            console.log({
-                current: uid,
-                element: element.uid
-            })
-            // console.log('check: ', (element.uid === uid));
-            if(element.uid === uid) {
-                // console.log('FALSE');
-                canScan = false;
-            }
-        }); 
-        return canScan;
-    }
-
-    updateScannedUids() {
-        const date = new Date();
-        const min = date.getMinutes();
-        const day = date.getDate();
-        let tempScanned = [];
-        scannedUids.forEach(element => {
-            const elementDay = element.time.getDate();
-            if(day === elementDay) {
-                const elementMin = element.time.getMinutes();
-                console.log(`day: ${elementDay}, min: ${elementMin}`);
-                if(min - elementMin < scanCoolDown) {
-                    tempScanned.push(element);
-                }
-            }
-        });
-        scannedUids = tempScanned;
-        console.log(scannedUids);
     }
 }
 

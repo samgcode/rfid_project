@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     submit: async function() {
-        await timeService.addTime(111111111, true);
+        await timeService.updateTime(111111111, true);
         this.$router.push({name: 'Home'});
     }
   }
