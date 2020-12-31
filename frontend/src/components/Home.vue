@@ -11,6 +11,12 @@
 </template>
 
 <script>
+console.log('test');
+const source = new EventSource("http://localhost:3000/timeEvents");
+source.onopen = () => console.log("Connected");
+source.onerror = console.error;
+source.onmessage = console.log;
+
 export default {
   name: 'home',
 }

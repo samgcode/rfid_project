@@ -27,6 +27,10 @@
 
 <script>
 import Datepicker from 'vuejs-datepicker';
+import serviceLocator from '../services/serviceLocator';
+
+const exportService = serviceLocator.services.exportService;
+
 
 export default {
     name: 'Export',
@@ -40,8 +44,13 @@ export default {
         }
     },
     methods: {
-        submit: function() {
-            
+        submit: async function() {
+            if(this.startDate === null || this.endDate === null) {
+                await exportService.export();
+            } else {
+                await exportService.exportByDate(this.startDate, this.endDate);
+            }
+            this.$router.push({name: 'Home'});
         }
     }
 }

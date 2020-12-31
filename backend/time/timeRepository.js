@@ -39,6 +39,8 @@ class TimeRepository {
 
     async getTimesByDate(startDate, endDate) {
         await this.readFile();
+        console.log('start: ', startDate);
+        console.log('end: ', endDate);
         const startDay = startDate.getDate();
         const startMonth = startDate.getMonth();
         const endDay = endDate.getDate();

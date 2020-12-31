@@ -1,3 +1,5 @@
 add server events
-add export ui
+add export functionality
 add goodbye page
+fix export by date
+fix date to string
