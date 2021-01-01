@@ -33,10 +33,13 @@ export default {
   name: 'Symptoms',
   props: ['uid'],
   data() {
+    return {
+
+    }
   },
   methods: {
     submit: async function() {
-        await timeService.updateTime(111111111, true);
+        await timeService.updateTime('111111111', true);
         this.$router.push({name: 'Home'});
     }
   }

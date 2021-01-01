@@ -15,7 +15,7 @@ router.get('/', function(ctx) {
 router.get('/times', timeController.getTimes.bind(timeController));
 router.get('/times/:uid', timeController.getTimeById.bind(timeController));
 router.get('/export/all', exportController.getTimes.bind(exportController));
-router.get('/export', exportController.getTimesByDate.bind(exportController));
+router.get('/export/:startDate/:endDate', exportController.getTimesByDate.bind(exportController));
 router.post('/times', timeController.addTime.bind(timeController));
 router.put('/time', timeController.updateChecked.bind(timeController));
 

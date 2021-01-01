@@ -10,11 +10,8 @@ class ExportService {
         return response;
     }
     async exportByDate(startDate, endDate) {
-        console.log(startDate);
-        const response = await axios.get(`http://${baseUrl}/export`, {
-            startDate, 
-            endDate
-        });
+        // console.log(`startDate: ${startDate}, endDate: ${endDate}`);
+        const response = await axios.get(`http://${baseUrl}/export/${startDate}/${endDate}`);
 
         return response;
     }

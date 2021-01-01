@@ -48,6 +48,7 @@ export default {
             if(this.startDate === null || this.endDate === null) {
                 await exportService.export();
             } else {
+                // console.log(`startDate: ${this.startDate}, endDate: ${this.endDate}`);
                 await exportService.exportByDate(this.startDate, this.endDate);
             }
             this.$router.push({name: 'Home'});

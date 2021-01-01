@@ -18,9 +18,10 @@ class ExportController {
 
     async getTimesByDate(ctx) {
         try {
-            const { startDate, endDate } = ctx.request.body;
-            const start = moment.utc(startDate).toDate();
-            const end = moment.utc(endDate).toDate();
+            const { startDate, endDate } = ctx.params;
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            console.log(`startDate: ${start}, endDate: ${end}`);
             const times = await this._exportService.getTimesByDate(start, end);
             this.writeData(times);
             ctx.body = times;

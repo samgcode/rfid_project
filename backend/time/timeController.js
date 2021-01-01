@@ -61,7 +61,7 @@ class TimeController {
         try {
             const { uid, checkedSymptoms } = ctx.request.body;
             const response = await this._timeService.addTime(uid, checkedSymptoms);
-            this._eventService.handleRfidEvent(uid);
+            // this._eventService.handleRfidEvent(uid);
             ctx.body = response;
         } catch(err) {
             console.log(err);
