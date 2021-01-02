@@ -4,3 +4,4 @@ handle if you restart the frontend
 check if frontend reconects on its own
 add actual database
 add startup script
+use date to compare

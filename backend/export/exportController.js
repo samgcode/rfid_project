@@ -6,39 +6,31 @@ class ExportController {
         this._exportService = serviceLocator.services.exportService;
     }
 
-    async getTimes(ctx) {
+    async getSymptomScanTimes(ctx) {
         try {
-            const times = await this._exportService.getTimes();
-            this.writeData(times);
-            ctx.body = times;
+            const symptomScanTimes = await this._exportService.getSymptomScanTimes();
+            this.writeData(symptomScanTimes);
+            ctx.body = symptomScanTimes;
         } catch(err) {
             console.log(err);    
         }
     }
 
-    async getTimesByDate(ctx) {
+    async getSymptomScanTimesByDate(ctx) {
         try {
             const { startDate, endDate } = ctx.params;
             const start = new Date(startDate);
             const end = new Date(endDate);
             console.log(`startDate: ${start}, endDate: ${end}`);
-            const times = await this._exportService.getTimesByDate(start, end);
-            this.writeData(times);
-            ctx.body = times;
+            const symptomScanTimes = await this._exportService.getSymptomScanTimesByDate(start, end);
+            this.writeData(symptomScanTimes);
+            ctx.body = symptomScanTimes;
         } catch(err) {
             console.log(err);    
         }
     }
 
     async writeData(input) {
-        input.map(time => {
-            return {
-                uid: time.uid,
-                timeIn: time.timeIn.toISOString(),
-                timeOut: moment(time.timeOut).toString(),
-                checkedSypmtoms: time.checkedSypmtoms
-            };
-        });
         stringify(input, 
             {
                 header: true,

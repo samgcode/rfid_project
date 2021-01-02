@@ -1,22 +1,22 @@
 const UidStream = require('./UidStream');
 
-class TimeController {
+class SymptomScanTimeController {
     constructor(serviceLocator) {
-        this._timeService = serviceLocator.services.timeService;
+        this._symptomScanTimeService = serviceLocator.services.symptomScanTimeService;
         this._eventService = serviceLocator.services.rfidEventService;
         this._clients = [];
     }
 
-    async getTimes(ctx) {
+    async getSymptomScanTimes(ctx) {
         try {
-            const times = await this._timeService.getTimes();
-            ctx.body = times;
+            const symptomScanTimes = await this._symptomScanTimeService.getSymptomScanTimes();
+            ctx.body = symptomScanTimes;
         } catch(err) {
             console.log(err);    
         }
     }
 
-    timeEventHandler(ctx) {
+    symptomScanTimeEventHandler(ctx) {
         console.log('connection open');
         ctx.req.socket.setTimeout(0);
         ctx.req.socket.setNoDelay(true);
@@ -43,24 +43,24 @@ class TimeController {
         });
     }
     
-    async getTimeById(ctx) {
+    async getSymptomScanTimeById(ctx) {
         try {
             const uid = ctx.params.uid;
-            const time = await this._timeService.getTimeByUid(uid);
-            ctx.body = time;
+            const symptomScanTime = await this._symptomScanTimeService.getSymptomScanTimeByUid(uid);
+            ctx.body = symptomScanTime;
         } catch(err) {
             console.log(err);    
         }
     }
 
-    sendEventsToAll(timeEvent) {
-        clients.forEach(c => c.res.write({data: `${JSON.stringify(timeEvent)}\n\n`}));
+    sendEventsToAll(symptomScanTimeEvent) {
+        clients.forEach(c => c.res.write({data: `${JSON.stringify(symptomScanTimeEvent)}\n\n`}));
     }
      
-    async addTime(ctx) {
+    async addSymptomScanTime(ctx) {
         try {
             const { uid, checkedSymptoms } = ctx.request.body;
-            const response = await this._timeService.addTime(uid, checkedSymptoms);
+            const response = await this._symptomScanTimeService.addSymptomScanTime(uid, checkedSymptoms);
             // this._eventService.handleRfidEvent(uid);
             ctx.body = response;
         } catch(err) {
@@ -68,10 +68,10 @@ class TimeController {
         }
     }
 
-    async updateTime(ctx) {
+    async updateSymptomScanTime(ctx) {
         try {
             const { uid } = ctx.request.body;
-            const response = await this._timeService.updateTime(uid);
+            const response = await this._symptomScanTimeService.updateSymptomScanTime(uid);
             ctx.body = response;
         } catch(err) {
             console.log(err);
@@ -81,7 +81,7 @@ class TimeController {
     async updateChecked(ctx) {
         try {
             const { uid, checkedSymptoms } = ctx.request.body;
-            const response = await this._timeService.updateChecked(uid, checkedSymptoms);
+            const response = await this._symptomScanTimeService.updateChecked(uid, checkedSymptoms);
             ctx.body = response;
         } catch(err) {
             console.log(err);
@@ -89,4 +89,4 @@ class TimeController {
     }
 }
 
-module.exports = TimeController;
+module.exports = SymptomScanTimeController;

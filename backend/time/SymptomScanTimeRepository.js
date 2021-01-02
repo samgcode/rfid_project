@@ -2,9 +2,9 @@ const fs = require('fs').promises;
 const parse = require('csv-parse/lib/sync');
 const moment = require('moment');
 
-const filePath = './data/times.csv';
+const filePath = './data/symptomScanTimes.csv';
 
-class TimeRepository {
+class SymptomScanTimeRepository {
     constructor() {
        this._data;
        this._written = false;
@@ -21,23 +21,23 @@ class TimeRepository {
         }
     }
 
-    async getTimes() {
+    async getSymptomScanTimes() {
         await this.readFile();
         return this._data;
     } 
 
-    async getTimeByUid(uid) {
+    async getSymptomScanTimeByUid(uid) {
         await this.readFile();
-        let time;
+        let symptomScanTime;
         this._data.forEach(element => {
             if(element.uid === uid) {
-                time = element;
+                symptomScanTime = element;
             }
         });
-        return time;
+        return symptomScanTime;
     }
 
-    async getTimesByDate(startDate, endDate) {
+    async getSymptomScanTimesByDate(startDate, endDate) {
         await this.readFile();
         console.log('start: ', startDate);
         console.log('end: ', endDate);
@@ -45,22 +45,22 @@ class TimeRepository {
         const startMonth = startDate.getMonth();
         const endDay = endDate.getDate();
         const endMonth = endDate.getMonth();
-        let times = [];
+        let symptomScanTimes = [];
 
-        this._data.forEach(time => {
-            const timeDay = time.timeIn.getDate();
-            const timeMonth = time.timeIn.getMonth();
+        this._data.forEach(symptomScanTime => {
+            const timeDay = symptomScanTime.timeIn.getDate();
+            const timeMonth = symptomScanTime.timeIn.getMonth();
             if(timeDay >= startDay && timeMonth >= startMonth) {
                 if(timeDay <= endDay && timeMonth <= endMonth) {
-                    times.push(time);
+                    symptomScanTimes.push(symptomScanTime);
                 }
             }
         })
 
-        return times;
+        return symptomScanTimes;
     }
     
-    async addTime(uid, checkedSymptoms) {
+    async addSymptomScanTime(uid, checkedSymptoms) {
         await this.readFile();
         this._written = true;
         const time = new Date();
@@ -73,7 +73,7 @@ class TimeRepository {
         return `Added: ${uid}`;
     }
 
-    async updateTime(uid) {
+    async updateSymptomScanTime(uid) {
         await this.readFile();
         this._written = true;
         const time = new Date();
@@ -98,4 +98,4 @@ class TimeRepository {
     }
 }
 
-module.exports = TimeRepository;
+module.exports = SymptomScanTimeRepository;

@@ -21,6 +21,7 @@ function loop() {
     
     let response = rfid.findCard();
     if (!response.status) {
+        console.log('no card');
         return;
     }
 

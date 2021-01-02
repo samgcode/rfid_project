@@ -1,10 +1,10 @@
-const TimeRepository = require('./time/timeRepository');
-const TimeController = require('./time/timeController');
-const TimeService = require('./time/timeService');
-const ExportController = require('./export/exportController');
-const ExportService = require('./export/exportService');
-const RfidEventService = require('./rfid/rfidEventService');
-const Rfid = require('./rfid/read_rfid');
+const SymptomScanTimeRepository = require('./time/SymptomScanTimeRepository');
+const SymptomScanTimeController = require('./time/SymptomScanTimeController');
+const SymptomScanTimeService = require('./time/SymptomScanTimeService');
+const ExportController = require('./export/ExportController');
+const ExportService = require('./export/ExportService');
+const RfidEventService = require('./rfid/RfidEventService');
+const Rfid = require('./rfid/ReadRfid');
 
 const serviceLocator = {
     repositories: { },
@@ -12,15 +12,15 @@ const serviceLocator = {
     controllers: { }
 };
 
-let timeRepository = new TimeRepository();
+let symptomScanTimeTimeRepository = new SymptomScanTimeRepository();
 
-serviceLocator.repositories['timeRepository'] = timeRepository;
+serviceLocator.repositories['symptomScanTimeRepository'] = symptomScanTimeTimeRepository;
 
-serviceLocator.services['timeService'] = new TimeService(serviceLocator);
+serviceLocator.services['symptomScanTimeService'] = new SymptomScanTimeService(serviceLocator);
 serviceLocator.services['exportService'] = new ExportService(serviceLocator);
 serviceLocator.services['rfidEventService'] = new RfidEventService(serviceLocator);
 
-serviceLocator.controllers['timeController'] = new TimeController(serviceLocator);
+serviceLocator.controllers['symptomScanTimeController'] = new SymptomScanTimeController(serviceLocator);
 serviceLocator.controllers['exportController'] = new ExportController(serviceLocator);
 
 const rfid = new Rfid(serviceLocator);

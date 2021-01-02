@@ -1,20 +1,20 @@
 class ExportService {
     constructor(serviceLocator) {
-        this._timeRepository = serviceLocator.repositories.timeRepository;
+        this._symptomScanTimeRepository = serviceLocator.repositories.symptomScanTimeRepository;
     }
-    async getTimes() {
+    async getSymptomScanTimes() {
         try {
-            const times = await this._timeRepository.getTimes();
-            return times;
+            const symptomScanTimes = await this._symptomScanTimeRepository.getSymptomScanTimes();
+            return symptomScanTimes;
         } catch(err) {
             console.log(err);    
         }
     }
     
-    async getTimesByDate(startDate, endDate) {
+    async getSymptomScanTimesByDate(startDate, endDate) {
         try {
-            const times = await this._timeRepository.getTimesByDate(startDate, endDate);
-            return times;
+            const symptomScanTimes = await this._symptomScanTimeRepository.getSymptomScanTimesByDate(startDate, endDate);
+            return symptomScanTimes;
         } catch(err) {
             console.log(err);    
         }
