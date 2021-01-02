@@ -31,17 +31,19 @@ const timeService = serviceLocator.services.timeService;
 
 export default {
   name: 'Symptoms',
-  props: ['uid'],
   data() {
     return {
-
+        
     }
   },
   methods: {
     submit: async function() {
-        await timeService.updateTime('111111111', true);
+        await timeService.updateTime(this.$route.params.id, true);
         this.$router.push({name: 'Home'});
     }
+  },
+  mounted() {
+    console.log(this.$route.params.id);
   }
 }
 </script>

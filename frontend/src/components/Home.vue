@@ -11,14 +11,33 @@
 </template>
 
 <script>
-console.log('test');
-const source = new EventSource("http://localhost:3000/timeEvents");
-source.onopen = () => console.log("Connected");
-source.onerror = console.error;
-source.onmessage = console.log;
+import serviceLocator from '../services/serviceLocator';
+
+const eventService = serviceLocator.services.eventService;
+
 
 export default {
   name: 'home',
+  data() {
+    return {
+      uid: null
+    }
+  },
+  methods: {
+    handleEvent: function(event) {
+      const data = JSON.parse(event.data);
+      console.log(data.id);
+      if(data.checkSypmtomsRequired) {
+        this.$router.push({
+          name: `Symptoms`,
+          params: {id: data.id}
+        });
+      }
+    }
+  },
+  mounted() {
+    eventService.setOnMessage(this.handleEvent);
+  }
 }
 </script>
 

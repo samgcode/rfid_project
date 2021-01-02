@@ -21,7 +21,7 @@ class RfidEventService {
         const time = await this._timeService.getTimeByUid(uid);
         console.log(time);
         if(time) {
-            if(time.checkedSymptoms === 'true') {
+            if(time.checkedSymptoms) {
                 if(this.checkCooldown(time)) {
                     //fire event for leaving
                     this._events.emit("data", { id: uid, checkSypmtomsRequired: false });
@@ -33,9 +33,9 @@ class RfidEventService {
                 this._events.emit("data", { id: uid, checkSypmtomsRequired: true });
                 console.log('@FRONTEND');
                 //dont do this after:
-                console.log('frontend update');
-                const checked = true;
-                this._timeService.updateChecked(uid, checked);
+                // console.log('frontend update');
+                // const checked = true;
+                // this._timeService.updateChecked(uid, checked);
             }
         } else {
             //fire server event
@@ -46,7 +46,6 @@ class RfidEventService {
     }
 
     checkCooldown(time) {
-        return true;
         const min = new Date().getMinutes();
         let timeMin = time.timeIn.getMinutes();
         if(time.timeOut) {

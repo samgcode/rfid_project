@@ -14,9 +14,10 @@ export default new Router({
       name: 'Home',
       component: Home
     }, {
-      path: '/symptoms',
+      path: '/symptoms/:id',
       name: 'Symptoms',
-      component: Symptoms
+      component: Symptoms,
+      props: true
     }, {
       path: '/export',
       name: 'Export',
