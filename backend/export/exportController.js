@@ -34,14 +34,20 @@ class ExportController {
         input.map(time => {
             return {
                 uid: time.uid,
-                timeIn: moment(time.timeIn).toString(),
+                timeIn: time.timeIn.toISOString(),
                 timeOut: moment(time.timeOut).toString(),
                 checkedSypmtoms: time.checkedSypmtoms
             };
         });
-        stringify(input, {
-            header: true
-        }, function(err,data) {
+        stringify(input, 
+            {
+                header: true,
+                cast: {
+                    date: function (value) {
+                        return value.toISOString()
+                    }
+                }
+            }, function(err,data) {
             if(err){ throw (err) }
             const fileName = 'output.csv';
             fs.writeFile(`./output/${fileName}`, data, {flag: 'w'}, function(err) {

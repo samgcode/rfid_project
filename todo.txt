@@ -1,5 +1,4 @@
 add goodbye page
-fix date to string
 change time name
 handle if you restart the frontend
 check if frontend reconects on its own
