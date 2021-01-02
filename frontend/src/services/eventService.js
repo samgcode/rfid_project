@@ -5,7 +5,7 @@ const baseUrl = url.baseUrl;
 
 class EventService {
     constructor() {
-        this._source = new EventSource(`http://${baseUrl}/timeEvents`);
+        this._source = new EventSource(`http://${baseUrl}/symptomScanTimeEvents`);
         this.setupSource();
     }
 

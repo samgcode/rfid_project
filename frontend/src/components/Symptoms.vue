@@ -27,7 +27,7 @@
 <script>
 import serviceLocator from '../services/serviceLocator';
 
-const timeService = serviceLocator.services.timeService;
+const symptomScanTimeService = serviceLocator.services.symptomScanTimeService;
 
 export default {
   name: 'Symptoms',
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     submit: async function() {
-        await timeService.updateTime(this.$route.params.id, true);
+        await symptomScanTimeService.updateSymptomScanTime(this.$route.params.id, true);
         this.$router.push({name: 'Home'});
     }
   },

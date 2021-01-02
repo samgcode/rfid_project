@@ -1,12 +1,12 @@
-import TimeService from './timeService';
-import ExportService from './exportService';
-import EventService from './eventService';
+import SymptomScanTimeService from './SymptomScanTimeService';
+import ExportService from './ExportService';
+import EventService from './EventService';
 
 const serviceLocator = {
     services: { }
 }
 
-serviceLocator.services['timeService'] = new TimeService();
+serviceLocator.services['symptomScanTimeService'] = new SymptomScanTimeService();
 serviceLocator.services['exportService'] = new ExportService();
 serviceLocator.services['eventService'] = new EventService();
 

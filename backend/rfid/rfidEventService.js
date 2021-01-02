@@ -18,7 +18,7 @@ class RfidEventService {
     }
 
     async handleRfidEvent(uid) {
-        const symptomScanTime = await this._symptomScanTimeService.getTimeByUid(uid);
+        const symptomScanTime = await this._symptomScanTimeService.getSymptomScanTimeByUid(uid);
         console.log(symptomScanTime);
         if(symptomScanTime) {
             if(symptomScanTime.checkedSymptoms) {
