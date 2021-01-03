@@ -20,6 +20,15 @@ class SymptomScanTimeService {
             console.log(err);    
         }
     }
+
+    async getSymptomScanTimeByDateUid(uid, date) {
+        try {
+            const symptomScanTime = await this._symptomScanTimeRepository.getSymptomScanTimeByDateUid(uid, date);
+            return symptomScanTime;
+        } catch(err) {
+            console.log(err);    
+        }
+    }
     async addSymptomScanTime(uid, checkedSymptoms) {
         try {
             const response = await this._symptomScanTimeRepository.addSymptomScanTime(uid, checkedSymptoms);
@@ -38,9 +47,9 @@ class SymptomScanTimeService {
         }
     }
 
-    async updateChecked(uid, checkedSymptoms) {
+    async updateCheckedByDate(uid, checkedSymptoms, date) {
         try {
-            const response = await this._symptomScanTimeRepository.updateChecked(uid, checkedSymptoms);
+            const response = await this._symptomScanTimeRepository.updateCheckedByDate(uid, checkedSymptoms, date);
             return response;
         } catch(err) {
             console.log(err);

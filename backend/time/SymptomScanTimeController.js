@@ -78,10 +78,10 @@ class SymptomScanTimeController {
         }
     }
 
-    async updateChecked(ctx) {
+    async updateCheckedByDate(ctx) {
         try {
-            const { uid, checkedSymptoms } = ctx.request.body;
-            const response = await this._symptomScanTimeService.updateChecked(uid, checkedSymptoms);
+            const { uid, checkedSymptoms, date } = ctx.request.body;
+            const response = await this._symptomScanTimeService.updateCheckedByDate(uid, checkedSymptoms, date);
             ctx.body = response;
         } catch(err) {
             console.log(err);

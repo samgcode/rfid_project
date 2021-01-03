@@ -1,4 +1,5 @@
 const EventEmitter = require("events");
+const moment = require('moment');
 
 const scanCooldown = 1;//min
 
@@ -18,7 +19,7 @@ class RfidEventService {
     }
 
     async handleRfidEvent(uid) {
-        const symptomScanTime = await this._symptomScanTimeService.getSymptomScanTimeByUid(uid);
+        const symptomScanTime = await this._symptomScanTimeService.getSymptomScanTimeByDateUid(uid, new Date());
         console.log(symptomScanTime);
         if(symptomScanTime) {
             if(symptomScanTime.checkedSymptoms) {
@@ -37,13 +38,13 @@ class RfidEventService {
     }
 
     checkCooldown(symptomScanTime) {
-        const min = new Date().getMinutes();
-        let timeMin = symptomScanTime.timeIn.getMinutes();
+        // return true;
+        const dateTime = moment().subtract(scanCooldown, 'minutes');
+        let time = moment(symptomScanTime.timeIn.getTime());
         if(symptomScanTime.timeOut) {
-            timeMin = symptomScanTime.timeOut.getMinutes();
+            time = moment(symptomScanTime.timeOut.getTime());
         }
-        console.log(timeMin);
-        if(min - timeMin >= scanCooldown) {
+        if(time <= dateTime) {
             return true;
         }
         return false;

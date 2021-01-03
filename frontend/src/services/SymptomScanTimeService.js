@@ -7,7 +7,8 @@ class SymptomScanTimeService {
     async updateSymptomScanTime(uid, checkedSymptoms) {
         const response = await axios.put(`http://${baseUrl}/symptomScanTime`, {
             uid, 
-            checkedSymptoms
+            checkedSymptoms,
+            date: new Date()
         });
 
         return response;

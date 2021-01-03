@@ -19,7 +19,7 @@ router.get('/export/all', exportController.getSymptomScanTimes.bind(exportContro
 router.get('/export/:startDate/:endDate', exportController.getSymptomScanTimesByDate.bind(exportController));
 
 router.post('/symptomScanTimes', symptomScanTimeController.addSymptomScanTime.bind(symptomScanTimeController));
-router.put('/symptomScanTime', symptomScanTimeController.updateChecked.bind(symptomScanTimeController));
+router.put('/symptomScanTime', symptomScanTimeController.updateCheckedByDate.bind(symptomScanTimeController));
 
 router.get('/symptomScanTimeEvents', symptomScanTimeController.symptomScanTimeEventHandler.bind(symptomScanTimeController));
 

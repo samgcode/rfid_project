@@ -36,7 +36,7 @@ function loop() {
         return e.toString(16);
     });
 
-    const uid = `${id[0]} ${id[1]} ${id[2]} ${id[3]}`;
+    const uid = `${id[0]}${id[1]}${id[2]}${id[3]}`;
 
     console.log(uid);
 
