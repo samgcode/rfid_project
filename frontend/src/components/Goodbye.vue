@@ -1,0 +1,18 @@
+<template>
+  <div id="home" class="main">
+    <div class="display-1 text-secondary">
+      Thank you for signing out!
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'goodbye',
+  mounted() {
+    setTimeout(() => {
+        this.$router.push({name: 'Home'});
+    }, 5000);
+  }
+}
+</script>

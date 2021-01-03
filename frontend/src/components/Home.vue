@@ -32,6 +32,8 @@ export default {
           name: `Symptoms`,
           params: {id: data.id}
         });
+      } else {
+        this.$router.push({name: `Goodbye`}); 
       }
     }
   },
@@ -40,7 +42,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
