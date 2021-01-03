@@ -39,17 +39,12 @@ class SymptomScanTimeRepository {
 
     async getSymptomScanTimeByDateUid(uid, date) {
         await this.readFile();
-        
-        date.setHours(0,0,0,0);
-        const dateTime = date.getTime();
 
         let symptomScanTimeOut;
         this._data.forEach(symptomScanTime => {
             if(symptomScanTime.uid === uid) {
-                const symptomScanTimeDate = symptomScanTime.timeIn;
-                const time = new Date(symptomScanTimeDate.getTime());
-                time.setHours(0,0,0,0);
-                if(time.getTime() === dateTime) {
+                const time = moment(symptomScanTime.timeIn);
+                if(time.isSame(moment(date), 'day')) {
                     symptomScanTimeOut = symptomScanTime;
                 }
             }
@@ -60,22 +55,12 @@ class SymptomScanTimeRepository {
     async getSymptomScanTimesByDate(startDate, endDate) {
         await this.readFile();
 
-        startDate.setHours(0,0,0,0);
-        endDate.setHours(0,0,0,0);
-
-        console.log('start: ', startDate);
-        console.log('end: ', endDate);
-
-        const startTime = startDate.getTime();
-        const endTime = endDate.getTime();
-
         let symptomScanTimes = [];
-
         this._data.forEach(symptomScanTime => {
-            const symptomScanTimeDate = symptomScanTime.timeIn;
-            const time = new Date(symptomScanTimeDate.getTime());
-            time.setHours(0,0,0,0);
-            if(time >= startTime && time <= endTime) {
+            const time = moment(symptomScanTime.timeIn);
+            const isAfter = time.isAfter(moment(startDate), 'day');
+            const isBefore = time.isBefore(moment(endDate), 'day');
+            if(isAfter && isBefore) {
                 symptomScanTimes.push(symptomScanTime);
             }
         })
@@ -99,16 +84,13 @@ class SymptomScanTimeRepository {
     async updateSymptomScanTime(uid) {
         await this.readFile();
         this._written = true;
-        const date = new Date();
-        date.setHours(0,0,0,0);
-        const dateTime = date.getTime();
+        
+        const date = moment();
 
         this._data.forEach(symptomScanTime => {
             if(symptomScanTime.uid === uid) {
-                const symptomScanTimeDate = symptomScanTime.timeIn;
-                const time = new Date(symptomScanTimeDate.getTime());
-                time.setHours(0,0,0,0);
-                if(time.getTime() === dateTime) {
+                const time = moment(symptomScanTime.timeIn);
+                if(time.isSame(date, 'day')) {
                     symptomScanTime.timeOut = new Date();
                 }
             }
@@ -116,19 +98,12 @@ class SymptomScanTimeRepository {
         return `Updated: ${uid}`;
     }
 
-    async updateCheckedByDate(uid, checkedSymptoms, dateIn) {
+    async updateCheckedByDate(uid, checkedSymptoms, date) {
         await this.readFile();
-
-        const date = new Date(dateIn);
-        date.setHours(0,0,0,0);
-        const dateTime = date.getTime();
-
         this._data.forEach(symptomScanTime => {
             if(symptomScanTime.uid === uid) {
-                const symptomScanTimeDate = symptomScanTime.timeIn;
-                const time = new Date(symptomScanTimeDate.getTime());
-                time.setHours(0,0,0,0);
-                if(time.getTime() === dateTime) {
+                const time = moment(symptomScanTime.timeIn);
+                if(time.isSame(moment(date), 'day')) {
                     symptomScanTime.checkedSymptoms = checkedSymptoms;
                 }
             }
