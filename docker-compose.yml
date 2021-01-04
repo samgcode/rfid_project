@@ -1,0 +1,12 @@
+version: '3'
+services: 
+    mongo:
+        ports: 
+            - '27017:27017'
+        volumes:
+            - mongoData:/data/db
+        image:
+            ivanmarban/armhf-mongodb
+
+volumes:
+    mongoData:
