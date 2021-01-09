@@ -6,7 +6,6 @@
     <h1 class="text-secondary">
       Please scan card to continue
     </h1>
-    <router-link :to="{ name: 'Symptoms' }" class="btn btn-primary">test</router-link>
   </div>
 </template>
 

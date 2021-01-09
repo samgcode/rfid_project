@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "copy": "rm -rf node_modules package-lock.json && scp -r ../backend pi@192.168.0.139:/home/pi/rfid_project && npm i",
+    "copy": "rm -rf node_modules package-lock.json && scp -r ../../rfid_project pi@192.168.0.139:/home/pi/ && npm i",
     "ssh": "ssh pi@192.168.0.139",
     "setup": "rm -rf node_modules package-lock.json && npm i",
     "cpyCompose": "scp  ../docker-compose.yml pi@192.168.0.139:/home/pi/rfid_project",

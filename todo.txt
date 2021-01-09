@@ -1,5 +1,20 @@
+fix copy script
+make text smaller
+redesign the symptom page
+- fit on one screen
+error if backend isnt running and press button
+home page waiting for scanner
+
 handle if you restart the frontend
 check if frontend reconects on its own
 add startup script
-remove test button on home
-add symptoms to page
+fix screen sleep
+startup: browser, fullscreen
+
+configure the volume for the mongo config directory
+reproduce mongo kill error
+- make an automatic soloution
+shutdown properly with button
+add battery backup
+shutdown properly after being on battery
+

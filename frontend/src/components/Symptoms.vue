@@ -4,20 +4,17 @@
             Welcome,
         </div>
         <div class="text-secondary">
-            <h2>Please check your symptoms</h2>
+            <h2>Please check if you have these symptoms</h2>
         </div>
 
-        <hr> 
-        <h5 class="symptoms">
-            insert symptom here
-        </h5> 
-        
+        <div v-for="symptom in symptomList" :key="symptom">
+            <hr> 
+            <h5 class="symptoms">
+                {{symptom}}
+            </h5> 
+        </div>
         <hr>
-        <h5 class="symptoms">
-            insert symptom here
-        </h5>
 
-        <hr>
         <button type="button" class="btn btn-success" @click="submit()">
             <h4>I do not have any of these symptoms</h4>
         </button>
@@ -33,7 +30,19 @@ export default {
   name: 'Symptoms',
   data() {
     return {
-        
+        symptomList: [
+            'fever',
+            'dry cough',
+            'tiredness',
+            'aches and pains',
+            'sore throat',
+            'diarrhoea',
+            'conjunctivitis',
+            'headache',
+            'loss of taste or smell',
+            'a rash on skin',
+            'discolouration of fingers or toes'
+        ]
     }
   },
   methods: {
