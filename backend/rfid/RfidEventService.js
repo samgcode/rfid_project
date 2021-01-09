@@ -19,11 +19,14 @@ class RfidEventService {
     }
 
     async handleRfidEvent(uid) {
-        const symptomScanTime = await this._symptomScanTimeService.getSymptomScanTimeByDateUid(uid, new Date());
-        console.log(symptomScanTime);
-        if(symptomScanTime) {
+        const symptomScanTimes = await this._symptomScanTimeService.getSymptomScanTimeByDateUid(uid, new Date());
+        console.log('symptoim scan times: ', symptomScanTimes);
+        if(symptomScanTimes && symptomScanTimes.length > 0) {
+            const symptomScanTime = symptomScanTimes[0];
+            console.log(symptomScanTime.checkedSymptoms);
             if(symptomScanTime.checkedSymptoms) {
                 if(this.checkCooldown(symptomScanTime)) {
+                    console.log('TEST');
                     this._events.emit("data", { id: uid, checkSypmtomsRequired: false });
                     this._symptomScanTimeService.updateSymptomScanTime(uid);
                 }

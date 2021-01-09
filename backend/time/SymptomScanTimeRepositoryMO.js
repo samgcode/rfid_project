@@ -25,8 +25,9 @@ class SymptomScanTimeRepository {
         const data = await SymptomScanTime.find({'uid': uid}, (symptomScanTimes) => {
             return symptomScanTimes;
         });
+        console.log(data);
         let symptomScanTimes = [];
-        data.foreach((symptomScanTime) => {
+        Array.prototype.forEach.call(data, (symptomScanTime) => {
             const time = moment(symptomScanTime.timeIn);
             if(time.isSame(moment(date), 'day')) {
                 symptomScanTimes.push(symptomScanTime);
@@ -65,20 +66,41 @@ class SymptomScanTimeRepository {
         return `Added: ${uid}`;
     }
 
-    async updateCheckedByDate(uid, checkedSymptoms, date) {
+    async updateSymptomScanTime(uid) {
         const data = await SymptomScanTime.find({'uid': uid}, (symptomScanTimes) => {
             return symptomScanTimes;
         });
-
-        let id = '';
+        const date = new Date();
+        let id = null;
         data.forEach(symptomScanTime => {
             const time = moment(symptomScanTime.timeIn);
             if(time.isSame(moment(date), 'day')) {
                id = symptomScanTime._id;
             }
-        })
-        await SymptomScanTime.findByIdAndUpdate(id, {checkedSymptoms: checkedSymptoms});
-        return `Updated: ${uid}`;
+        });
+        if(id) {
+            await SymptomScanTime.findByIdAndUpdate(id, {timeOut: new Date});
+            return `Updated: ${uid}`;
+        }
+        return 'Not found';
+    }
+
+    async updateCheckedByDate(uid, checkedSymptoms, date) {
+        const data = await SymptomScanTime.find({'uid': uid}, (symptomScanTimes) => {
+            return symptomScanTimes;
+        });
+        let id = null;
+        data.forEach(symptomScanTime => {
+            const time = moment(symptomScanTime.timeIn);
+            if(time.isSame(moment(date), 'day')) {
+               id = symptomScanTime._id;
+            }
+        });
+        if(id) {
+            await SymptomScanTime.findByIdAndUpdate(id, {checkedSymptoms: checkedSymptoms});
+            return `Updated: ${uid}`;
+        }
+        return 'Not found';
     }
 }
 
