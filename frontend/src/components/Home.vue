@@ -1,11 +1,11 @@
 <template>
   <div id="home" class="main">
-    <div class="display-1 text-secondary">
+    <div class="display-3 text-secondary">
       Hello
     </div>
-    <h1 class="text-secondary">
+    <h3 class="text-secondary">
       Please scan card to continue
-    </h1>
+    </h3>
   </div>
 </template>
 

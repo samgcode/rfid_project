@@ -1,17 +1,17 @@
 <template>
     <div class="main">
-        <div class="display-1 text-secondary">
-            Export data
+        <div class="text-secondary">
+            <h2>Export data</h2>
         </div>
-        <div class="center">
+        <div class="">
             <div class="row">
                 <datepicker 
                     v-model="startDate" 
                     :format="'MMMM dd yyyy'" 
                     :placeholder="'select date'"
-                    class="col-md-2"
+                    class="col-sm-2 date"
                 >select date</datepicker>
-                <div class="col-sm-3 text-secondary"><h3>to</h3></div>
+                <div class="col-sm-2 text-secondary"><h5>to</h5></div>
                 <datepicker 
                     v-model="endDate"
                     :format="'MMMM dd yyyy'"
@@ -20,7 +20,7 @@
             </div>
         </div>
         <button type="button" class="btn btn-success" @click="submit()">
-            <h4>Export</h4>
+            <h6>Export</h6>
         </button>
     </div>    
 </template>
@@ -60,6 +60,11 @@ export default {
 .center {
     margin-left: 32%;
     margin-right: 5%;
+}
+
+.date {
+    margin-left: 15%;
+    margin-right: 10%;
 }
 
 .btn {

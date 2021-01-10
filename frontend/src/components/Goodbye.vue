@@ -1,6 +1,6 @@
 <template>
   <div id="home" class="main">
-    <div class="display-1 text-secondary">
+    <div class="display-4 text-secondary">
       Thank you for signing out!
     </div>
   </div>

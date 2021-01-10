@@ -1,7 +1,3 @@
-fix copy script
-make text smaller
-redesign the symptom page
-- fit on one screen
 error if backend isnt running and press button
 home page waiting for scanner
 

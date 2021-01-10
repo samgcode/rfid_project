@@ -1,22 +1,33 @@
 <template>
     <div id="home" class="main">
-        <div class="display-3 text-secondary">
-            Welcome,
+        <div class="text-secondary">
+            <h3>Welcome</h3>  
         </div>
         <div class="text-secondary">
-            <h2>Please check if you have these symptoms</h2>
+            <h6>Please check if you have these symptoms</h6>
         </div>
 
         <div v-for="symptom in symptomList" :key="symptom">
             <hr> 
-            <h5 class="symptoms">
-                {{symptom}}
-            </h5> 
+            <div class="row">
+                <div class="symptoms col-sm-3">
+                    {{symptom.col1}}
+                </div>
+                <div class="symptoms col-sm-3">
+                    {{symptom.col2}}
+                </div>
+                <div class="symptoms col-sm-3">
+                    {{symptom.col3}}
+                </div>
+                <div class="symptoms col-sm-3">
+                    {{symptom.col4}}
+                </div>
+            </div> 
         </div>
         <hr>
 
         <button type="button" class="btn btn-success" @click="submit()">
-            <h4>I do not have any of these symptoms</h4>
+            <h6>I do not have any of these symptoms</h6>
         </button>
     </div>
 </template>
@@ -30,18 +41,11 @@ export default {
   name: 'Symptoms',
   data() {
     return {
-        symptomList: [
-            'fever',
-            'dry cough',
-            'tiredness',
-            'aches and pains',
-            'sore throat',
-            'diarrhoea',
-            'conjunctivitis',
-            'headache',
-            'loss of taste or smell',
-            'a rash on skin',
-            'discolouration of fingers or toes'
+        symptomList: [//https://www.alberta.ca/covid-19-testing-in-alberta.aspx
+            {col1:'cough', col2:'fever', col3:'shortness of breath', col4:'runny nose'},
+            {col1:'sore throat', col2:'Painful swallowing', col3:'Chills', col4:'Headache'},
+            {col1:'Muscle or joint aches', col2:'Feeling unwell or fatigue', col3:'Nausea', col4:'vomiting'},
+            {col1:'unexplained loss of appetite', col2:'Loss of sense of smell or taste', col3:'Conjunctivitis, also known as pink eye', col4:''},
         ]
     }
   },
@@ -58,9 +62,14 @@ export default {
 </script>
 
 <style scoped>
+hr {
+    padding-top: 0%;
+}
+
 .symptoms {
     text-align: left;
     padding-left: 10%;
+    font-size: 11px;
 }
 
 .btn {
