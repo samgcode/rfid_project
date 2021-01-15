@@ -5,8 +5,10 @@ services:
             - '27017:27017'
         volumes:
             - mongoData:/data/db
+            - mongoConfig:/var/lib/mongodb
         image:
             ivanmarban/armhf-mongodb
 
 volumes:
     mongoData:
+    mongoConfig:

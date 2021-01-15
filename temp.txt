@@ -1,0 +1,50 @@
+[
+    {
+        "_id": "5ffb833938087306d44e641c",
+        "uid": 208312337,
+        "timeIn": "2021-01-10T22:44:09.887Z",
+        "timeOut": "2021-01-10T22:44:22.922Z",
+        "checkedSymptoms": true,
+        "__v": 0
+    },
+    {
+        "_id": "5ffbcd1640c5790cc09f72cc",
+        "uid": 74124164130,
+        "timeIn": "2021-01-11T03:59:18.616Z",
+        "timeOut": null,
+        "checkedSymptoms": true,
+        "__v": 0
+    },
+    {
+        "_id": "5ffcffede26be005244c0d3e",
+        "uid": 18610568134,
+        "timeIn": "2021-01-12T01:48:29.478Z",
+        "timeOut": null,
+        "checkedSymptoms": true,
+        "__v": 0
+    },
+    {
+        "_id": "5ffd0d4131fcf2051ab5923e",
+        "uid": 74124164130,
+        "timeIn": "2021-01-12T02:45:21.293Z",
+        "timeOut": "2021-01-12T02:57:51.807Z",
+        "checkedSymptoms": true,
+        "__v": 0
+    },
+    {
+        "_id": "5ffd0e4629156c04f4a1614d",
+        "uid": 24719632180,
+        "timeIn": "2021-01-12T02:49:42.092Z",
+        "timeOut": null,
+        "checkedSymptoms": true,
+        "__v": 0
+    },
+    {
+        "_id": "5ffd102a8a793704f2567ea6",
+        "uid": 236027181,
+        "timeIn": "2021-01-12T02:57:46.858Z",
+        "timeOut": null,
+        "checkedSymptoms": true,
+        "__v": 0
+    }
+]

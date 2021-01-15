@@ -14,3 +14,12 @@ shutdown properly with button
 add battery backup
 shutdown properly after being on battery
 
+change hello page to say check symptoms
+
+why does it run on the port you set and the one above webpack
+
+docker compose mongo restart: always
+fix vue warn on scan
+add mongo logs
+copy with gzip
+add myself to docker group

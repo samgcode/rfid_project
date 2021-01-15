@@ -10,8 +10,7 @@ const softSPI = new SoftSPI({
 });
 
 const rfid = new Mfrc522(softSPI).setResetPin(22);
-
-const loopTime = 500;
+const loopTime = 50;
 setInterval(() => {
     loop();
 }, loopTime);
