@@ -11,6 +11,7 @@
     "setup": "rm -rf node_modules package-lock.json && npm i",
     "cpyCompose": "scp  ../docker-compose.yml pi@192.168.0.139:/home/pi/rfid_project",
     "mongo": "cd ../ && sudo docker-compose up -d mongo && cd ./backend",
+    "mongoLinux": "cd ../ && sudo docker-compose up -d mongoLinux && cd ./backend",
     "cleanMongo": "sudo docker container rm -f rfid_project_mongo_1 && sudo docker image rm -f ivanmarban/armhf-mongodb",
     "stopDb": "sudo docker stop rfid_project_mongo_1"
   },

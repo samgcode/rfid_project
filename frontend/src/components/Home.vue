@@ -1,31 +1,44 @@
 <template>
   <div id="home" class="main">
-    <div class="display-3 text-secondary">
-      Hello
+    <orbit-loader :loading="loading"/>
+    <div :class="{'d-none': loading}">
+      <div class="display-3 text-secondary">
+        Hello
+      </div>
+      <h3 class="text-secondary">
+        Please scan card to continue
+      </h3>
     </div>
-    <h3 class="text-secondary">
-      Please scan card to continue
-    </h3>
   </div>
 </template>
 
 <script>
+import OrbitLoader from './OrbitLoader.vue';
 import serviceLocator from '../services/serviceLocator';
 
 const eventService = serviceLocator.services.eventService;
 
 
 export default {
+  components: { OrbitLoader },
   name: 'home',
   data() {
     return {
-      uid: null
+      loading: true,
     }
   },
   methods: {
     handleEvent: function(event) {
       const data = JSON.parse(event.data);
       console.log(data.id);
+      if(data.id) {
+        this.scanEvent(data);
+      }
+    },
+    stopLoading: function() {
+      this.loading = false;
+    },
+    scanEvent: function(data) {
       if(data.checkSypmtomsRequired) {
         this.$router.push({
           name: `Symptoms`,
@@ -37,6 +50,7 @@ export default {
     }
   },
   mounted() {
+    eventService.setOnOpen(this.stopLoading);
     eventService.setOnMessage(this.handleEvent);
   }
 }

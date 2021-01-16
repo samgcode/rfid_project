@@ -5,6 +5,7 @@ const ExportController = require('./export/ExportController');
 const ExportService = require('./export/ExportService');
 const RfidEventService = require('./rfid/RfidEventService');
 const Rfid = require('./rfid/ReadRfid');
+const StartupService = require('./StartupService');
 const dbService = require('./databaseService');
 
 const serviceLocator = {
@@ -24,9 +25,11 @@ serviceLocator.services['rfidEventService'] = new RfidEventService(serviceLocato
 serviceLocator.controllers['symptomScanTimeController'] = new SymptomScanTimeController(serviceLocator);
 serviceLocator.controllers['exportController'] = new ExportController(serviceLocator);
 
+serviceLocator.services['startupService'] = new StartupService(serviceLocator);
+
 const dev_db_url = 'mongodb://localhost:27017/SymptomScanTimes';
 
-dbService.intializeDatabase(dev_db_url, serviceLocator);
+dbService.intializeDatabase(dev_db_url, serviceLocator.services.startupService);
 
 const rfid = new Rfid(serviceLocator);
 rfid.start();

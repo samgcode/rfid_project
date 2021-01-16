@@ -18,24 +18,27 @@ class RfidEventService {
         this._events.off('data', listener);
     }
 
+    sendConnectedEvent() {
+        console.log('event');
+        this._events.emit('data', { connected: true });
+    }
+
     async handleRfidEvent(uid) {
         const symptomScanTimes = await this._symptomScanTimeService.getSymptomScanTimeByDateUid(uid, new Date());
-        console.log('symptoim scan times: ', symptomScanTimes);
+        console.log('symptom scan times: ', symptomScanTimes);
         if(symptomScanTimes && symptomScanTimes.length > 0) {
             const symptomScanTime = symptomScanTimes[0];
             console.log(symptomScanTime.checkedSymptoms);
             if(symptomScanTime.checkedSymptoms) {
                 if(this.checkCooldown(symptomScanTime)) {
-                    console.log('TEST');
-                    this._events.emit("data", { id: uid, checkSypmtomsRequired: false });
+                    this._events.emit('data', { id: uid, checkSypmtomsRequired: false });
                     this._symptomScanTimeService.updateSymptomScanTime(uid);
                 }
             } else {
-                this._events.emit("data", { id: uid, checkSypmtomsRequired: true });
+                this._events.emit('data', { id: uid, checkSypmtomsRequired: true });
             }
         } else {
-            this._events.emit("data", { id: uid, checkSypmtomsRequired: true });
-            console.log('add');
+            this._events.emit('data', { id: uid, checkSypmtomsRequired: true });
             await this._symptomScanTimeService.addSymptomScanTime(uid, false);
         }
     }

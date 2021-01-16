@@ -1,25 +1,43 @@
-error if backend isnt running and press button
-home page waiting for scanner
-
-handle if you restart the frontend
-check if frontend reconects on its own
-add startup script
-fix screen sleep
-startup: browser, fullscreen
-
-configure the volume for the mongo config directory
-reproduce mongo kill error
-- make an automatic soloution
-shutdown properly with button
+turn on mongo journaling
+or
 add battery backup
 shutdown properly after being on battery
+fix text size
+- change hello page to say check symptoms
+fix vue warn on scan
+startup: browser, fullscreen, make the site the homepage
+add error handling frontend
+- every request has handling
+home page waiting for scanner
+- initial startup
+- if backend shuts down after already running
+find id some cards dont work
 
-change hello page to say check symptoms
+when you scan a card it wakes up screen
 
 why does it run on the port you set and the one above webpack
-
 docker compose mongo restart: always
-fix vue warn on scan
+
 add mongo logs
 copy with gzip
 add myself to docker group
+
+auto/remotely/easily update symptoms
+
+can we see if usb is plugged in
+add pop up 
+
+
+non mandatory:
+error if backend isnt running and press button to export
+shutdown properly with button
+
+later stuff:
+teachers check in and out multiple tiems throughout day
+back in x minutes input
+visitor check in
+
+questions:
+what if the symptoms change/ how often
+- how to chage the symptoms
+should it be easy to shut down/how easy

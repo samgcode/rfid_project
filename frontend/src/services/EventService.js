@@ -10,12 +10,11 @@ class EventService {
     }
 
     setupSource() {
-        this._source.onopen = this.onOpen;
         this._source.onerror = console.error;
     }
 
-    onOpen() {
-        console.log('source connected');
+    setOnOpen(func) {
+        this._source.onopen = func;
     }
 
     setOnMessage(func) {
