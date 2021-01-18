@@ -9,6 +9,12 @@ class EventService {
         this.setupSource();
     }
 
+    async ping() {
+        const response = await axios.get(`http://${baseUrl}/symptomScanTimes/ping`);
+
+        return response;
+    }
+
     setupSource() {
         this._source.onerror = console.error;
     }

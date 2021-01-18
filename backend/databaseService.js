@@ -11,7 +11,7 @@ exports.intializeDatabase = function(dbURL, eventService) {
 function connectWithAutoRetry(uri, connection, eventService) {
     mongoose.connect(uri, { useNewUrlParser: true });
     connection.on('error', (err) => {
-        setTimeout(connectWithAutoRetry, 10000, uri, connection);
+        setTimeout(connectWithAutoRetry, 10000, uri, connection, eventService);
     });
     connection.on('connected', function() {
         console.log("connection established successfully");

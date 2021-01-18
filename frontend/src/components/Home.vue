@@ -33,6 +33,8 @@ export default {
       console.log(data.id);
       if(data.id) {
         this.scanEvent(data);
+      } else {
+        this.stopLoading();
       }
     },
     stopLoading: function() {
@@ -52,6 +54,7 @@ export default {
   mounted() {
     eventService.setOnOpen(this.stopLoading);
     eventService.setOnMessage(this.handleEvent);
+    setTimeout(eventService.ping, 1000);
   }
 }
 </script>

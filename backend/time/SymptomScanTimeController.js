@@ -8,6 +8,15 @@ class SymptomScanTimeController {
         this._clients = [];
     }
 
+    async ping(ctx) {
+        try {
+            this._eventService.sendConnectedEvent();
+            ctx.body = 'pong';
+        } catch(err) {
+            console.log(err);    
+        }
+    }
+
     async getSymptomScanTimes(ctx) {
         try {
             const symptomScanTimes = await this._symptomScanTimeService.getSymptomScanTimes();
@@ -51,6 +60,7 @@ class SymptomScanTimeController {
         try {
             const uid = ctx.params.uid;
             const symptomScanTime = await this._symptomScanTimeService.getSymptomScanTimeByUid(uid);
+            this._eventService.handleRfidEvent(uid);
             ctx.body = symptomScanTime;
         } catch(err) {
             console.log(err);    
@@ -65,7 +75,6 @@ class SymptomScanTimeController {
         try {
             const { uid, checkedSymptoms } = ctx.request.body;
             const response = await this._symptomScanTimeService.addSymptomScanTime(uid, checkedSymptoms);
-            this._eventService.handleRfidEvent(uid);
             ctx.body = response;
         } catch(err) {
             console.log(err);
