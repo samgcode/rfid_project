@@ -6,8 +6,11 @@ services:
         volumes:
             - mongoData:/data/db
             - mongoConfig:/var/lib/mongodb
+            - ./config/mongod.conf:/etc/mongod.conf
+            - ./mongoLogs/:/var/log/mongodb/
         image:
             ivanmarban/armhf-mongodb
+        command: mongod -f /etc/mongod.conf
     mongoLinux:
         ports: 
             - '27017:27017'
