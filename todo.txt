@@ -1,6 +1,3 @@
-fix text size
-- change hello page to say check symptoms
-fix vue warn on scan
 startup: browser, fullscreen, make the site the homepage
 add error handling frontend
 - every request has handling
