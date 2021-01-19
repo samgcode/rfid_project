@@ -1,6 +1,7 @@
 <template>
   <div id="home" class="main">
     <orbit-loader :loading="loading"/>
+    <error-display :message="errorMessage" :class="{'d-none': !error}"/>
     <div :class="{'d-none': loading}">
       <div class="display-3 text-secondary">
         Hello
@@ -15,16 +16,19 @@
 <script>
 import OrbitLoader from './OrbitLoader.vue';
 import serviceLocator from '../services/serviceLocator';
+import ErrorDisplay from './ErrorDisplay.vue';
 
 const eventService = serviceLocator.services.eventService;
 
 
 export default {
-  components: { OrbitLoader },
+  components: { OrbitLoader, ErrorDisplay },
   name: 'home',
   data() {
     return {
       loading: true,
+      error: true,
+      errorMessage: 'backend not connected, try restating the raspberry pi'
     }
   },
   methods: {
@@ -39,6 +43,11 @@ export default {
     },
     stopLoading: function() {
       this.loading = false;
+      this.error = false;
+    },
+    onError: function() {
+      this.loading = true;
+      this.error = true;
     },
     scanEvent: function(data) {
       if(data.checkSypmtomsRequired) {
@@ -52,6 +61,7 @@ export default {
     }
   },
   mounted() {
+    eventService.setOnError(this.onError);
     eventService.setOnOpen(this.stopLoading);
     eventService.setOnMessage(this.handleEvent);
     setTimeout(eventService.ping, 1000);
