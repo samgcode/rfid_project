@@ -6,7 +6,7 @@
         Hello
       </div>
       <h3 class="text-secondary">
-        Please scan card to continue
+        Please scan card to check symptoms
       </h3>
     </div>
   </div>

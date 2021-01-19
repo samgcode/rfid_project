@@ -1,7 +1,3 @@
-turn on mongo journaling
-or
-add battery backup
-shutdown properly after being on battery
 fix text size
 - change hello page to say check symptoms
 fix vue warn on scan

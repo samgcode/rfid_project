@@ -19,7 +19,7 @@
                 <div class="symptoms col-sm-3">
                     {{symptom.col3}}
                 </div>
-                <div class="symptoms col-sm-3">
+                <div class="symptoms">
                     {{symptom.col4}}
                 </div>
             </div> 
@@ -69,7 +69,7 @@ hr {
 .symptoms {
     text-align: left;
     padding-left: 10%;
-    font-size: 11px;
+    font-size: 13.5px;
 }
 
 .btn {
