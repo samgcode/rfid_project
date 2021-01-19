@@ -7,7 +7,7 @@
             <h6>Please check if you have these symptoms</h6>
         </div>
 
-        <div v-for="symptom in symptomList" :key="symptom">
+        <div v-for="symptom in symptomList" :key="symptom.col1">
             <hr> 
             <div class="row">
                 <div class="symptoms col-sm-3">
