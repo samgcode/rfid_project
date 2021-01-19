@@ -6,7 +6,6 @@ const baseUrl = url.baseUrl;
 class EventService {
     constructor() {
         this._source = new EventSource(`http://${baseUrl}/symptomScanTimeEvents`);
-        this.setupSource();
     }
 
     async ping() {
@@ -15,8 +14,8 @@ class EventService {
         return response;
     }
 
-    setupSource() {
-        this._source.onerror = console.error;
+    setOnError(func) {
+        this._source.onerror = func;
     }
 
     setOnOpen(func) {
