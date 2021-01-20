@@ -1,7 +1,7 @@
 <template>
     <div id="home" class="main">
         <div class="text-secondary">
-            <h3>Welcome</h3>  
+            <h3>Welcome, {{ name }}</h3>  
         </div>
         <div class="text-secondary">
             <h6>Please check if you have these symptoms</h6>
@@ -41,6 +41,7 @@ export default {
   name: 'Symptoms',
   data() {
     return {
+        name: '',
         symptomList: [//https://www.alberta.ca/covid-19-testing-in-alberta.aspx
             {col1:'cough', col2:'fever', col3:'shortness of breath', col4:'runny nose'},
             {col1:'sore throat', col2:'Painful swallowing', col3:'Chills', col4:'Headache'},
@@ -57,6 +58,7 @@ export default {
   },
   mounted() {
     console.log(this.$route.params.id);
+    this.name = this.$route.params.name;
   }
 }
 </script>
