@@ -6,6 +6,7 @@ const scanCooldown = 1;//min
 class RfidEventService {
     constructor(serviceLocator) {
         this._symptomScanTimeService = serviceLocator.services.symptomScanTimeService;
+        this._userService = serviceLocator.services.userService;
         this._events = new EventEmitter();
         this._events.setMaxListeners(0);
     }
@@ -24,11 +25,15 @@ class RfidEventService {
     }
 
     async handleRfidEvent(uid) {
+        const user = await this._userService.getUserByUid(uid);
+        let name = null;
+        if(user) {
+            name = user.name;
+        }
+
         const symptomScanTimes = await this._symptomScanTimeService.getSymptomScanTimeByDateUid(uid, new Date());
-        console.log('symptom scan times: ', symptomScanTimes);
         if(symptomScanTimes && symptomScanTimes.length > 0) {
             const symptomScanTime = symptomScanTimes[0];
-            console.log(symptomScanTime.checkedSymptoms);
             if(symptomScanTime.checkedSymptoms) {
                 if(this.checkCooldown(symptomScanTime)) {
                     this._events.emit('data', { id: uid, checkSypmtomsRequired: false });
@@ -38,9 +43,14 @@ class RfidEventService {
                 this._events.emit('data', { id: uid, checkSypmtomsRequired: true });
             }
         } else {
-            this._events.emit('data', { id: uid, checkSypmtomsRequired: true });
+            if(name) {
+                this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: true });
+            } else {
+                this._events.emit('data', { id: uid, needName: true, checkSypmtomsRequired: true });
+            }
             await this._symptomScanTimeService.addSymptomScanTime(uid, false);
         }
+        
     }
 
     checkCooldown(symptomScanTime) {

@@ -25,8 +25,8 @@ serviceLocator.repositories['userRepository'] = new UserRepository();
 
 serviceLocator.services['symptomScanTimeService'] = new SymptomScanTimeService(serviceLocator);
 serviceLocator.services['exportService'] = new ExportService(serviceLocator);
-serviceLocator.services['rfidEventService'] = new RfidEventService(serviceLocator);
 serviceLocator.services['userService'] = new UserService(serviceLocator);
+serviceLocator.services['rfidEventService'] = new RfidEventService(serviceLocator);
 
 serviceLocator.controllers['symptomScanTimeController'] = new SymptomScanTimeController(serviceLocator);
 serviceLocator.controllers['exportController'] = new ExportController(serviceLocator);
