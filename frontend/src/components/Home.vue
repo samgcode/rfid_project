@@ -51,12 +51,22 @@ export default {
     },
     scanEvent: function(data) {
       if(data.checkSypmtomsRequired) {
-        this.$router.push({
-          name: `Symptoms`,
-          params: {id: data.id}
-        });
+        if(data.needName) {
+          this.$router.push({
+            name: `EnterName`,
+            params: {id: data.id}
+          });
+        } else {
+          this.$router.push({
+            name: `Symptoms`,
+            params: {
+              id: data.id,
+              name: data.name
+            }
+          });
+        }
       } else {
-        this.$router.push({name: `Goodbye`}); 
+        this.$router.push({name: `Goodbye`});
       }
     }
   },
