@@ -5,6 +5,7 @@ import Home from '../components/Home';
 import Symptoms from '../components/Symptoms';
 import Export from '../components/Export';
 import Goodbye from '../components/Goodbye';
+import EnterName from '../components/EnterName';
 
 Vue.use(Router);
 
@@ -15,7 +16,7 @@ export default new Router({
       name: 'Home',
       component: Home
     }, {
-      path: '/symptoms/:id',
+      path: '/symptoms/:id/:name',
       name: 'Symptoms',
       component: Symptoms,
       props: true
@@ -27,6 +28,10 @@ export default new Router({
       path: '/goodbye',
       name: 'Goodbye',
       component: Goodbye
+    }, {
+      path: '/enterName/:id',
+      name: 'EnterName',
+      component: EnterName
     }
   ],
   scrollBehavior() {
