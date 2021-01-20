@@ -5,6 +5,7 @@ const serviceLocator = require('./serviceLocator');
 const router = new Router();
 
 const symptomScanTimeController = serviceLocator.controllers.symptomScanTimeController;
+const userController = serviceLocator.controllers.userController;
 const exportController = serviceLocator.controllers.exportController;
 
 
@@ -16,10 +17,14 @@ router.get('/symptomScanTimes', symptomScanTimeController.getSymptomScanTimes.bi
 router.get('/symptomScanTimes/ping', symptomScanTimeController.ping.bind(symptomScanTimeController));
 router.get('/symptomScanTimes/:uid', symptomScanTimeController.getSymptomScanTimeById.bind(symptomScanTimeController));
 
+router.get('/users/:uid', userController.getUserByUid.bind(userController));
+
 router.get('/export/all', exportController.getSymptomScanTimes.bind(exportController));
 router.get('/export/:startDate/:endDate', exportController.getSymptomScanTimesByDate.bind(exportController));
 
 router.post('/symptomScanTimes', symptomScanTimeController.addSymptomScanTime.bind(symptomScanTimeController));
+router.post('/users', userController.addUser.bind(userController));
+
 router.put('/symptomScanTime', symptomScanTimeController.updateCheckedByDate.bind(symptomScanTimeController));
 
 router.get('/symptomScanTimeEvents', symptomScanTimeController.symptomScanTimeEventHandler.bind(symptomScanTimeController));
