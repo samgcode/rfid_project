@@ -41,6 +41,11 @@ export default {
         name: ''
     }
   },
+  watch: {
+      $route() {
+        this.uid = this.$route.params.id;
+      }
+  },
   methods: {
     submit: async function() {
         userService.addUser(this.uid, this.name);
