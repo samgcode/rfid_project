@@ -11,7 +11,7 @@ const softSPI = new SoftSPI({
 
 const rfid = new Mfrc522(softSPI).setResetPin(22);
 
-const loopTime = 1000;
+const loopTime = 50;
 
 let scannedUids = [];
 const scanCoolDown = 1;//min
