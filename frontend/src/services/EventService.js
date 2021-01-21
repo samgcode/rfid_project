@@ -14,6 +14,14 @@ class EventService {
         return response;
     }
 
+    isOpen() {
+        if(this._source.readyState === 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     setOnError(func) {
         this._source.onerror = func;
     }

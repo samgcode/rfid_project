@@ -1,7 +1,7 @@
 <template>
     <div :class="{ 'd-none': !loading }">
-        <clip-loader :size="'50px'"/>
         <h2>Waiting for backend</h2>
+        <clip-loader :size="'50px'"/>
     </div>
 </template>
 
