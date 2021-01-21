@@ -1,8 +1,5 @@
-fix spelling in error
-fix error on scanning on the same page on the symptoms page
-- also add wait 1 minute
+fix bug with name page
 what if they put no name
-fix the error on the home page
 startup: browser, fullscreen, make the site the homepage
 add error handling frontend
 - every request has handling

@@ -28,7 +28,7 @@ export default {
     return {
       loading: true,
       error: true,
-      errorMessage: 'backend not connected, try restating the raspberry pi'
+      errorMessage: "backend not connected, if it isn't resolved in a minute try restating the raspberry pi"
     }
   },
   methods: {
@@ -74,7 +74,9 @@ export default {
     eventService.setOnError(this.onError);
     eventService.setOnOpen(this.stopLoading);
     eventService.setOnMessage(this.handleEvent);
-    setTimeout(eventService.ping, 1000);
-  }
+    if(eventService.isOpen() === true) {
+      this.stopLoading();
+    }
+}
 }
 </script>
