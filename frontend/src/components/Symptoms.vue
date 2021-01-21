@@ -46,6 +46,12 @@ export default {
         ]
     }
   },
+  watch: {
+    $route() {
+        console.log(this.$route.params.id);
+        this.name = this.$route.params.name;
+    }
+  },
   methods: {
     submit: async function() {
         await symptomScanTimeService.updateSymptomScanTime(this.$route.params.id, true);

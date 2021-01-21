@@ -30,27 +30,25 @@ class RfidEventService {
         if(user) {
             name = user.name;
         }
-
-        const symptomScanTimes = await this._symptomScanTimeService.getSymptomScanTimeByDateUid(uid, new Date());
-        if(symptomScanTimes && symptomScanTimes.length > 0) {
-            const symptomScanTime = symptomScanTimes[0];
-            if(symptomScanTime.checkedSymptoms) {
-                if(this.checkCooldown(symptomScanTime)) {
-                    this._events.emit('data', { id: uid, checkSypmtomsRequired: false });
-                    this._symptomScanTimeService.updateSymptomScanTime(uid);
+        if(name) {
+            const symptomScanTimes = await this._symptomScanTimeService.getSymptomScanTimeByDateUid(uid, new Date());
+            if(symptomScanTimes && symptomScanTimes.length > 0) {
+                const symptomScanTime = symptomScanTimes[0];
+                if(symptomScanTime.checkedSymptoms) {
+                    if(this.checkCooldown(symptomScanTime)) {
+                        this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: false });
+                        this._symptomScanTimeService.updateSymptomScanTime(uid);
+                    }
+                } else {
+                    this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: true });
                 }
             } else {
-                this._events.emit('data', { id: uid, checkSypmtomsRequired: true });
+                this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: true });
+                await this._symptomScanTimeService.addSymptomScanTime(uid, false);
             }
         } else {
-            if(name) {
-                this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: true });
-            } else {
-                this._events.emit('data', { id: uid, needName: true, checkSypmtomsRequired: true });
-            }
-            await this._symptomScanTimeService.addSymptomScanTime(uid, false);
-        }
-        
+            this._events.emit('data', { id: uid, needName: true, checkSypmtomsRequired: true });
+        } 
     }
 
     checkCooldown(symptomScanTime) {
