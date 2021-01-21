@@ -1,4 +1,3 @@
-fix bug with name page
 what if they put no name
 startup: browser, fullscreen, make the site the homepage
 add error handling frontend

@@ -52,25 +52,32 @@ export default {
     scanEvent: function(data) {
       if(data.checkSypmtomsRequired) {
         if(data.needName) {
-          this.$router.push({
-            name: `EnterName`,
-            params: {id: data.id}
-          });
+          if(this.$router.currentRoute.path != `/enterName/${data.id}`) {
+            this.$router.push({
+              name: `EnterName`,
+              params: {id: data.id}
+            });
+          }
         } else {
-          this.$router.push({
-            name: `Symptoms`,
-            params: {
-              id: data.id,
-              name: data.name
-            }
-          });
+          if(this.$router.currentRoute.path != `/symptoms/${data.id}/${data.name}`) {
+            this.$router.push({
+              name: `Symptoms`,
+              params: {
+                id: data.id,
+                name: data.name
+              }
+            });
+          }
         }
       } else {
-        this.$router.push({name: `Goodbye`});
+        if(this.$router.currentRoute.path != `/goodbye`) {
+          this.$router.push({name: `Goodbye`});
+        }
       }
     }
   },
   mounted() {
+    console.log(this.$router.currentRoute.path);
     eventService.setOnError(this.onError);
     eventService.setOnOpen(this.stopLoading);
     eventService.setOnMessage(this.handleEvent);
