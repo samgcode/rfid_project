@@ -1,5 +1,3 @@
-ask what symptoms show what ones I have
-what if they put no name
 startup: browser, fullscreen, make the site the homepage
 add error handling frontend
 - every request has handling

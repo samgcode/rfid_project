@@ -16,7 +16,8 @@
                         type="text" 
                         name="name" 
                         id="nameInput" 
-                        class="form-control" 
+                        class="form-control"
+                        :class="{'border-danger': !isValid}"
                         placeholder="Enter your name"
                         v-model="name" 
                     >
@@ -40,7 +41,8 @@ export default {
   data() {
     return {
         uid: '',
-        name: ''
+        name: '',
+        isValid: true,
     }
   },
   watch: {
@@ -50,14 +52,24 @@ export default {
   },
   methods: {
     submit: async function() {
-        userService.addUser(this.uid, this.name);
-        this.$router.push({
-            name: `Symptoms`,
-            params: {
-                id: this.uid,
-                name: this.name    
-            }
-          });
+        if(this.valid()) {
+            userService.addUser(this.uid, this.name);
+            this.$router.push({
+                name: `Symptoms`,
+                params: {
+                    id: this.uid,
+                    name: this.name    
+                }
+            });
+        }
+    },
+    valid: function() {
+        if(this.name === '') {
+            this.isValid = false;
+            return false;
+        }
+        this.isValid = true;
+        return true;
     }
   },
   mounted() {
@@ -74,6 +86,10 @@ hr {
 
 .btn {
     padding-bottom: 0.05rem;
+}
+
+.border-danger::placeholder {
+    color: #de0000;
 }
 
 .form {
