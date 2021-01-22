@@ -7,14 +7,17 @@
             <h6>Please enter your name</h6>
         </div>
 
-        <form class="form">
+        <form @submit.prevent="submit()" class="form">
             <div class="form-row row">
                 <div class="form-group  col-md-12">
                     <input 
+                        @focus="$event.target.select()"
+                        ref="nameInput"
                         type="text" 
                         name="name" 
                         id="nameInput" 
-                        class="form-control" 
+                        class="form-control"
+                        :class="{'border-danger': !isValid}"
                         placeholder="Enter your name"
                         v-model="name" 
                     >
@@ -38,7 +41,8 @@ export default {
   data() {
     return {
         uid: '',
-        name: ''
+        name: '',
+        isValid: true,
     }
   },
   watch: {
@@ -48,18 +52,29 @@ export default {
   },
   methods: {
     submit: async function() {
-        userService.addUser(this.uid, this.name);
-        this.$router.push({
-            name: `Symptoms`,
-            params: {
-                id: this.uid,
-                name: this.name    
-            }
-          });
+        if(this.valid()) {
+            userService.addUser(this.uid, this.name);
+            this.$router.push({
+                name: `Symptoms`,
+                params: {
+                    id: this.uid,
+                    name: this.name    
+                }
+            });
+        }
+    },
+    valid: function() {
+        if(this.name === '') {
+            this.isValid = false;
+            return false;
+        }
+        this.isValid = true;
+        return true;
     }
   },
   mounted() {
     this.uid = this.$route.params.id;
+    this.$refs.nameInput.focus();
   }
 }
 </script>
@@ -71,6 +86,10 @@ hr {
 
 .btn {
     padding-bottom: 0.05rem;
+}
+
+.border-danger::placeholder {
+    color: #de0000;
 }
 
 .form {
