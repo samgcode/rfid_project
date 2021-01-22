@@ -1,3 +1,6 @@
+auto select text field name page
+add submit prevent for enter name form
+ask what symptoms show what ones I have
 what if they put no name
 startup: browser, fullscreen, make the site the homepage
 add error handling frontend
@@ -21,6 +24,7 @@ auto/remotely/easily update symptoms
 can we see if usb is plugged in
 add pop up 
 
+what if they want to change name
 
 non mandatory:
 error if backend isnt running and press button to export

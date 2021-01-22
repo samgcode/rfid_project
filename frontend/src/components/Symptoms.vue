@@ -1,13 +1,12 @@
 <template>
     <div id="home" class="main">
         <div class="text-secondary">
-            <h3>Welcome, {{ name }}</h3>  
+            <h2>Welcome, {{ name }}</h2>
         </div>
         <div class="text-secondary">
-            <h6>Please check if you have these symptoms</h6>
+            <h4>Please check if you have these symptoms</h4>
         </div>
         
-        <!-- <div class="table-responsive"> -->
         <table class="table">
             <tbody>
                 <div v-for="symptom in symptomList" :key="symptom.col1">
@@ -21,7 +20,6 @@
                 </div>
             </tbody>
         </table>
-        <!-- </div> -->
 
         <button type="button" class="btn btn-success" @click="submit()">
             <h6>I do not have any of these symptoms</h6>
@@ -71,14 +69,9 @@ hr {
 }
 
 .table {
-    width: 100%;
+    margin-left: 2%;
+    width: 96%;
 }
-
-/* .symptoms {
-    text-align: left;
-    padding-left: 10%;
-    font-size: 13.5px;
-} */
 
 .btn {
     padding-top: 0.8rem;
