@@ -7,10 +7,12 @@
             <h6>Please enter your name</h6>
         </div>
 
-        <form class="form">
+        <form @submit.prevent="submit()" class="form">
             <div class="form-row row">
                 <div class="form-group  col-md-12">
                     <input 
+                        @focus="$event.target.select()"
+                        ref="nameInput"
                         type="text" 
                         name="name" 
                         id="nameInput" 
@@ -60,6 +62,7 @@ export default {
   },
   mounted() {
     this.uid = this.$route.params.id;
+    this.$refs.nameInput.focus();
   }
 }
 </script>
