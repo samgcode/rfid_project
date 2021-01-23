@@ -24,25 +24,35 @@
                 </div>
             </div>
         </form>
+        
+        <sync-loader :loading="loading"/>
+        <error-display :message="errorMessage" :class="{'d-none': !error}"/>
 
-        <button type="button" class="btn btn-success" @click="submit()">
-            <h6>Continue</h6>
+        <button type="button" class="btn btn-success" @click="submit()" :class="{'d-none': loading}">
+            <h6>{{ btnText }}</h6>
         </button>
     </div>
 </template>
 
 <script>
 import serviceLocator from '../services/serviceLocator';
+import ErrorDisplay from './ErrorDisplay.vue';
+import SyncLoader from './SyncLoader.vue';
 
 const userService = serviceLocator.services.userService;
 
 export default {
+  components: { SyncLoader, ErrorDisplay },
   name: 'EnterName',
   data() {
     return {
         uid: '',
         name: '',
         isValid: true,
+        loading: false,
+        error: false,
+        btnText: 'Continue',
+        errorMessage: "backend not responding, if it isn't resolved in a minute try restating the raspberry pi"
     }
   },
   watch: {
@@ -53,7 +63,10 @@ export default {
   methods: {
     submit: async function() {
         if(this.valid()) {
-            userService.addUser(this.uid, this.name);
+            this.error = false;
+            this.loading = true;
+            this.timeOut();
+            await userService.addUser(this.uid, this.name);
             this.$router.push({
                 name: `Symptoms`,
                 params: {
@@ -62,6 +75,13 @@ export default {
                 }
             });
         }
+    },
+    timeOut: function() {
+        setTimeout(() => {
+            this.btnText = 'Try again'
+            this.error = true;
+            this.loading = false;
+        }, 10000);
     },
     valid: function() {
         if(this.name === '') {
@@ -85,6 +105,7 @@ hr {
 }
 
 .btn {
+    margin-top: 10px;
     padding-bottom: 0.05rem;
 }
 

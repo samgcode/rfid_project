@@ -1,10 +1,8 @@
-startup: browser, fullscreen, make the site the homepage
+startup: browser, fullscreen
 add error handling frontend
 - every request has handling
 home page waiting for scanner
-- initial startup
 - if backend shuts down after already running
-find id some cards dont work
 
 when you scan a card it wakes up screen
 
