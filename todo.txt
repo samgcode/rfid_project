@@ -1,6 +1,4 @@
 startup: browser, fullscreen
-home page waiting for scanner
-- if backend shuts down after already running
 
 when you scan a card it wakes up screen
 
