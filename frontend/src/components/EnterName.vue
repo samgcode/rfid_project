@@ -40,6 +40,7 @@ import ErrorDisplay from './ErrorDisplay.vue';
 import SyncLoader from './SyncLoader.vue';
 
 const userService = serviceLocator.services.userService;
+const symptomScanTimeService = serviceLocator.services.symptomScanTimeService;
 
 export default {
   components: { SyncLoader, ErrorDisplay },
@@ -52,7 +53,7 @@ export default {
         loading: false,
         error: false,
         btnText: 'Continue',
-        errorMessage: "backend not responding, if it isn't resolved in a minute try restating the raspberry pi"
+        errorMessage: "backend not responding, if it isn't resolved in a minute try restarting the raspberry pi"
     }
   },
   watch: {
@@ -66,6 +67,7 @@ export default {
             this.error = false;
             this.loading = true;
             this.timeOut();
+            await symptomScanTimeService.addSymptomScanTime(this.uid);
             await userService.addUser(this.uid, this.name);
             this.$router.push({
                 name: `Symptoms`,

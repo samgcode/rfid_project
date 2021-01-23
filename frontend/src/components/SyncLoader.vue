@@ -1,7 +1,8 @@
   
 <template>
-    <div>
-        <sync-loader :size="'13px'" :class="{ 'd-none': !loading }"/>
+    <div :class="{ 'd-none': !loading }">
+        <sync-loader :size="'13px'"/>
+        <h2>Please wait</h2>
     </div>
 </template>
 

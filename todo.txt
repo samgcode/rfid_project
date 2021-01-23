@@ -1,6 +1,4 @@
 startup: browser, fullscreen
-add error handling frontend
-- every request has handling
 home page waiting for scanner
 - if backend shuts down after already running
 
