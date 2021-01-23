@@ -21,18 +21,24 @@
             </tbody>
         </table>
 
-        <button type="button" class="btn btn-success" @click="submit()">
-            <h6>I do not have any of these symptoms</h6>
+        <sync-loader :loading="loading"/>
+        <error-display :message="errorMessage" :class="{'d-none': !error}"/>
+
+        <button type="button" class="btn btn-success" @click="submit()" :class="{'d-none': loading}">
+            <h6>{{ btnText }}</h6>
         </button>
     </div>
 </template>
 
 <script>
 import serviceLocator from '../services/serviceLocator';
+import ErrorDisplay from './ErrorDisplay.vue';
+import SyncLoader from './SyncLoader.vue';
 
 const symptomScanTimeService = serviceLocator.services.symptomScanTimeService;
 
 export default {
+  components: { SyncLoader, ErrorDisplay },
   name: 'Symptoms',
   data() {
     return {
@@ -41,7 +47,11 @@ export default {
             {col1:'cough', col2:'fever', col3:'shortness of breath', col4:'runny nose', col5:'sore throat'},
             {col1:'Painful swallowing', col2:'Chills', col3:'Headache', col4:'Muscle or joint aches', col5:'Feeling unwell or fatigue'},
             {col1:'Nausea', col2:'vomiting', col3:'unexplained loss of appetite', col4:'Loss of sense of smell or taste', col5:'Conjunctivitis, also known as pink eye',},
-        ]
+        ],
+        loading: false,
+        error: false,
+        btnText: 'I do not have any of these symptoms',
+        errorMessage: "backend not responding, if it isn't resolved in a minute try restarting the raspberry pi"
     }
   },
   watch: {
@@ -52,9 +62,19 @@ export default {
   },
   methods: {
     submit: async function() {
+        this.error = false;
+        this.loading = true;
+        this.timeOut();
         await symptomScanTimeService.updateSymptomScanTime(this.$route.params.id, true);
         this.$router.push({name: 'Home'});
-    }
+    },
+    timeOut: function() {
+        setTimeout(() => {
+            this.btnText = 'Try again'
+            this.error = true;
+            this.loading = false;
+        }, 10000);
+    },
   },
   mounted() {
     console.log(this.$route.params.id);

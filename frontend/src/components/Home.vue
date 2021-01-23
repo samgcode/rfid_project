@@ -28,7 +28,7 @@ export default {
     return {
       loading: true,
       error: true,
-      errorMessage: "backend not connected, if it isn't resolved in a minute try restating the raspberry pi"
+      errorMessage: "backend not connected, if it isn't resolved in a minute try restarting the raspberry pi"
     }
   },
   methods: {
