@@ -1,7 +1,7 @@
 <template>
   <div id="home" class="main">
     <div class="display-4 text-secondary">
-      Thank you for signing out!
+      Have a great rest of your day!
     </div>
   </div>
 </template>

@@ -1,8 +1,8 @@
 create release branch
-instead of thank you fro signing out, have a great rest of your day
 
 BEFORE RELEASE:
 - change lxsession chromium command
+- unplug wireless keyboard
 
 
 when you scan a card it wakes up screen
