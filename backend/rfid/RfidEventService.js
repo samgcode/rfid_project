@@ -1,7 +1,9 @@
 const EventEmitter = require("events");
 const moment = require('moment');
+const { exec } = require('child_process');
 
 const scanCooldown = 1;//min
+const sleepTime = 5;//sec
 
 class RfidEventService {
     constructor(serviceLocator) {
@@ -25,6 +27,7 @@ class RfidEventService {
     }
 
     async handleRfidEvent(uid) {
+        this.wakeScreen();
         const user = await this._userService.getUserByUid(uid);
         let name = null;
         if(user) {
@@ -49,6 +52,23 @@ class RfidEventService {
         } else {
             this._events.emit('data', { id: uid, needName: true, checkSypmtomsRequired: true });
         } 
+    }
+
+    wakeScreen() {
+        exec(`xset s activate`, (err, stdout) => {
+            if (err) {
+              console.error(err)
+            } else {
+                console.log(stdout);
+            }
+        });
+        exec(`xset s on s ${sleepTime}`, (err, stdout) => {
+            if (err) {
+              console.error(err)
+            } else {
+                console.log(stdout);
+            }
+          });
     }
 
     checkCooldown(symptomScanTime) {
