@@ -71,7 +71,12 @@ export default {
         }
       } else {
         if(this.$router.currentRoute.path != `/goodbye`) {
-          this.$router.push({name: `Goodbye`});
+          this.$router.push({
+            name: `Goodbye`,
+            params: {
+                name: data.name
+              }
+          });
         }
       }
     }
