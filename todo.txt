@@ -1,4 +1,9 @@
-startup: browser, fullscreen
+create release branch
+instead of thank you fro signing out, have a great rest of your day
+
+BEFORE RELEASE:
+- change lxsession chromium command
+
 
 when you scan a card it wakes up screen
 
@@ -29,3 +34,4 @@ questions:
 what if the symptoms change/ how often
 - how to chage the symptoms
 should it be easy to shut down/how easy
+are they going to buy hardware
