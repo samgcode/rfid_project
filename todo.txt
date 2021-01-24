@@ -1,16 +1,18 @@
+when you scan a card it wakes up screen
 create release branch
-instead of thank you fro signing out, have a great rest of your day
+make it so they can change their name
+fix frontend not loaded on startup
+change the desktop background
+change splash screen raspberry pi
 
 BEFORE RELEASE:
 - change lxsession chromium command
-
-
-when you scan a card it wakes up screen
+- unplug wireless keyboard
+- empty db
 
 why does it run on the port you set and the one above webpack
 docker compose mongo restart: always
 
-add mongo logs
 copy with gzip
 add myself to docker group
 
@@ -33,5 +35,4 @@ visitor check in
 questions:
 what if the symptoms change/ how often
 - how to chage the symptoms
-should it be easy to shut down/how easy
 are they going to buy hardware

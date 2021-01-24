@@ -25,9 +25,10 @@ export default new Router({
       name: 'Export',
       component: Export
     }, {
-      path: '/goodbye',
+      path: '/goodbye/:name',
       name: 'Goodbye',
-      component: Goodbye
+      component: Goodbye,
+      props: true
     }, {
       path: '/enterName/:id',
       name: 'EnterName',
