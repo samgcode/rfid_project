@@ -5,6 +5,8 @@ fix frontend not loaded on startup
 change the desktop background
 change splash screen raspberry pi
 
+create new user and login as them
+
 BEFORE RELEASE:
 - change lxsession chromium command
 - unplug wireless keyboard

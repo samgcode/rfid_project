@@ -1,8 +1,11 @@
 <template>
   <div id="home" class="main">
     <div class="display-4 text-secondary">
-      Have a great rest of your day {{name}}!
+      Thank you for signing out
     </div>
+    <h2 class="text-secondary">
+      Have a great rest of your day {{name}}!
+    </h2>
   </div>
 </template>
 
@@ -20,12 +23,16 @@ export default {
     }
   },
   mounted() {
+    this.name = this.$route.params.name;
     setTimeout(() => {
-        this.$router.push({name: 'Home'});
+      this.$router.push({name: 'Home'});
     }, 5000);
   },
-  mounted() {
-    this.name = this.$route.params.name;
-  }
 }
 </script>
+
+<style scoped>
+h2 {
+  padding-top: 2%;
+}
+</style>
