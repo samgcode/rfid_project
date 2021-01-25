@@ -27,6 +27,7 @@
         <button type="button" class="btn btn-success" @click="submit()" :class="{'d-none': loading}">
             <h6>{{ btnText }}</h6>
         </button>
+        <router-link :to='{name: "Home"}' class="btn btn-primary">Cancel</router-link>
     </div>
 </template>
 
@@ -95,5 +96,9 @@ hr {
 
 .btn {
     padding-top: 0.8rem;
+}
+
+.btn-primary {
+    padding-bottom: 0.6rem;
 }
 </style>

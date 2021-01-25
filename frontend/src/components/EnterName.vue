@@ -31,6 +31,7 @@
         <button type="button" class="btn btn-success" @click="submit()" :class="{'d-none': loading}">
             <h6>{{ btnText }}</h6>
         </button>
+        <router-link :to='{name: "Home"}' class="btn btn-primary">Cancel</router-link>
     </div>
 </template>
 
@@ -109,6 +110,10 @@ hr {
 .btn {
     margin-top: 10px;
     padding-bottom: 0.05rem;
+}
+
+.btn-primary {
+    padding-bottom: 4px;
 }
 
 .border-danger::placeholder {
