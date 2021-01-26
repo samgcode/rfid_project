@@ -1,10 +1,18 @@
 <template>
     <div id="home" class="main">
-        <div class="text-secondary">
-            <h3>New UID detected</h3>  
+        <div :class="{'d-none': changeName}">
+            <div class="text-secondary">
+                <h3>New UID detected</h3>  
+            </div>
+            <div class="text-secondary">
+                <h6>Please enter your name</h6>
+            </div>
         </div>
-        <div class="text-secondary">
-            <h6>Please enter your name</h6>
+
+        <div :class="{'d-none': !changeName}">
+            <div class="text-secondary">
+                <h3>Please enter new name</h3>  
+            </div>
         </div>
 
         <form @submit.prevent="submit()" class="form">
@@ -50,6 +58,7 @@ export default {
     return {
         uid: '',
         name: '',
+        changeName: false,
         isValid: true,
         loading: false,
         error: false,
@@ -69,7 +78,12 @@ export default {
             this.loading = true;
             this.timeOut();
             await symptomScanTimeService.addSymptomScanTime(this.uid);
-            await userService.addUser(this.uid, this.name);
+            if(this.changeName) {
+                await userService.updateUser(this.uid, this.name);
+            } else {
+                await userService.addUser(this.uid, this.name);
+            }
+            
             this.$router.push({
                 name: `Symptoms`,
                 params: {
@@ -97,6 +111,7 @@ export default {
   },
   mounted() {
     this.uid = this.$route.params.id;
+    this.changeName = this.$route.params.changeName;
     this.$refs.nameInput.focus();
   }
 }

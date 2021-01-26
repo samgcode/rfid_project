@@ -30,7 +30,7 @@ export default new Router({
       component: Goodbye,
       props: true
     }, {
-      path: '/enterName/:id',
+      path: '/enterName/:id/:changeName',
       name: 'EnterName',
       component: EnterName
     }
