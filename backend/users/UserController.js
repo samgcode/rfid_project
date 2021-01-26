@@ -22,6 +22,16 @@ class UserController {
             console.log(err);
         }
     }
+
+    async updateUser(ctx) {
+        try {
+            const { uid, name } = ctx.request.body;
+            const response = await this._userService.updateUser(uid, name);
+            ctx.body = response;
+        } catch(err) {
+            console.log(err);
+        }
+    }
 }
 
 module.exports = UserController;

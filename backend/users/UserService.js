@@ -20,6 +20,15 @@ class UserService {
             console.log(err);
         }
     }
+
+    async updateUser(uid, name) {
+        try {
+            const response = await this._userRepository.updateUser(uid, name);
+            return response;
+        } catch(err) {
+            console.log(err);
+        }
+    }
 }
 
 module.exports = UserService;
