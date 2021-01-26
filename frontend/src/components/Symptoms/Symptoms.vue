@@ -13,20 +13,21 @@
         <div class="text-secondary">
             <h4>Please check if you have these symptoms</h4>
         </div>
-        
-        <table class="table">
-            <tbody>
-                <div v-for="symptom in symptomList" :key="symptom.col1">
-                    <tr class="row">
-                        <td class="col-sm-2"><h5>{{symptom.col1}}</h5></td>
-                        <td class="col-sm-2"><h5>{{symptom.col2}}</h5></td>
-                        <td class="col-sm-2"><h5>{{symptom.col3}}</h5></td>
-                        <td class="col-sm-3"><h5>{{symptom.col4}}</h5></td>
-                        <td class="col-sm-3"><h5>{{symptom.col5}}</h5></td>
-                    </tr>
-                </div>
-            </tbody>
-        </table>
+        <div class="container">
+            <table class="table">
+                <tbody>
+                    <div v-for="symptom in symptomList" :key="symptom.col1">
+                        <tr class="row">
+                            <td class="col-sm-2"><h5>{{symptom.col1}}</h5></td>
+                            <td class="col-sm-2"><h5>{{symptom.col2}}</h5></td>
+                            <td class="col-sm-2"><h5>{{symptom.col3}}</h5></td>
+                            <td class="col-sm-3"><h5>{{symptom.col4}}</h5></td>
+                            <td class="col-sm-3"><h5>{{symptom.col5}}</h5></td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+        </div>
 
         <sync-loader :loading="loading"/>
         <error-display :message="errorMessage" :class="{'d-none': !error}"/>
@@ -104,17 +105,4 @@ export default {
 </script>
 
 <style scoped>
-hr {
-    padding-top: 0%;
-}
-
-.table {
-    margin-left: 2%;
-    width: 96%;
-}
-
-.btn-primary {
-    padding-top: 0.5rem;
-    padding-bottom: 0.4rem;
-}
 </style>

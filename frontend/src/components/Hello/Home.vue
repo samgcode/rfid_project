@@ -92,6 +92,6 @@ export default {
     if(eventService.isOpen() === true) {
       this.stopLoading();
     }
-}
+  }
 }
 </script>

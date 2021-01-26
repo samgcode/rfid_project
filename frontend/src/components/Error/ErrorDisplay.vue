@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="alert alert-danger error">
             <h6><strong>ERROR: {{ message }}</strong></h6>
         </div>
@@ -20,10 +20,3 @@
         }
     }
 </script>
-
-<style scoped>
-.error {
-    margin-left: 10%;
-    margin-right: 10%;
-}
-</style>
