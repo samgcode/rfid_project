@@ -39,9 +39,9 @@
 </template>
 
 <script>
-import serviceLocator from '../services/serviceLocator';
-import ErrorDisplay from './ErrorDisplay.vue';
-import SyncLoader from './SyncLoader.vue';
+import serviceLocator from '../../services/serviceLocator';
+import ErrorDisplay from '../Error/ErrorDisplay.vue';
+import SyncLoader from '../Loading/SyncLoader.vue';
 
 const symptomScanTimeService = serviceLocator.services.symptomScanTimeService;
 

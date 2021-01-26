@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import OrbitLoader from './OrbitLoader.vue';
-import serviceLocator from '../services/serviceLocator';
-import ErrorDisplay from './ErrorDisplay.vue';
+import OrbitLoader from '../Loading/OrbitLoader.vue';
+import serviceLocator from '../../services/serviceLocator';
+import ErrorDisplay from '../Error/ErrorDisplay';
 
 const eventService = serviceLocator.services.eventService;
 
