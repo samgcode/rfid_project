@@ -52,10 +52,13 @@ export default {
     scanEvent: function(data) {
       if(data.checkSypmtomsRequired) {
         if(data.needName) {
-          if(this.$router.currentRoute.path != `/enterName/${data.id}`) {
+          if(this.$router.currentRoute.path != `/enterName/${data.id}/false`) {
             this.$router.push({
               name: `EnterName`,
-              params: {id: data.id}
+              params: {
+                  id: data.id,
+                  changeName: false
+                }
             });
           }
         } else {

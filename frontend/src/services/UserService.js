@@ -12,6 +12,15 @@ class UserService {
 
         return response;
     }
+
+    async updateUser(uid, name) {
+        const response = await axios.put(`http://${baseUrl}/users`, {
+            uid, 
+            name,
+        });
+
+        return response;
+    }
 }
 
 export default UserService;

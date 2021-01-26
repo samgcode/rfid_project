@@ -1,7 +1,14 @@
 <template>
     <div id="home" class="main">
-        <div class="text-secondary">
-            <h2>Welcome, {{ name }}</h2>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="text-secondary my-auto col-sm-3">
+                    <h2>Welcome, {{ name }}</h2>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm h-25 my-auto" @click="changeName()" :class="{'d-none': loading}">
+                    Change name
+                </button>
+            </div>
         </div>
         <div class="text-secondary">
             <h4>Please check if you have these symptoms</h4>
@@ -25,7 +32,7 @@
         <error-display :message="errorMessage" :class="{'d-none': !error}"/>
 
         <button type="button" class="btn btn-success" @click="submit()" :class="{'d-none': loading}">
-            <h6>{{ btnText }}</h6>
+            {{ btnText }}
         </button>
         <router-link :to='{name: "Home"}' class="btn btn-primary">Cancel</router-link>
     </div>
@@ -44,6 +51,7 @@ export default {
   data() {
     return {
         name: '',
+        id: 0,
         symptomList: [//https://www.alberta.ca/covid-19-testing-in-alberta.aspx
             {col1:'cough', col2:'fever', col3:'shortness of breath', col4:'runny nose', col5:'sore throat'},
             {col1:'Painful swallowing', col2:'Chills', col3:'Headache', col4:'Muscle or joint aches', col5:'Feeling unwell or fatigue'},
@@ -76,9 +84,20 @@ export default {
             this.loading = false;
         }, 10000);
     },
+    changeName: function() {
+        if(this.$router.currentRoute.path != `/enterName/${this.id}/true`) {
+            this.$router.push({
+                name: `EnterName`,
+                params: {
+                    id: this.id,
+                    changeName: true
+                }
+            });
+        }
+    }
   },
   mounted() {
-    console.log(this.$route.params.id);
+    this.id = this.$route.params.id;
     this.name = this.$route.params.name;
   }
 }
@@ -94,11 +113,8 @@ hr {
     width: 96%;
 }
 
-.btn {
-    padding-top: 0.8rem;
-}
-
 .btn-primary {
-    padding-bottom: 0.6rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.4rem;
 }
 </style>

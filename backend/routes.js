@@ -26,6 +26,7 @@ router.post('/symptomScanTimes', symptomScanTimeController.addSymptomScanTime.bi
 router.post('/users', userController.addUser.bind(userController));
 
 router.put('/symptomScanTime', symptomScanTimeController.updateCheckedByDate.bind(symptomScanTimeController));
+router.put('/users', userController.updateUser.bind(userController));
 
 router.get('/symptomScanTimeEvents', symptomScanTimeController.symptomScanTimeEventHandler.bind(symptomScanTimeController));
 

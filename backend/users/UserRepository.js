@@ -19,6 +19,18 @@ class UserRepository {
         await user.save();
         return `Added: ${name}`;
     }
+
+    async updateUser(uid, name) {
+        const users = await User.find({'uid': uid}, (users) => {
+            return users;
+        });
+        const id = users[0]._id;
+        if(id) {
+            await User.findByIdAndUpdate(id, {name: name});
+            return `Updated: ${uid}`;
+        }
+        return 'Not found';
+    }
 }
 
 module.exports = UserRepository;
