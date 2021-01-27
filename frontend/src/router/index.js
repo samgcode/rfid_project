@@ -6,6 +6,7 @@ import Symptoms from '../components/Symptoms/Symptoms';
 import Export from '../components/Export/Export';
 import Goodbye from '../components/Goodbye/Goodbye';
 import EnterName from '../components/Name/EnterName';
+import ThanksForChecking from '../components/Symptoms/ThanksForChecking'
 
 Vue.use(Router);
 
@@ -15,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    }, {
+      path: '/thanks/:name',
+      name: 'Thanks',
+      component: ThanksForChecking,
+      props: true
     }, {
       path: '/symptoms/:id/:name',
       name: 'Symptoms',
