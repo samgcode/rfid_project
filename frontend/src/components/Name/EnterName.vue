@@ -15,38 +15,40 @@
             </div>
         </div>
 
-        <form @submit.prevent="submit()" class="form">
-            <div class="form-row row">
-                <div class="form-group  col-md-12">
-                    <input 
-                        @focus="$event.target.select()"
-                        ref="nameInput"
-                        type="text" 
-                        name="name" 
-                        id="nameInput" 
-                        class="form-control"
-                        :class="{'border-danger': !isValid}"
-                        placeholder="Enter your name"
-                        v-model="name" 
-                    >
+        <div class="container">
+            <form @submit.prevent="submit()">
+                <div class="form-row row justify-content-center">
+                    <div class="form-group w-50">
+                        <input 
+                            @focus="$event.target.select()"
+                            ref="nameInput"
+                            type="text" 
+                            name="name" 
+                            id="nameInput" 
+                            class="form-control"
+                            :class="{'border-danger': !isValid}"
+                            placeholder="Enter your name"
+                            v-model="name" 
+                        >
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
         
         <sync-loader :loading="loading"/>
         <error-display :message="errorMessage" :class="{'d-none': !error}"/>
 
         <button type="button" class="btn btn-success" @click="submit()" :class="{'d-none': loading}">
-            <h6>{{ btnText }}</h6>
+            {{ btnText }}
         </button>
         <router-link :to='{name: "Home"}' class="btn btn-primary">Cancel</router-link>
     </div>
 </template>
 
 <script>
-import serviceLocator from '../services/serviceLocator';
-import ErrorDisplay from './ErrorDisplay.vue';
-import SyncLoader from './SyncLoader.vue';
+import serviceLocator from '../../services/serviceLocator';
+import ErrorDisplay from '../Error/ErrorDisplay.vue';
+import SyncLoader from '../Loading/SyncLoader.vue';
 
 const userService = serviceLocator.services.userService;
 const symptomScanTimeService = serviceLocator.services.symptomScanTimeService;
@@ -118,25 +120,7 @@ export default {
 </script>
 
 <style scoped>
-hr {
-    padding-top: 0%;
-}
-
-.btn {
-    margin-top: 10px;
-    padding-bottom: 0.05rem;
-}
-
-.btn-primary {
-    padding-bottom: 4px;
-}
-
 .border-danger::placeholder {
     color: #de0000;
-}
-
-.form {
-    margin: 0 auto;
-    width: 40%;
 }
 </style>

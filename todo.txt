@@ -1,4 +1,3 @@
-use bootstrap sizing
 when you scan a card it wakes up screen
 add a page between check symptoms and home (thank you for checking)
 fix frontend not loaded on startup

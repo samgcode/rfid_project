@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from '../components/Home';
-import Symptoms from '../components/Symptoms';
-import Export from '../components/Export';
-import Goodbye from '../components/Goodbye';
-import EnterName from '../components/EnterName';
+import Home from '../components/Hello/Home';
+import Symptoms from '../components/Symptoms/Symptoms';
+import Export from '../components/Export/Export';
+import Goodbye from '../components/Goodbye/Goodbye';
+import EnterName from '../components/Name/EnterName';
 
 Vue.use(Router);
 

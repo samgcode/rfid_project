@@ -27,7 +27,7 @@
 
 <script>
 import Datepicker from 'vuejs-datepicker';
-import serviceLocator from '../services/serviceLocator';
+import serviceLocator from '../../services/serviceLocator';
 
 const exportService = serviceLocator.services.exportService;
 
