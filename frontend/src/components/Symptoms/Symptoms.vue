@@ -76,7 +76,12 @@ export default {
         this.loading = true;
         this.timeOut();
         await symptomScanTimeService.updateSymptomScanTime(this.$route.params.id, true);
-        this.$router.push({name: 'Home'});
+        this.$router.push({
+            name: `Thanks`,
+            params: {
+                name: this.name,
+            }
+        });
     },
     timeOut: function() {
         setTimeout(() => {
