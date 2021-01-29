@@ -5,6 +5,7 @@ class UserController {
 
     async getUserByUid(ctx) {
         try {
+            throw new Error();
             const uid = ctx.params.uid;
             const user = await this._userService.getUserByUid(uid);
             ctx.body = user;

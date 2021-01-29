@@ -7,7 +7,7 @@ services:
             - mongoData:/data/db
             - mongoConfig:/var/lib/mongodb
             - ./config/mongod.conf:/etc/mongod.conf
-            - ./mongoLogs/:/var/log/mongodb/
+            - ./logs/:/var/log/mongodb/
         image:
             ivanmarban/armhf-mongodb
         command: mongod -f /etc/mongod.conf
