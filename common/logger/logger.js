@@ -12,6 +12,14 @@ const options = {
         colorize: true,
         timestamp: true
     },
+    scannerFile: {
+        level: 'debug',
+        filename: '../logs/scanner.log',
+        handleExceptions: true,
+        json: true,
+        colorize: true,
+        timestamp: true
+    },
     console: {
         level: 'debug',
         handleExceptions: true,
@@ -36,10 +44,19 @@ const logger = winston.createLogger({
     exitOnError: false
 });
 
-logger.stream = {
-    write: function(message) {
-      logger.info(message);
-    },
-};
+const scannerLogger = winston.createLogger({
+    format: combine(
+        format.errors({ stack: true }),
+        timestamp(),
+        printf(({ level, message, timestamp, stack }) => {
+          return `${timestamp} ${level}: ${message} - ${stack}`;
+        })
+    ),
+    transports: [
+        new winston.transports.File(options.scannerFile),
+    ],
+    exitOnError: false
+});
 
 exports.logger = logger;
+exports.scannerLogger = scannerLogger;
