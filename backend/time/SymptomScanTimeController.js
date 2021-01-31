@@ -1,5 +1,7 @@
 const UidStream = require('./UidStream');
 
+const logger = require('logger').logger;
+
 class SymptomScanTimeController {
     constructor(serviceLocator) {
         this.dbConnected = false;
@@ -13,7 +15,7 @@ class SymptomScanTimeController {
             this._eventService.sendConnectedEvent();
             ctx.body = 'pong';
         } catch(err) {
-            console.log(err);    
+            ctx.throw(err);
         }
     }
 
@@ -22,13 +24,13 @@ class SymptomScanTimeController {
             const symptomScanTimes = await this._symptomScanTimeService.getSymptomScanTimes();
             ctx.body = symptomScanTimes;
         } catch(err) {
-            console.log(err);    
+            ctx.throw(err);    
         }
     }
 
     symptomScanTimeEventHandler(ctx) {
         if(this.dbConnected) {
-            console.log('connection open');
+            logger.debug('connection open');
             ctx.req.socket.setTimeout(0);
             ctx.req.socket.setNoDelay(true);
             ctx.req.socket.setKeepAlive(true);
@@ -63,7 +65,7 @@ class SymptomScanTimeController {
             this._eventService.handleRfidEvent(uid);
             ctx.body = symptomScanTime;
         } catch(err) {
-            console.log(err);    
+            ctx.throw(err);    
         }
     }
 
@@ -77,7 +79,7 @@ class SymptomScanTimeController {
             const response = await this._symptomScanTimeService.addSymptomScanTime(uid, checkedSymptoms);
             ctx.body = response;
         } catch(err) {
-            console.log(err);
+            ctx.throw(err);
         }
     }
 
@@ -87,7 +89,7 @@ class SymptomScanTimeController {
             const response = await this._symptomScanTimeService.updateSymptomScanTime(uid);
             ctx.body = response;
         } catch(err) {
-            console.log(err);
+            ctx.throw(err);
         }
     }
 
@@ -97,7 +99,7 @@ class SymptomScanTimeController {
             const response = await this._symptomScanTimeService.updateCheckedByDate(uid, checkedSymptoms, date);
             ctx.body = response;
         } catch(err) {
-            console.log(err);
+            ctx.throw(err);
         }
     }
 }

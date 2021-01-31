@@ -20,7 +20,6 @@ class RfidEventService {
     }
 
     sendConnectedEvent() {
-        console.log('event');
         this._events.emit('data', { connected: true });
     }
 

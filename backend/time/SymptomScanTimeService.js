@@ -1,3 +1,5 @@
+const logger = require('logger').logger;
+
 class SymptomScanTimeService {
     constructor(serviceLocator) {
         this._symptomScanTimeRepository = serviceLocator.repositories.symptomScanTimeRepository;
@@ -8,7 +10,7 @@ class SymptomScanTimeService {
             const symptomScanTimes = await this._symptomScanTimeRepository.getSymptomScanTimes();
             return symptomScanTimes;
         } catch(err) {
-            console.log(err);    
+            logger.debug(err);    
         }
     }
     
@@ -17,7 +19,7 @@ class SymptomScanTimeService {
             const symptomScanTime = await this._symptomScanTimeRepository.getSymptomScanTimeByUid(uid);
             return symptomScanTime;
         } catch(err) {
-            console.log(err);    
+            logger.debug(err);    
         }
     }
 
@@ -26,7 +28,7 @@ class SymptomScanTimeService {
             const symptomScanTime = await this._symptomScanTimeRepository.getSymptomScanTimeByDateUid(uid, date);
             return symptomScanTime;
         } catch(err) {
-            console.log(err);    
+            logger.debug(err);    
         }
     }
     async addSymptomScanTime(uid, checkedSymptoms) {
@@ -34,7 +36,7 @@ class SymptomScanTimeService {
             const response = await this._symptomScanTimeRepository.addSymptomScanTime(uid, checkedSymptoms);
             return response;
         } catch(err) {
-            console.log(err);
+            logger.debug(err);
         }
     }
 
@@ -43,7 +45,7 @@ class SymptomScanTimeService {
             const response = await this._symptomScanTimeRepository.updateSymptomScanTime(uid);
             return response;
         } catch(err) {
-            console.log(err);
+            logger.debug(err);
         }
     }
 
@@ -52,7 +54,7 @@ class SymptomScanTimeService {
             const response = await this._symptomScanTimeRepository.updateCheckedByDate(uid, checkedSymptoms, date);
             return response;
         } catch(err) {
-            console.log(err);
+            logger.debug(err);
         }
     }
 }

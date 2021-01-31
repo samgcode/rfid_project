@@ -3,8 +3,9 @@ const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
 const koaLogger = require('koa-logger');
 
+const logger = require('logger').logger;
+
 const router = require('./routes');
-const logger = require('./config/winston');
 
 const app = new Koa();
 
@@ -16,11 +17,15 @@ app.use(koaLogger({
     }
 }));
 
+app.on('error', (err) => {
+    logger.error(err);
+})
+
 app.use(cors());
 app.use(bodyParser());
 
 app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(port, function() {
-    console.log(`API is running at localhost:${port}`);
+    logger.debug(`API is running at localhost:${port}`);
 });

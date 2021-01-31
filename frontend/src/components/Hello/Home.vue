@@ -18,8 +18,8 @@ import OrbitLoader from '../Loading/OrbitLoader.vue';
 import serviceLocator from '../../services/serviceLocator';
 import ErrorDisplay from '../Error/ErrorDisplay';
 
+// const logger = require('logger').logger;
 const eventService = serviceLocator.services.eventService;
-
 
 export default {
   components: { OrbitLoader, ErrorDisplay },

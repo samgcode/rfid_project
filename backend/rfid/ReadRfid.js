@@ -2,6 +2,8 @@
 const Mfrc522 = require("mfrc522-rpi");
 const SoftSPI = require("rpi-softspi");
 
+const logger = require('logger').logger;
+
 const softSPI = new SoftSPI({
     clock: 23, // pin number of SCLK
     mosi: 19, // pin number of MOSI
@@ -35,7 +37,7 @@ class ReadRfid {
 
         response = rfid.getUid();
         if (!response.status) {
-            console.log("UID Scan Error");
+            logger.debug("UID Scan Error");
             return;
         }
 
@@ -45,7 +47,7 @@ class ReadRfid {
         });
         const uid = `${id[0]}${id[1]}${id[2]}${id[3]}`;
 
-        console.log(uid);
+        logger.debug(uid);
         await this._eventService.handleRfidEvent(uid);
 
 

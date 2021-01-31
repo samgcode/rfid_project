@@ -4,7 +4,7 @@ const winston = require('winston');
 const options = {
     file: {
         level: 'debug',
-        filename: '../logs/backend.log',
+        filename: '../logs/fullStack.log',
         handleExceptions: true,
         json: true,
         colorize: true
@@ -31,4 +31,4 @@ logger.stream = {
     },
 };
 
-module.exports = logger;
+exports.logger = logger;

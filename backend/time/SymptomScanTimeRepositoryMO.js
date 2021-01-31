@@ -1,5 +1,7 @@
 const moment = require('moment');
 
+const logger = require('logger').logger;
+
 const SymptomScanTime = require('./SymptomScanTimeModel');
 
 class SymptomScanTimeRepository {
@@ -25,7 +27,7 @@ class SymptomScanTimeRepository {
         const data = await SymptomScanTime.find({'uid': uid}, (symptomScanTimes) => {
             return symptomScanTimes;
         });
-        console.log(data);
+        logger.debug(data);
         let symptomScanTimes = [];
         Array.prototype.forEach.call(data, (symptomScanTime) => {
             const time = moment(symptomScanTime.timeIn);

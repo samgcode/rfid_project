@@ -1,3 +1,5 @@
+const { createIndexes } = require("../users/UserModel");
+
 class ExportService {
     constructor(serviceLocator) {
         this._symptomScanTimeRepository = serviceLocator.repositories.symptomScanTimeRepository;
@@ -7,7 +9,7 @@ class ExportService {
             const symptomScanTimes = await this._symptomScanTimeRepository.getSymptomScanTimes();
             return symptomScanTimes;
         } catch(err) {
-            console.log(err);    
+            ctx.throw(err);    
         }
     }
     
@@ -16,7 +18,7 @@ class ExportService {
             const symptomScanTimes = await this._symptomScanTimeRepository.getSymptomScanTimesByDate(startDate, endDate);
             return symptomScanTimes;
         } catch(err) {
-            console.log(err);    
+            ctx.throw(err);    
         }
     }
 }

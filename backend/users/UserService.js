@@ -1,3 +1,5 @@
+const logger = require('logger').logger;
+
 class UserService {
     constructor(serviceLocator) {
         this._userRepository = serviceLocator.repositories.userRepository;
@@ -8,7 +10,7 @@ class UserService {
             const user = await this._userRepository.getUserByUid(uid);
             return user;
         } catch(err) {
-            console.log(err);    
+            logger.debug(err);    
         }
     }
 
@@ -17,7 +19,7 @@ class UserService {
             const response = await this._userRepository.addUser(uid, name);
             return response;
         } catch(err) {
-            console.log(err);
+            logger.debug(err);
         }
     }
 
@@ -26,7 +28,7 @@ class UserService {
             const response = await this._userRepository.updateUser(uid, name);
             return response;
         } catch(err) {
-            console.log(err);
+            logger.debug(err);
         }
     }
 }
