@@ -1,6 +1,7 @@
 const moment = require('moment');
 const fs = require('fs');
 const stringify = require('csv-stringify');
+const logger = require('logger').logger;
 class ExportController {
     constructor(serviceLocator) {
         this._exportService = serviceLocator.services.exportService;
@@ -12,7 +13,7 @@ class ExportController {
             this.writeData(symptomScanTimes);
             ctx.body = symptomScanTimes;
         } catch(err) {
-            console.log(err);    
+            ctx.throw(err);    
         }
     }
 
@@ -21,12 +22,12 @@ class ExportController {
             const { startDate, endDate } = ctx.params;
             const start = new Date(startDate);
             const end = new Date(endDate);
-            console.log(`startDate: ${start}, endDate: ${end}`);
+            logger.debug(`startDate: ${start}, endDate: ${end}`);
             const symptomScanTimes = await this._exportService.getSymptomScanTimesByDate(start, end);
             this.writeData(symptomScanTimes);
             ctx.body = symptomScanTimes;
         } catch(err) {
-            console.log(err);    
+            ctx.throw(err);    
         }
     }
 

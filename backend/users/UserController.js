@@ -9,7 +9,7 @@ class UserController {
             const user = await this._userService.getUserByUid(uid);
             ctx.body = user;
         } catch(err) {
-            console.log(err);    
+            ctx.throw(err);    
         }
     }
 
@@ -19,7 +19,7 @@ class UserController {
             const response = await this._userService.addUser(uid, name);
             ctx.body = response;
         } catch(err) {
-            console.log(err);
+            ctx.throw(err);
         }
     }
 
@@ -29,7 +29,7 @@ class UserController {
             const response = await this._userService.updateUser(uid, name);
             ctx.body = response;
         } catch(err) {
-            console.log(err);
+            ctx.throw(err);
         }
     }
 }

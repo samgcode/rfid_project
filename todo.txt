@@ -1,10 +1,21 @@
+add backend logging
+know what time the log is
+add logs for scanner to a different file
+lookup new logger instace
+replace console.log
 when you scan a card it wakes up screen
-fix frontend not loaded on startup
+fix frontend not loaded on startup 
+- https://www.raspberrypi.org/forums/viewtopic.php?t=119607
 remove restore pages chrome
+- https://raspberrypi.stackexchange.com/questions/68734/how-do-i-disable-restore-pages-chromium-didnt-shut-down-correctly-prompt
 change the desktop background
+- https://www.thedigitalpictureframe.com/customize-your-raspberry-pi-splash-screen-raspbian-stretch-april-2019-version/
 change splash screen raspberry pi
+clear records every month
 
-create new user and login as them
+UID Scan Error
+
+create new linux user and login as them
 
 BEFORE RELEASE:
 - change lxsession chromium command
@@ -16,6 +27,7 @@ docker compose mongo restart: always
 
 copy with gzip
 add myself to docker group
+create ssh key
 
 auto/remotely/easily update symptoms
 
@@ -34,6 +46,3 @@ back in x minutes input
 visitor check in
 
 questions:
-what if the symptoms change/ how often
-- how to chage the symptoms
-are they going to buy hardware
