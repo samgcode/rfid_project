@@ -1,8 +1,6 @@
-add backend logging
-know what time the log is
-add logs for scanner to a different file
+goodbye page timer resets on new scan
+logger fix call stack undefined
 lookup new logger instace
-replace console.log
 when you scan a card it wakes up screen
 fix frontend not loaded on startup 
 - https://www.raspberrypi.org/forums/viewtopic.php?t=119607
