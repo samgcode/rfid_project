@@ -31,10 +31,15 @@ const options = {
 
 const logger = winston.createLogger({
     format: combine(
-        format.errors({ stack: true }), // log the full stack
-        timestamp(), // get the time stamp part of the full log message
-        printf(({ level, message, timestamp, stack }) => { // formating the log outcome to show/store 
-          return `${timestamp} ${level}: ${message} - ${stack}`;
+        format.errors({ stack: true }),
+        timestamp(),
+        printf(({ level, message, timestamp, stack }) => {
+            return JSON.stringify({
+                timestamp,
+                level,
+                message,
+                stack
+            });
         })
     ),
     transports: [
@@ -49,7 +54,12 @@ const scannerLogger = winston.createLogger({
         format.errors({ stack: true }),
         timestamp(),
         printf(({ level, message, timestamp, stack }) => {
-          return `${timestamp} ${level}: ${message} - ${stack}`;
+            return JSON.stringify({
+                timestamp,
+                level,
+                message,
+                stack
+            });
         })
     ),
     transports: [

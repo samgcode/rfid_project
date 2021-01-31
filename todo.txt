@@ -13,6 +13,9 @@ clear records every month
 
 UID Scan Error
 
+74124164130
+74174190129
+
 create new linux user and login as them
 
 BEFORE RELEASE:
