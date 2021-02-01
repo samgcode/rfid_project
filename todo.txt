@@ -1,4 +1,3 @@
-goodbye page timer resets on new scan
 logger fix call stack undefined
 lookup new logger instace
 when you scan a card it wakes up screen

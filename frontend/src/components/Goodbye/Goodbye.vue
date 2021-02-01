@@ -15,16 +15,21 @@ export default {
   data() {
     return {
       name: '',
+      timeOut: null
     }
   },
   watch: {
     $route() {
       this.name = this.$route.params.name;
+      clearTimeout(this.timeOut);
+      this.timeOut = setTimeout(() => {
+        this.$router.push({name: 'Home'});
+      }, 5000);
     }
   },
   mounted() {
     this.name = this.$route.params.name;
-    setTimeout(() => {
+    this.timeOut = setTimeout(() => {
       this.$router.push({name: 'Home'});
     }, 5000);
   },
