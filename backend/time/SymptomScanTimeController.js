@@ -30,7 +30,7 @@ class SymptomScanTimeController {
 
     symptomScanTimeEventHandler(ctx) {
         if(this.dbConnected) {
-            logger.debug('connection open');
+            logger.info('connection open');
             ctx.req.socket.setTimeout(0);
             ctx.req.socket.setNoDelay(true);
             ctx.req.socket.setKeepAlive(true);

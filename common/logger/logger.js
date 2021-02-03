@@ -13,7 +13,7 @@ const options = {
         timestamp: true
     },
     scannerFile: {
-        level: 'debug',
+        level: 'info',
         filename: '../logs/scanner.log',
         handleExceptions: true,
         json: true,

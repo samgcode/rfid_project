@@ -10,7 +10,7 @@ class UserService {
             const user = await this._userRepository.getUserByUid(uid);
             return user;
         } catch(err) {
-            logger.debug(err);    
+            logger.error(err);    
         }
     }
 
@@ -19,7 +19,7 @@ class UserService {
             const response = await this._userRepository.addUser(uid, name);
             return response;
         } catch(err) {
-            logger.debug(err);
+            logger.error(err);
         }
     }
 
@@ -28,7 +28,7 @@ class UserService {
             const response = await this._userRepository.updateUser(uid, name);
             return response;
         } catch(err) {
-            logger.debug(err);
+            logger.error(err);
         }
     }
 }

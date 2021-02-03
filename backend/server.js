@@ -13,7 +13,7 @@ const port = 3000;
 
 app.use(koaLogger({
     transporter: (str, args) => {
-        logger.debug(str);
+        logger.info(str);
     }
 }));
 
@@ -27,5 +27,5 @@ app.use(bodyParser());
 app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(port, function() {
-    logger.debug(`API is running at localhost:${port}`);
+    logger.info(`API is running at localhost:${port}`);
 });

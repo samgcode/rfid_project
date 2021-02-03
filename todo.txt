@@ -1,5 +1,5 @@
-logger fix call stack undefined
-lookup new logger instace
+use not debug for almost everything
+add winston config
 when you scan a card it wakes up screen
 fix frontend not loaded on startup 
 - https://www.raspberrypi.org/forums/viewtopic.php?t=119607
@@ -9,6 +9,7 @@ change the desktop background
 - https://www.thedigitalpictureframe.com/customize-your-raspberry-pi-splash-screen-raspbian-stretch-april-2019-version/
 change splash screen raspberry pi
 clear records every month
+add frontend logging
 
 UID Scan Error
 
