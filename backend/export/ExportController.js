@@ -22,7 +22,7 @@ class ExportController {
             const { startDate, endDate } = ctx.params;
             const start = new Date(startDate);
             const end = new Date(endDate);
-            logger.debug(`startDate: ${start}, endDate: ${end}`);
+            logger.info(`startDate: ${start}, endDate: ${end}`);
             const symptomScanTimes = await this._exportService.getSymptomScanTimesByDate(start, end);
             this.writeData(symptomScanTimes);
             ctx.body = symptomScanTimes;

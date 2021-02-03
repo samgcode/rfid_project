@@ -42,3 +42,7 @@
 {"timestamp":"2021-01-31T22:57:00.927Z","level":"debug","message":"  \u001b[90m<--\u001b[39m \u001b[1mGET\u001b[22m \u001b[90m/symptomScanTimes/000000022\u001b[39m"}
 {"timestamp":"2021-01-31T22:57:00.930Z","level":"debug","message":"  \u001b[90m-->\u001b[39m \u001b[1mGET\u001b[22m \u001b[90m/symptomScanTimes/000000022\u001b[39m \u001b[32m200\u001b[39m \u001b[90m3ms\u001b[39m \u001b[90m149b\u001b[39m"}
 {"timestamp":"2021-01-31T22:57:00.932Z","level":"debug","message":[{"_id":"601733db68df660eb52ecddf","uid":22,"timeIn":"2021-01-31T22:48:59.372Z","timeOut":"2021-01-31T22:56:48.417Z","checkedSymptoms":true,"__v":0}]}
+{"timestamp":"2021-02-03T03:10:38.224Z","level":"debug","message":"API is running at localhost:3000"}
+{"timestamp":"2021-02-03T03:10:38.232Z","level":"debug","message":"connection established successfully"}
+{"timestamp":"2021-02-03T03:10:50.158Z","level":"info","message":"  \u001b[90m<--\u001b[39m \u001b[1mGET\u001b[22m \u001b[90m/symptomScanTimes\u001b[39m"}
+{"timestamp":"2021-02-03T03:10:50.178Z","level":"info","message":"  \u001b[90m-->\u001b[39m \u001b[1mGET\u001b[22m \u001b[90m/symptomScanTimes\u001b[39m \u001b[32m200\u001b[39m \u001b[90m21ms\u001b[39m \u001b[90m2.6kb\u001b[39m"}

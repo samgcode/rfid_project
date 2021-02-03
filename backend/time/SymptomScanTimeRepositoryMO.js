@@ -27,7 +27,7 @@ class SymptomScanTimeRepository {
         const data = await SymptomScanTime.find({'uid': uid}, (symptomScanTimes) => {
             return symptomScanTimes;
         });
-        logger.debug(data);
+        logger.info(data);
         let symptomScanTimes = [];
         Array.prototype.forEach.call(data, (symptomScanTime) => {
             const time = moment(symptomScanTime.timeIn);

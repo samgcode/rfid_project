@@ -32,14 +32,14 @@ class ReadRfid {
         
         let response = rfid.findCard();
         if (!response.status) {
-            scannerLogger.debug('No card detected');
+            scannerLogger. debug('No card detected');
             return;
         }
 
         response = rfid.getUid();
         if (!response.status) {
-            scannerLogger.debug("UID Scan Error");
-            logger.debug("UID Scan Error");
+            scannerLogger.info("UID Scan Error");
+            logger.info("UID Scan Error");
             return;
         }
 
@@ -49,8 +49,8 @@ class ReadRfid {
         });
         const uid = `${id[0]}${id[1]}${id[2]}${id[3]}`;
 
-        scannerLogger.debug(uid);
-        logger.debug(uid);
+        scannerlogger.info(uid);
+        logger.info(uid);
         await this._eventService.handleRfidEvent(uid);
 
 

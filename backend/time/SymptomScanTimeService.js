@@ -10,7 +10,7 @@ class SymptomScanTimeService {
             const symptomScanTimes = await this._symptomScanTimeRepository.getSymptomScanTimes();
             return symptomScanTimes;
         } catch(err) {
-            logger.debug(err);    
+            logger.error(err);    
         }
     }
     
@@ -19,7 +19,7 @@ class SymptomScanTimeService {
             const symptomScanTime = await this._symptomScanTimeRepository.getSymptomScanTimeByUid(uid);
             return symptomScanTime;
         } catch(err) {
-            logger.debug(err);    
+            logger.error(err);    
         }
     }
 
@@ -28,7 +28,7 @@ class SymptomScanTimeService {
             const symptomScanTime = await this._symptomScanTimeRepository.getSymptomScanTimeByDateUid(uid, date);
             return symptomScanTime;
         } catch(err) {
-            logger.debug(err);    
+            logger.error(err);    
         }
     }
     async addSymptomScanTime(uid, checkedSymptoms) {
@@ -36,7 +36,7 @@ class SymptomScanTimeService {
             const response = await this._symptomScanTimeRepository.addSymptomScanTime(uid, checkedSymptoms);
             return response;
         } catch(err) {
-            logger.debug(err);
+            logger.error(err);
         }
     }
 
@@ -45,7 +45,7 @@ class SymptomScanTimeService {
             const response = await this._symptomScanTimeRepository.updateSymptomScanTime(uid);
             return response;
         } catch(err) {
-            logger.debug(err);
+            logger.error(err);
         }
     }
 
@@ -54,7 +54,7 @@ class SymptomScanTimeService {
             const response = await this._symptomScanTimeRepository.updateCheckedByDate(uid, checkedSymptoms, date);
             return response;
         } catch(err) {
-            logger.debug(err);
+            logger.error(err);
         }
     }
 }

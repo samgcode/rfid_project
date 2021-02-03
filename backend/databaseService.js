@@ -17,7 +17,7 @@ function connectWithAutoRetry(uri, connection, eventService) {
         setTimeout(connectWithAutoRetry, 10000, uri, connection, eventService);
     });
     connection.on('connected', function() {
-        logger.debug("connection established successfully");
+        logger.info("connection established successfully");
         eventService.startApp();
     });
 }
