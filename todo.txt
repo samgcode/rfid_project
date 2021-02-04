@@ -1,5 +1,3 @@
-use not debug for almost everything
-add winston config
 when you scan a card it wakes up screen
 fix frontend not loaded on startup 
 - https://www.raspberrypi.org/forums/viewtopic.php?t=119607

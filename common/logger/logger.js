@@ -1,33 +1,12 @@
+process.env["NODE_CONFIG_DIR"] = '../common/logger/config'
+
 const { exitOnError } = require('winston');
 const winston = require('winston');
 const { format } = require('winston');
 const { combine, timestamp, printf } = format;
+const config = require('config');
 
-const options = {
-    file: {
-        level: 'debug',
-        filename: '../logs/fullStack.log',
-        handleExceptions: true,
-        json: true,
-        colorize: true,
-        timestamp: true
-    },
-    scannerFile: {
-        level: 'info',
-        filename: '../logs/scanner.log',
-        handleExceptions: true,
-        json: true,
-        colorize: true,
-        timestamp: true
-    },
-    console: {
-        level: 'debug',
-        handleExceptions: true,
-        json: false,
-        colorize: true,
-        timestamp: true
-    },
-};
+const options = config.get('options');
 
 const logger = winston.createLogger({
     format: combine(
