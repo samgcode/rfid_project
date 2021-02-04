@@ -46,3 +46,11 @@
 {"timestamp":"2021-02-03T03:10:38.232Z","level":"debug","message":"connection established successfully"}
 {"timestamp":"2021-02-03T03:10:50.158Z","level":"info","message":"  \u001b[90m<--\u001b[39m \u001b[1mGET\u001b[22m \u001b[90m/symptomScanTimes\u001b[39m"}
 {"timestamp":"2021-02-03T03:10:50.178Z","level":"info","message":"  \u001b[90m-->\u001b[39m \u001b[1mGET\u001b[22m \u001b[90m/symptomScanTimes\u001b[39m \u001b[32m200\u001b[39m \u001b[90m21ms\u001b[39m \u001b[90m2.6kb\u001b[39m"}
+{"timestamp":"2021-02-04T00:09:17.251Z","level":"info","message":"API is running at localhost:3000"}
+{"timestamp":"2021-02-04T00:09:17.258Z","level":"info","message":"connection established successfully"}
+{"timestamp":"2021-02-04T00:14:26.025Z","level":"info","message":"API is running at localhost:3000"}
+{"timestamp":"2021-02-04T00:14:26.035Z","level":"info","message":"connection established successfully"}
+{"timestamp":"2021-02-04T00:14:32.721Z","level":"info","message":"API is running at localhost:3000"}
+{"timestamp":"2021-02-04T00:14:32.729Z","level":"info","message":"connection established successfully"}
+{"timestamp":"2021-02-04T00:15:00.047Z","level":"info","message":"API is running at localhost:3000"}
+{"timestamp":"2021-02-04T00:15:00.055Z","level":"info","message":"connection established successfully"}
