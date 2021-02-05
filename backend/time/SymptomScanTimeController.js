@@ -102,6 +102,15 @@ class SymptomScanTimeController {
             ctx.throw(err);
         }
     }
+
+    async removeOldRecords(ctx) {
+        try {
+            const response = await this._symptomScanTimeService.removeOldRecords();
+            ctx.body = response;
+        } catch(err) {
+            ctx.throw(err);
+        }
+    }
 }
 
 module.exports = SymptomScanTimeController;

@@ -57,6 +57,15 @@ class SymptomScanTimeService {
             logger.error(err);
         }
     }
+
+    async removeOldRecords() {
+        try {
+            const response = await this._symptomScanTimeRepository.removeOldRecords();
+            return response;
+        } catch(err) {
+            logger.error(err);
+        }
+    }
 }
 
 module.exports = SymptomScanTimeService;
