@@ -11,6 +11,10 @@ const app = new Koa();
 
 const port = 3000;
 
+process.on('unhandledRejection', function(err) {
+    logger.error(err);
+});
+
 app.use(koaLogger({
     transporter: (str, args) => {
         logger.info(str);

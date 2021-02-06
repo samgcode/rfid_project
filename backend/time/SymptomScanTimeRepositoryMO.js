@@ -104,6 +104,13 @@ class SymptomScanTimeRepository {
         }
         return 'Not found';
     }
+
+    async removeOldRecords() {
+        const olderThan = moment().subtract(30, 'days').toDate();
+        console.log(olderThan);
+        SymptomScanTime.find({timeIn: {$lte: olderThan}}).remove().exec();
+        return 'Removed old records';
+    }
 }
 
 module.exports = SymptomScanTimeRepository;

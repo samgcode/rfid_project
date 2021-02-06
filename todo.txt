@@ -8,6 +8,11 @@ change the desktop background
 change splash screen raspberry pi
 clear records every month
 add frontend logging
+clear logs with linux rolling logs
+
+make suer signed up for skills
+find out if signed up for ccc
+any tips for ccc
 
 UID Scan Error
 
