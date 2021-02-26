@@ -21,6 +21,7 @@ const scanCoolDown = 1;//min
 class ReadRfid {
     constructor(serviceLocator) {
         this._eventService = serviceLocator.services.rfidEventService;
+        this.logNext = false;
     }
     start() {
         setInterval(() => {
@@ -33,6 +34,10 @@ class ReadRfid {
         let response = rfid.findCard();
         if (!response.status) {
             scannerLogger.debug('No card detected');
+            if(this.logNext) {
+                this.logNext = false;
+                scannerLogger.info('Scanner code is alive');
+            }
             return;
         }
 

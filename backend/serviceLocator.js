@@ -39,6 +39,7 @@ const dev_db_url = 'mongodb://localhost:27017/SymptomScanTimes';
 dbService.intializeDatabase(dev_db_url, serviceLocator.services.startupService);
 
 const rfid = new Rfid(serviceLocator);
+serviceLocator.services.rfidEventService._scanner = rfid;
 rfid.start();
 
 module.exports = serviceLocator;

@@ -111,6 +111,15 @@ class SymptomScanTimeController {
             ctx.throw(err);
         }
     }
+
+    async checkScanner(ctx) {
+        try {
+            this._eventService.checkScanner();
+            ctx.body = response;
+        } catch(err) {
+            ctx.throw(err);
+        }
+    }
 }
 
 module.exports = SymptomScanTimeController;
