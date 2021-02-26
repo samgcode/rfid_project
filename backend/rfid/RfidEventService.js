@@ -8,6 +8,7 @@ const sleepTime = 5;//sec
 
 class RfidEventService {
     constructor(serviceLocator) {
+        this._scanner;
         this._symptomScanTimeService = serviceLocator.services.symptomScanTimeService;
         this._userService = serviceLocator.services.userService;
         this._events = new EventEmitter();
@@ -24,6 +25,10 @@ class RfidEventService {
 
     sendConnectedEvent() {
         this._events.emit('data', { connected: true });
+    }
+
+    checkScanner() {
+        this._scanner.logNext = true;
     }
 
     async handleRfidEvent(uid) {

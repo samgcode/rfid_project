@@ -17,6 +17,7 @@ router.get('/symptomScanTimes', symptomScanTimeController.getSymptomScanTimes.bi
 router.get('/symptomScanTimes/ping', symptomScanTimeController.ping.bind(symptomScanTimeController));
 router.get('/symptomScanTimes/:uid', symptomScanTimeController.getSymptomScanTimeById.bind(symptomScanTimeController));
 router.get('/clearRecords', symptomScanTimeController.removeOldRecords.bind(symptomScanTimeController));
+router.get('/checkScanner', symptomScanTimeController.checkScanner.bind(symptomScanTimeController));
 
 router.get('/users/:uid', userController.getUserByUid.bind(userController));
 

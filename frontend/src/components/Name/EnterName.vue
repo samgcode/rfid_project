@@ -79,11 +79,11 @@ export default {
             this.error = false;
             this.loading = true;
             this.timeOut();
-            await symptomScanTimeService.addSymptomScanTime(this.uid);
             if(this.changeName) {
                 await userService.updateUser(this.uid, this.name);
             } else {
                 await userService.addUser(this.uid, this.name);
+                await symptomScanTimeService.addSymptomScanTime(this.uid);
             }
             
             this.$router.push({
