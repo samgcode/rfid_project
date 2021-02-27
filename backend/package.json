@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "export NODE_ENV=dev && node server.js",
-    "prod": "export NODE_ENV=prod && node server.js",
+    "start": "node server.js",
+    "prod": "NODE_ENV=prod node server.js",
     "copy": "rm -rf node_modules package-lock.json && scp -r ../backend pi@192.168.0.139:/home/pi/rfid_project && npm i",
     "ssh": "ssh pi@192.168.0.139",
     "setup": "rm -rf node_modules package-lock.json && npm i",

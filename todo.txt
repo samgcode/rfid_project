@@ -1,3 +1,4 @@
+fix screen flash on scan
 fix scanning on goodbyue page
 clear intercal for goodbye page when you scan a new card
 - test new card to sign in and out

@@ -1,7 +1,7 @@
 const moment = require('moment');
 const fs = require('fs');
 const stringify = require('csv-stringify');
-const logger = require('logger').logger;
+const logger = require('logger')(__filename);
 class ExportController {
     constructor(serviceLocator) {
         this._exportService = serviceLocator.services.exportService;
