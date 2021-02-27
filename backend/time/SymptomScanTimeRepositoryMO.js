@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-const logger = require('logger')(__filename);
+const logger = require('logger').createLogger({className: __filename});
 
 const SymptomScanTime = require('./SymptomScanTimeModel');
 

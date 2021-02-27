@@ -51,12 +51,13 @@ const scannerLogger = winston.createLogger({
 
 // exports.scannerLogger = scannerLogger;
 // exports.logger = logger;
-module.exports = function(className) {
+exports.createLogger = function(loggerOptions) {
     let transports = [
         new winston.transports.File(options.file),
         new winston.transports.Console(options.console),
     ];
-    if(options.scannerTransport) {
+    console.log(loggerOptions);
+    if(loggerOptions.scannerTransport) {
         transports = [
             new winston.transports.File(options.scannerFile),
         ];
@@ -68,7 +69,7 @@ module.exports = function(className) {
             timestamp(),
             printf(({ level, message, timestamp, stack }) => {
                 return JSON.stringify({
-                    class: className,
+                    class: loggerOptions.className,
                     timestamp,
                     level,
                     message,

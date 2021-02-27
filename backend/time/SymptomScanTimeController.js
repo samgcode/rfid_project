@@ -1,6 +1,6 @@
 const UidStream = require('./UidStream');
 
-const logger = require('logger')(__filename);
+const logger = require('logger').createLogger({className: __filename});
 
 class SymptomScanTimeController {
     constructor(serviceLocator) {

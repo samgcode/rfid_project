@@ -3,7 +3,7 @@ const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
 const koaLogger = require('koa-logger');
 
-const logger = require('logger')(__filename);
+const logger = require('logger').createLogger({className: __filename});
 
 const router = require('./routes');
 
