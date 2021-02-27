@@ -32,7 +32,7 @@ class RfidEventService {
     }
 
     async handleRfidEvent(uid) {
-        this.wakeScreen();
+        // this.wakeScreen();
         const user = await this._userService.getUserByUid(uid);
         let name = null;
         if(user) {
