@@ -1,6 +1,6 @@
 const EventEmitter = require("events");
 const moment = require('moment');
-const logger = require('logger').logger;
+const logger = require('logger').createLogger({className: __filename});
 const exec = require('exec');
 
 const scanCooldown = 1;//min
@@ -32,7 +32,7 @@ class RfidEventService {
     }
 
     async handleRfidEvent(uid) {
-        this.wakeScreen();
+        // this.wakeScreen();
         const user = await this._userService.getUserByUid(uid);
         let name = null;
         if(user) {
@@ -42,6 +42,7 @@ class RfidEventService {
             const symptomScanTimes = await this._symptomScanTimeService.getSymptomScanTimeByDateUid(uid, new Date());
             if(symptomScanTimes && symptomScanTimes.length > 0) {
                 const symptomScanTime = symptomScanTimes[0];
+                logger.info(symptomScanTime);
                 if(symptomScanTime.checkedSymptoms) {
                     if(this.checkCooldown(symptomScanTime)) {
                         this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: false });

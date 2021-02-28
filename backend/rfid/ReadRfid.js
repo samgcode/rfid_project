@@ -2,7 +2,7 @@
 const Mfrc522 = require("mfrc522-rpi");
 const SoftSPI = require("rpi-softspi");
 
-const scannerLogger = require('logger').scannerLogger;
+const logger = require('logger').createLogger({className: __filename, scannerTransport: true});
 
 const softSPI = new SoftSPI({
     clock: 23, // pin number of SCLK
@@ -33,10 +33,10 @@ class ReadRfid {
         
         let response = rfid.findCard();
         if (!response.status) {
-            scannerLogger.debug('No card detected');
+            logger.debug('No card detected');
             if(this.logNext) {
                 this.logNext = false;
-                scannerLogger.info('Scanner code is alive');
+                logger.info('Scanner code is alive');
             }
             return;
         }

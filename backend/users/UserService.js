@@ -1,4 +1,4 @@
-const logger = require('logger').logger;
+const logger = require('logger').createLogger({className: __filename});
 
 class UserService {
     constructor(serviceLocator) {

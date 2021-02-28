@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const logger = require('logger').logger;
+const logger = require('logger').createLogger({className: __filename});
 
 exports.intializeDatabase = function(dbURL, eventService) {
     const mongoDB = process.env.MONGODB_URI || dbURL;
