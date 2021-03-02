@@ -20,14 +20,28 @@ export default {
   watch: {
     $route() {
       this.name = this.$route.params.name;
+      clearTimeout(this.timeOut);
+      this.timeOut = setTimeout(() => {
+        this.returnToHome();
+      }, 5000);
     }
   },
   mounted() {
     this.name = this.$route.params.name;
-    setTimeout(() => {
-      this.$router.push({name: 'Home'});
+    clearTimeout(this.timeOut);
+    this.timeOut = setTimeout(() => {
+      this.returnToHome();
     }, 5000);
   },
+  methods: {
+    returnToHome: function() {
+      if(this.$router.currentRoute.path === `/goodbye/${this.name}` ||
+         this.$router.currentRoute.path === `/thanks/${this.name}`) 
+      {
+        this.$router.push({name: 'Home'});
+      }
+    }
+  }
 }
 </script>
 
