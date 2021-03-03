@@ -2,6 +2,7 @@ const Koa = require('koa');
 const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
 const koaLogger = require('koa-logger');
+const stripAnsi = require('strip-ansi');
 
 const logger = require('logger').createLogger({className: __filename});
 
@@ -15,10 +16,8 @@ process.on('unhandledRejection', function(err) {
     logger.error(err);
 });
 
-app.use(koaLogger({
-    transporter: (str, args) => {
-        logger.info(str);
-    }
+app.use(koaLogger((str) => {
+    logger.info(stripAnsi(str));
 }));
 
 app.on('error', (err) => {
