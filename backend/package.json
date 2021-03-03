@@ -21,6 +21,7 @@
   "dependencies": {
     "@koa/cors": "^3.1.0",
     "@koa/router": "^10.0.0",
+    "backend-config": "file:../common/config",
     "capture-console": "^1.0.1",
     "csv-parse": "^4.14.2",
     "csv-stringify": "^5.6.0",

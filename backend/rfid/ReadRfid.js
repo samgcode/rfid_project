@@ -3,6 +3,8 @@ const Mfrc522 = require("mfrc522-rpi");
 const SoftSPI = require("rpi-softspi");
 
 const logger = require('logger').createLogger({className: __filename, scannerTransport: true});
+const config = require('backend-config');
+const options = config.scannerOptions;
 
 const softSPI = new SoftSPI({
     clock: 23, // pin number of SCLK
@@ -13,7 +15,7 @@ const softSPI = new SoftSPI({
 
 const rfid = new Mfrc522(softSPI).setResetPin(22);
 
-const loopTime = 50;
+const loopTime = options.scanSpeed;
 
 let scannedUids = [];
 const scanCoolDown = 1;//min
@@ -43,7 +45,7 @@ class ReadRfid {
 
         response = rfid.getUid();
         if (!response.status) {
-            scannerLogger.info("UID Scan Error");
+            logger.info("UID Scan Error");
             return;
         }
 
@@ -53,7 +55,7 @@ class ReadRfid {
         });
         const uid = `${id[0]}${id[1]}${id[2]}${id[3]}`;
 
-        scannerLogger.info(uid);
+        logger.info(uid);
         await this._eventService.handleRfidEvent(uid);
 
 

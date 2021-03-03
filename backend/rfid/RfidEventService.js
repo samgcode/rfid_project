@@ -45,17 +45,21 @@ class RfidEventService {
                 logger.info(symptomScanTime);
                 if(symptomScanTime.checkedSymptoms) {
                     if(this.checkCooldown(symptomScanTime)) {
+                        logger.info({ id: uid, name: name, checkSypmtomsRequired: false });
                         this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: false });
                         this._symptomScanTimeService.updateSymptomScanTime(uid);
                     }
                 } else {
+                    logger.info({ id: uid, name: name, checkSypmtomsRequired: true });
                     this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: true });
                 }
             } else {
+                logger.info({ id: uid, name: name, checkSypmtomsRequired: true });
                 this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: true });
                 await this._symptomScanTimeService.addSymptomScanTime(uid, false);
             }
         } else {
+            logger.info({ id: uid, needName: true, checkSypmtomsRequired: true })
             this._events.emit('data', { id: uid, needName: true, checkSypmtomsRequired: true });
         } 
     }

@@ -24,6 +24,9 @@
                 "colorize": true,
                 "timestamp": true
             }
+        },
+        "scannerOptions": {
+            "scanSpeed": 350
         }
     }
 }

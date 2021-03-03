@@ -1,6 +1,4 @@
 fix scanning on goodbyue page
-clear intercal for goodbye page when you scan a new card
-- test new card to sign in and out
 when you scan a card it wakes up screen
 fix frontend not loaded on startup 
 - https://www.raspberrypi.org/forums/viewtopic.php?t=119607
@@ -12,8 +10,6 @@ change splash screen raspberry pi
 add frontend logging
 clear logs with linux rolling logs (log rotate)
 log class in log message
-
-only log the times from now
 
 last logs are from 5am
 make cron job post every hour
