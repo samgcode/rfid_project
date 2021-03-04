@@ -115,7 +115,6 @@ class SymptomScanTimeController {
     async checkScanner(ctx) {
         try {
             this._eventService.checkScanner();
-            ctx.body = response;
         } catch(err) {
             ctx.throw(err);
         }
