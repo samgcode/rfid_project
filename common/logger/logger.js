@@ -19,7 +19,6 @@ exports.createLogger = function(loggerOptions) {
             new winston.transports.File(options.scannerFile),
         ];
     }
-    console.log(transports);
     return winston.createLogger({
         class: '',
         format: combine(

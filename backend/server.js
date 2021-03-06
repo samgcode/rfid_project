@@ -4,7 +4,7 @@ const bodyParser = require('koa-bodyparser');
 const koaLogger = require('koa-logger');
 const stripAnsi = require('strip-ansi');
 
-const logger = require('logger').createLogger({className: __filename, scannerTransport: true});
+const logger = require('logger').createLogger({className: __filename});
 
 const router = require('./routes');
 

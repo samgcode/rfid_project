@@ -446,3 +446,16 @@
 {"class":"/mnt/code/rfid_project/backend/databaseService.js","timestamp":"2021-03-03T01:53:20.518Z","level":"info","message":"connection established successfully"}
 {"class":"/mnt/code/rfid_project/backend/server.js","timestamp":"2021-03-03T01:53:26.115Z","level":"info","message":"  <-- GET /symptomScanTimes"}
 {"class":"/mnt/code/rfid_project/backend/server.js","timestamp":"2021-03-03T01:53:26.139Z","level":"info","message":"  --> GET /symptomScanTimes 200 24ms 4.41kb"}
+{"class":"/mnt/code/rfid_project/backend/databaseService.js","timestamp":"2021-03-06T18:07:04.145Z","level":"info","message":"connection established successfully"}
+{"class":"/mnt/code/rfid_project/backend/databaseService.js","timestamp":"2021-03-06T18:11:57.570Z","level":"info","message":"connection established successfully"}
+{"class":"/mnt/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-03-06T18:16:50.117Z","level":"info","message":"connection open"}
+{"class":"/mnt/code/rfid_project/backend/databaseService.js","timestamp":"2021-03-06T18:18:17.559Z","level":"info","message":"connection established successfully"}
+{"class":"/mnt/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-03-06T18:18:19.468Z","level":"info","message":"connection open"}
+{"class":"/mnt/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-03-06T18:19:42.829Z","level":"info","message":{"id":"000000041","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-03-06T18:58:45.915Z","level":"info","message":{"id":"000000042","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-03-06T18:59:05.399Z","level":"info","message":{"id":"000000041","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-03-06T19:01:01.158Z","level":"info","message":{"id":"000000042","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/code/rfid_project/backend/databaseService.js","timestamp":"2021-03-06T19:01:06.182Z","level":"info","message":"connection established successfully"}
+{"class":"/mnt/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-03-06T19:01:07.442Z","level":"info","message":"connection open"}
+{"class":"/mnt/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-03-06T19:01:07.895Z","level":"info","message":{"id":"000000042","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-03-06T19:01:15.068Z","level":"info","message":{"id":"000000042","needName":true,"checkSypmtomsRequired":true}}

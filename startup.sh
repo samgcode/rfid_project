@@ -4,3 +4,5 @@ nohup npm run prod &
 cd ../backend
 nohup npm run mongo &
 nohup npm run prod &
+cd ../scanner
+nohup npm run start &

@@ -19,6 +19,8 @@ router.get('/symptomScanTimes/:uid', symptomScanTimeController.getSymptomScanTim
 router.get('/clearRecords', symptomScanTimeController.removeOldRecords.bind(symptomScanTimeController));
 router.get('/checkScanner', symptomScanTimeController.checkScanner.bind(symptomScanTimeController));
 
+router.post('/scan/:uid', symptomScanTimeController.scan.bind(symptomScanTimeController));
+
 router.get('/users/:uid', userController.getUserByUid.bind(userController));
 
 router.get('/export/all', exportController.getSymptomScanTimes.bind(exportController));

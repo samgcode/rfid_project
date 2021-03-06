@@ -1,6 +1,7 @@
 "use strict"
 const Mfrc522 = require("mfrc522-rpi");
 const SoftSPI = require("rpi-softspi");
+const axios = require('axios');
 
 const logger = require('logger').createLogger({className: __filename, scannerTransport: true});
 const config = require('backend-config');
@@ -23,11 +24,10 @@ const scanCoolDown = 1;//min
 
 class ReadRfid {
 
-
     constructor() {
         this.logNext = false;
     }
-    start() {
+    async start() {
         setInterval(() => {
             this.loop();
         }, loopTime);
@@ -57,7 +57,7 @@ class ReadRfid {
         const uid = `${id[0]}${id[1]}${id[2]}${id[3]}`;
 
         logger.info(uid);
-        await this._eventService.handleRfidEvent(uid);
+        await axios.post(`http://${options.backendUrl}/scan/${uid}`);
 
 
         rfid.stopCrypto();
