@@ -1,3 +1,4 @@
+fix variables in readrfid class
 fix scanning on goodbyue page
 when you scan a card it wakes up screen
 fix frontend not loaded on startup 

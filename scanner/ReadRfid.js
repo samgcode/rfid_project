@@ -4,6 +4,7 @@ const SoftSPI = require("rpi-softspi");
 
 const logger = require('logger').createLogger({className: __filename, scannerTransport: true});
 const config = require('backend-config');
+// console.log(config);
 const options = config.scannerOptions;
 
 const softSPI = new SoftSPI({
@@ -21,8 +22,9 @@ let scannedUids = [];
 const scanCoolDown = 1;//min
 
 class ReadRfid {
-    constructor(serviceLocator) {
-        this._eventService = serviceLocator.services.rfidEventService;
+
+
+    constructor() {
         this.logNext = false;
     }
     start() {
@@ -32,7 +34,6 @@ class ReadRfid {
     }
     async loop() {
         rfid.reset();
-        
         let response = rfid.findCard();
         if (!response.status) {
             logger.debug('No card detected');
