@@ -62,7 +62,6 @@ class SymptomScanTimeController {
         try {
             const uid = ctx.params.uid;
             const symptomScanTime = await this._symptomScanTimeService.getSymptomScanTimeByUid(uid);
-            this._eventService.handleRfidEvent(uid);
             ctx.body = symptomScanTime;
         } catch(err) {
             ctx.throw(err);    
@@ -103,6 +102,16 @@ class SymptomScanTimeController {
         }
     }
 
+    async scan(ctx) {
+        try {
+            const uid = ctx.params.uid;
+            this._eventService.handleRfidEvent(uid);
+            ctx.body = 'request sent'; 
+        } catch(err) {
+            ctx.throw(err);    
+        }
+    }
+
     async removeOldRecords(ctx) {
         try {
             const response = await this._symptomScanTimeService.removeOldRecords();
@@ -115,7 +124,6 @@ class SymptomScanTimeController {
     async checkScanner(ctx) {
         try {
             this._eventService.checkScanner();
-            ctx.body = response;
         } catch(err) {
             ctx.throw(err);
         }

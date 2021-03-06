@@ -26,7 +26,8 @@
             }
         },
         "scannerOptions": {
-            "scanSpeed": 350
+            "scanSpeed": 350,
+            "backendUrl": "localhost:3000"
         }
     }
 }
