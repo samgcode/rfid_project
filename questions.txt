@@ -1,4 +1,0 @@
-what if they scan multiple times
-what if someone else scans before they hit yes
-how often will the data be sent
-can a database of names be hosted outside
