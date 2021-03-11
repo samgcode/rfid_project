@@ -6,35 +6,37 @@ const axios = require('axios');
 const logger = require('logger').createLogger({className: __filename, scannerTransport: true});
 const config = require('backend-config');
 // console.log(config);
-const options = config.scannerOptions;
 
-const softSPI = new SoftSPI({
-    clock: 23, // pin number of SCLK
-    mosi: 19, // pin number of MOSI
-    miso: 21, // pin number of MISO
-    client: 24 // pin number of CS
-});
-
-const rfid = new Mfrc522(softSPI).setResetPin(22);
-
-const loopTime = options.scanSpeed;
-
-let scannedUids = [];
-const scanCoolDown = 1;//min
 
 class ReadRfid {
 
     constructor() {
+        this.options = config.scannerOptions;
+
+        this.softSPI = new SoftSPI({
+            clock: 23, // pin number of SCLK
+            mosi: 19, // pin number of MOSI
+            miso: 21, // pin number of MISO
+            client: 24 // pin number of CS
+        });
+        
+        this.rfid = new Mfrc522(this.softSPI).setResetPin(22);
+        
+        this.loopTime = this.options.scanSpeed;
+        
+        this.scannedUids = [];
+        this.scanCoolDown = 1;//min
+
         this.logNext = false;
     }
     async start() {
         setInterval(() => {
             this.loop();
-        }, loopTime);
+        }, this.loopTime);
     }
     async loop() {
-        rfid.reset();
-        let response = rfid.findCard();
+        this.rfid.reset();
+        let response = this.rfid.findCard();
         if (!response.status) {
             logger.debug('No card detected');
             if(this.logNext) {
@@ -44,7 +46,7 @@ class ReadRfid {
             return;
         }
 
-        response = rfid.getUid();
+        response = this.rfid.getUid();
         if (!response.status) {
             logger.info("UID Scan Error");
             return;
@@ -60,7 +62,7 @@ class ReadRfid {
         await axios.post(`http://${options.backendUrl}/scan/${uid}`);
 
 
-        rfid.stopCrypto();
+        this.rfid.stopCrypto();
     }
 }
 
