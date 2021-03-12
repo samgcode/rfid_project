@@ -59,7 +59,7 @@ class ReadRfid {
         const uid = `${id[0]}${id[1]}${id[2]}${id[3]}`;
 
         logger.info(uid);
-        await axios.post(`http://${options.backendUrl}/scan/${uid}`);
+        await axios.post(`http://${this.options.backendUrl}/scan/${uid}`);
 
 
         this.rfid.stopCrypto();
