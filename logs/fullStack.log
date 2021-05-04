@@ -459,3 +459,205 @@
 {"class":"/mnt/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-03-06T19:01:07.442Z","level":"info","message":"connection open"}
 {"class":"/mnt/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-03-06T19:01:07.895Z","level":"info","message":{"id":"000000042","needName":true,"checkSypmtomsRequired":true}}
 {"class":"/mnt/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-03-06T19:01:15.068Z","level":"info","message":{"id":"000000042","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:01:24.591Z","level":"info","message":"API is running at localhost:3000"}
+{"class":"/mnt/d/code/rfid_project/backend/databaseService.js","timestamp":"2021-05-04T01:01:24.606Z","level":"info","message":"connection established successfully"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:02:13.770Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T01:02:13.773Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:02:22.069Z","level":"info","message":"  <-- POST /scan/000000044"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:02:22.218Z","level":"info","message":"  --> POST /scan/000000044 200 148ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:02:22.244Z","level":"info","message":{"_id":"609098f8208c4e07dbfe7f2e","uid":44,"timeIn":"2021-05-04T00:44:40.059Z","timeOut":null,"checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:02:22.245Z","level":"info","message":{"id":"000000044","name":"4 4","checkSypmtomsRequired":false}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:00.521Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 167s 95b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:00.767Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T01:05:00.768Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:09.440Z","level":"info","message":"  <-- POST /scan/000000043"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:09.441Z","level":"info","message":"  --> POST /scan/000000043 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:05:09.445Z","level":"info","message":{"_id":"609098e9208c4e07dbfe7f2c","uid":43,"timeIn":"2021-05-04T00:44:25.689Z","timeOut":null,"checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:05:09.445Z","level":"info","message":{"id":"000000043","name":"43","checkSypmtomsRequired":false}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:11.509Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 11s 94b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:11.890Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T01:05:11.891Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:14.683Z","level":"info","message":"  <-- POST /scan/000000043"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:14.684Z","level":"info","message":"  --> POST /scan/000000043 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:05:14.689Z","level":"info","message":{"_id":"609098e9208c4e07dbfe7f2c","uid":43,"timeIn":"2021-05-04T00:44:25.689Z","timeOut":"2021-05-04T01:05:09.449Z","checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:17.977Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 6,086ms 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:18.212Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T01:05:18.212Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:20.618Z","level":"info","message":"  <-- POST /scan/000000043"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:20.619Z","level":"info","message":"  --> POST /scan/000000043 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:05:20.623Z","level":"info","message":{"_id":"609098e9208c4e07dbfe7f2c","uid":43,"timeIn":"2021-05-04T00:44:25.689Z","timeOut":"2021-05-04T01:05:09.449Z","checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:37.857Z","level":"info","message":"API is running at localhost:3000"}
+{"class":"/mnt/d/code/rfid_project/backend/databaseService.js","timestamp":"2021-05-04T01:05:37.871Z","level":"info","message":"connection established successfully"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:05:38.503Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T01:05:38.505Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:06:01.436Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 23s 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:06:01.679Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T01:06:01.681Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:06:05.199Z","level":"info","message":"  <-- POST /scan/000000043"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:06:05.339Z","level":"info","message":"  --> POST /scan/000000043 200 140ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:06:05.364Z","level":"info","message":{"_id":"609098e9208c4e07dbfe7f2c","uid":43,"timeIn":"2021-05-04T00:44:25.689Z","timeOut":"2021-05-04T01:05:09.449Z","checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:24:35.920Z","level":"info","message":"  <-- POST /scan/000000043"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:24:35.922Z","level":"info","message":"  --> POST /scan/000000043 200 2ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:24:35.928Z","level":"info","message":{"_id":"609098e9208c4e07dbfe7f2c","uid":43,"timeIn":"2021-05-04T00:44:25.689Z","timeOut":"2021-05-04T01:05:09.449Z","checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:24:35.928Z","level":"info","message":{"id":"000000043","name":"43","checkSypmtomsRequired":false}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:24:44.649Z","level":"info","message":"  <-- POST /scan/000000044"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T01:24:44.650Z","level":"info","message":"  --> POST /scan/000000044 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:24:44.653Z","level":"info","message":{"_id":"609098f8208c4e07dbfe7f2e","uid":44,"timeIn":"2021-05-04T00:44:40.059Z","timeOut":"2021-05-04T01:02:22.248Z","checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T01:24:44.654Z","level":"info","message":{"id":"000000044","name":"4 4","checkSypmtomsRequired":false}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:31:05.242Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 5,104s 163b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:31:05.502Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:31:05.502Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:31:10.986Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 5,485ms 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:31:11.243Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:31:11.243Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:31:15.023Z","level":"info","message":"  <-- POST /scan/000000044"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:31:15.024Z","level":"info","message":"  --> POST /scan/000000044 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:31:15.027Z","level":"info","message":{"_id":"609098f8208c4e07dbfe7f2e","uid":44,"timeIn":"2021-05-04T00:44:40.059Z","timeOut":"2021-05-04T01:24:44.656Z","checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:31:15.027Z","level":"info","message":{"id":"000000044","name":"4 4","checkSypmtomsRequired":false}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:31:21.829Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 11s 95b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:31:22.059Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:31:22.060Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:31:45.667Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 24s 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:31:45.900Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:31:45.901Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:34:20.114Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 154s 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:34:20.368Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:34:20.368Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:35:09.495Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 49s 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:35:09.759Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:35:09.759Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:35:29.527Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 20s 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:35:29.762Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:35:29.763Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:36:02.197Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 32s 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:36:02.432Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:36:02.433Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:36:03.122Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 690ms 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:36:06.010Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:36:06.010Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:36:44.364Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 38s 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:36:52.441Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:36:52.441Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:36:52.902Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 462ms 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:36:53.155Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:36:53.155Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:29.050Z","level":"info","message":"  <-- POST /scan/000000045"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:29.051Z","level":"info","message":"  --> POST /scan/000000045 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:39:29.053Z","level":"info","message":{"id":"000000045","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:31.858Z","level":"info","message":"  <-- OPTIONS /users"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:31.858Z","level":"info","message":"  --> OPTIONS /users 204 0ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:31.860Z","level":"info","message":"  <-- POST /users"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:31.872Z","level":"info","message":"  --> POST /users 200 12ms 9b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:31.875Z","level":"info","message":"  <-- OPTIONS /symptomScanTimes"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:31.876Z","level":"info","message":"  --> OPTIONS /symptomScanTimes 204 1ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:31.877Z","level":"info","message":"  <-- POST /symptomScanTimes"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:31.879Z","level":"info","message":"  --> POST /symptomScanTimes 200 2ms 16b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:35.899Z","level":"info","message":"  <-- OPTIONS /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:35.900Z","level":"info","message":"  --> OPTIONS /symptomScanTime 204 1ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:35.901Z","level":"info","message":"  <-- PUT /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:35.908Z","level":"info","message":"  --> PUT /symptomScanTime 200 7ms 18b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:44.305Z","level":"info","message":"  <-- POST /scan/000000046"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:44.305Z","level":"info","message":"  --> POST /scan/000000046 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:39:44.308Z","level":"info","message":{"id":"000000046","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:53.911Z","level":"info","message":"  <-- OPTIONS /users"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:53.911Z","level":"info","message":"  --> OPTIONS /users 204 0ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:53.912Z","level":"info","message":"  <-- POST /users"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:53.914Z","level":"info","message":"  --> POST /users 200 2ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:53.917Z","level":"info","message":"  <-- OPTIONS /symptomScanTimes"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:53.917Z","level":"info","message":"  --> OPTIONS /symptomScanTimes 204 0ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:53.919Z","level":"info","message":"  <-- POST /symptomScanTimes"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:39:53.922Z","level":"info","message":"  --> POST /symptomScanTimes 200 3ms 16b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:40:00.200Z","level":"info","message":"  <-- OPTIONS /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:40:00.201Z","level":"info","message":"  --> OPTIONS /symptomScanTime 204 1ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:40:00.202Z","level":"info","message":"  <-- PUT /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:40:00.205Z","level":"info","message":"  --> PUT /symptomScanTime 200 3ms 18b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:40:23.294Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 210s 168b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:40:23.521Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:40:23.521Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:40:39.115Z","level":"info","message":"  <-- OPTIONS /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:40:39.115Z","level":"info","message":"  --> OPTIONS /symptomScanTime 204 0ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:40:39.116Z","level":"info","message":"  <-- PUT /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:40:39.120Z","level":"info","message":"  --> PUT /symptomScanTime 200 4ms 18b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:08.308Z","level":"info","message":"  <-- POST /scan/000000045"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:08.309Z","level":"info","message":"  --> POST /scan/000000045 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:41:08.312Z","level":"info","message":{"_id":"6090b3e37979bf0cdbf3e477","uid":45,"timeIn":"2021-05-04T02:39:31.877Z","timeOut":null,"checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:41:08.312Z","level":"info","message":{"id":"000000045","name":"45","checkSypmtomsRequired":false}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:23.184Z","level":"info","message":"  <-- POST /scan/000000047"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:23.185Z","level":"info","message":"  --> POST /scan/000000047 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:41:23.187Z","level":"info","message":{"id":"000000047","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:25.885Z","level":"info","message":"  <-- OPTIONS /users"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:25.886Z","level":"info","message":"  --> OPTIONS /users 204 1ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:25.887Z","level":"info","message":"  <-- POST /users"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:25.889Z","level":"info","message":"  --> POST /users 200 2ms 10b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:25.892Z","level":"info","message":"  <-- OPTIONS /symptomScanTimes"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:25.892Z","level":"info","message":"  --> OPTIONS /symptomScanTimes 204 0ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:25.893Z","level":"info","message":"  <-- POST /symptomScanTimes"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:25.895Z","level":"info","message":"  --> POST /symptomScanTimes 200 2ms 16b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:31.018Z","level":"info","message":"  <-- OPTIONS /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:31.018Z","level":"info","message":"  --> OPTIONS /symptomScanTime 204 0ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:31.019Z","level":"info","message":"  <-- PUT /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:31.023Z","level":"info","message":"  --> PUT /symptomScanTime 200 4ms 18b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:58.094Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 95s 165b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:41:58.324Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:41:58.324Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:42:32.571Z","level":"info","message":"  -x- GET /symptomScanTimeEvents 200 34s 26b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:42:34.246Z","level":"info","message":"  <-- GET /symptomScanTimeEvents"}
+{"class":"/mnt/d/code/rfid_project/backend/time/SymptomScanTimeController.js","timestamp":"2021-05-04T02:42:34.247Z","level":"info","message":"connection open"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:42:40.049Z","level":"info","message":"  <-- POST /scan/000000045"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:42:40.050Z","level":"info","message":"  --> POST /scan/000000045 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:42:40.053Z","level":"info","message":{"_id":"6090b3e37979bf0cdbf3e477","uid":45,"timeIn":"2021-05-04T02:39:31.877Z","timeOut":"2021-05-04T02:41:08.313Z","checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:42:40.054Z","level":"info","message":{"id":"000000045","name":"45","checkSypmtomsRequired":false}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:42:48.317Z","level":"info","message":"  <-- POST /scan/000000046"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:42:48.319Z","level":"info","message":"  --> POST /scan/000000046 200 2ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:42:48.322Z","level":"info","message":{"_id":"6090b3f97979bf0cdbf3e479","uid":46,"timeIn":"2021-05-04T02:39:53.919Z","timeOut":null,"checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:42:48.323Z","level":"info","message":{"id":"000000046","name":"4. 6!","checkSypmtomsRequired":false}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:42:57.367Z","level":"info","message":"  <-- POST /scan/000000047"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:42:57.368Z","level":"info","message":"  --> POST /scan/000000047 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:42:57.371Z","level":"info","message":{"_id":"6090b4557979bf0cdbf3e47b","uid":47,"timeIn":"2021-05-04T02:41:25.894Z","timeOut":null,"checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:42:57.372Z","level":"info","message":{"id":"000000047","name":"4 7","checkSypmtomsRequired":false}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:05.995Z","level":"info","message":"  <-- POST /scan/000000047"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:05.996Z","level":"info","message":"  --> POST /scan/000000047 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:43:05.999Z","level":"info","message":{"_id":"6090b4557979bf0cdbf3e47b","uid":47,"timeIn":"2021-05-04T02:41:25.894Z","timeOut":"2021-05-04T02:42:57.373Z","checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:09.495Z","level":"info","message":"  <-- POST /scan/000000045"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:09.496Z","level":"info","message":"  --> POST /scan/000000045 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:43:09.500Z","level":"info","message":{"_id":"6090b3e37979bf0cdbf3e477","uid":45,"timeIn":"2021-05-04T02:39:31.877Z","timeOut":"2021-05-04T02:42:40.055Z","checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:13.300Z","level":"info","message":"  <-- POST /scan/000000048"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:13.301Z","level":"info","message":"  --> POST /scan/000000048 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:43:13.304Z","level":"info","message":{"id":"000000048","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:21.544Z","level":"info","message":"  <-- OPTIONS /users"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:21.545Z","level":"info","message":"  --> OPTIONS /users 204 1ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:21.545Z","level":"info","message":"  <-- POST /users"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:21.548Z","level":"info","message":"  --> POST /users 200 3ms 17b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:21.552Z","level":"info","message":"  <-- OPTIONS /symptomScanTimes"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:21.553Z","level":"info","message":"  --> OPTIONS /symptomScanTimes 204 1ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:21.554Z","level":"info","message":"  <-- POST /symptomScanTimes"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:21.556Z","level":"info","message":"  --> POST /symptomScanTimes 200 2ms 16b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:27.039Z","level":"info","message":"  <-- OPTIONS /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:27.040Z","level":"info","message":"  --> OPTIONS /symptomScanTime 204 0ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:27.041Z","level":"info","message":"  <-- PUT /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:27.045Z","level":"info","message":"  --> PUT /symptomScanTime 200 4ms 18b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:28.969Z","level":"info","message":"  <-- POST /scan/000000049"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:28.970Z","level":"info","message":"  --> POST /scan/000000049 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:43:28.971Z","level":"info","message":{"id":"000000049","needName":true,"checkSypmtomsRequired":true}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:33.517Z","level":"info","message":"  <-- OPTIONS /users"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:33.518Z","level":"info","message":"  --> OPTIONS /users 204 1ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:33.518Z","level":"info","message":"  <-- POST /users"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:33.521Z","level":"info","message":"  --> POST /users 200 3ms 9b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:33.523Z","level":"info","message":"  <-- OPTIONS /symptomScanTimes"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:33.524Z","level":"info","message":"  --> OPTIONS /symptomScanTimes 204 1ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:33.524Z","level":"info","message":"  <-- POST /symptomScanTimes"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:33.528Z","level":"info","message":"  --> POST /symptomScanTimes 200 3ms 16b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:36.925Z","level":"info","message":"  <-- OPTIONS /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:36.926Z","level":"info","message":"  --> OPTIONS /symptomScanTime 204 1ms "}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:36.927Z","level":"info","message":"  <-- PUT /symptomScanTime"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:36.930Z","level":"info","message":"  --> PUT /symptomScanTime 200 3ms 18b"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:44.652Z","level":"info","message":"  <-- POST /scan/000000048"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:43:44.654Z","level":"info","message":"  --> POST /scan/000000048 200 2ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:43:44.657Z","level":"info","message":{"_id":"6090b4c97979bf0cdbf3e47d","uid":48,"timeIn":"2021-05-04T02:43:21.554Z","timeOut":null,"checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:44:17.266Z","level":"info","message":"  <-- POST /scan/000000048"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:44:17.267Z","level":"info","message":"  --> POST /scan/000000048 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:44:17.270Z","level":"info","message":{"_id":"6090b4c97979bf0cdbf3e47d","uid":48,"timeIn":"2021-05-04T02:43:21.554Z","timeOut":null,"checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:45:36.001Z","level":"info","message":"  <-- POST /scan/000000048"}
+{"class":"/mnt/d/code/rfid_project/backend/server.js","timestamp":"2021-05-04T02:45:36.002Z","level":"info","message":"  --> POST /scan/000000048 200 1ms 12b"}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:45:36.005Z","level":"info","message":{"_id":"6090b4c97979bf0cdbf3e47d","uid":48,"timeIn":"2021-05-04T02:43:21.554Z","timeOut":null,"checkedSymptoms":true,"__v":0}}
+{"class":"/mnt/d/code/rfid_project/backend/rfid/RfidEventService.js","timestamp":"2021-05-04T02:45:36.005Z","level":"info","message":{"id":"000000048","name":"4  .  8   ","checkSypmtomsRequired":false}}

@@ -36,8 +36,10 @@ export default {
   },
   methods: {
     returnToHome: function() {
-      if(this.$router.currentRoute.path === `/goodbye/${this.name}` ||
-         this.$router.currentRoute.path === `/thanks/${this.name}`) 
+      console.log(encodeURIComponent(this.name))
+      console.log('test')
+      if(this.$router.currentRoute.path === `/goodbye/${encodeURIComponent(this.name)}` ||
+         this.$router.currentRoute.path === `/thanks/${encodeURIComponent(this.name)}`) 
       {
         this.$router.push({name: 'Home'});
       }
