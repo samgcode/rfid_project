@@ -52,7 +52,7 @@ export default {
     scanEvent: function(data) {
       if(data.checkSypmtomsRequired) {
         if(data.needName) {
-          if(this.$router.currentRoute.path != `/enterName/${data.id}/false`) {
+          if(this.$router.currentRoute.path != `/enterName/${encodeURIComponent(data.id)}/false`) {
             this.$router.push({
               name: `EnterName`,
               params: {
@@ -62,7 +62,7 @@ export default {
             });
           }
         } else {
-          if(this.$router.currentRoute.path != `/symptoms/${data.id}/${data.name}`) {
+          if(this.$router.currentRoute.path != `/symptoms/${encodeURIComponent(data.id)}/${data.name}`) {
             this.$router.push({
               name: `Symptoms`,
               params: {

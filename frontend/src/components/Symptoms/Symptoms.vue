@@ -91,7 +91,7 @@ export default {
         }, 10000);
     },
     changeName: function() {
-        if(this.$router.currentRoute.path != `/enterName/${this.id}/true`) {
+        if(this.$router.currentRoute.path != `/enterName/${encodeURIComponent(this.id)}/true`) {
             this.$router.push({
                 name: `EnterName`,
                 params: {
