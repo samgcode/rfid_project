@@ -23,9 +23,9 @@ const serviceLocator = {
 serviceLocator.repositories['symptomScanTimeRepository'] = new SymptomScanTimeRepository();
 serviceLocator.repositories['userRepository'] = new UserRepository();
 
+serviceLocator.services['userService'] = new UserService(serviceLocator);
 serviceLocator.services['symptomScanTimeService'] = new SymptomScanTimeService(serviceLocator);
 serviceLocator.services['exportService'] = new ExportService(serviceLocator);
-serviceLocator.services['userService'] = new UserService(serviceLocator);
 serviceLocator.services['rfidEventService'] = new RfidEventService(serviceLocator);
 
 serviceLocator.controllers['symptomScanTimeController'] = new SymptomScanTimeController(serviceLocator);

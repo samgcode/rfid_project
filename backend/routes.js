@@ -16,6 +16,7 @@ router.get('/', function(ctx) {
 router.get('/symptomScanTimes', symptomScanTimeController.getSymptomScanTimes.bind(symptomScanTimeController));
 router.get('/symptomScanTimes/ping', symptomScanTimeController.ping.bind(symptomScanTimeController));
 router.get('/symptomScanTimes/:uid', symptomScanTimeController.getSymptomScanTimeById.bind(symptomScanTimeController));
+router.get('/currentlyCheckedIn', symptomScanTimeController.getCurrentlyCheckedIn.bind(symptomScanTimeController));
 router.get('/clearRecords', symptomScanTimeController.removeOldRecords.bind(symptomScanTimeController));
 router.get('/checkScanner', symptomScanTimeController.checkScanner.bind(symptomScanTimeController));
 

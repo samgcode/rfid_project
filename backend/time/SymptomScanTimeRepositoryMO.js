@@ -37,8 +37,32 @@ class SymptomScanTimeRepository {
         return symptomScanTimes;
     }
 
+    async getCurrentlyCheckedIn() {
+        const yesterday = new Date()
+        const tommarow = new Date()
+        yesterday.setDate(yesterday.getDate()-1)
+        tommarow.setDate(tommarow.getDate()+1)
+
+        let scanTimes = await this.getSymptomScanTimesByDate(yesterday, tommarow)
+        scanTimes = scanTimes.map(scanTime => {
+            if(scanTime.timeOut) {
+                return {
+                    uid: scanTime.uid,
+                    signedIn: false
+                }
+            } else {
+                return {
+                    uid: scanTime.uid,
+                    signedIn: true
+                }
+            }
+        })
+        console.log(scanTimes)
+        return scanTimes
+    }
+
     async getSymptomScanTimesByDate(startDate, endDate) {
-        const data = await SymptomScanTime.find({'uid': uid}, (symptomScanTimes) => {
+        const data = await SymptomScanTime.find((symptomScanTimes) => {
             return symptomScanTimes;
         });
 
@@ -47,6 +71,7 @@ class SymptomScanTimeRepository {
             const time = moment(symptomScanTime.timeIn);
             const isAfter = time.isAfter(moment(startDate), 'day');
             const isBefore = time.isBefore(moment(endDate), 'day');
+            // console.log(isAfter, isBefore)
             if(isAfter && isBefore) {
                 symptomScanTimes.push(symptomScanTime);
             }

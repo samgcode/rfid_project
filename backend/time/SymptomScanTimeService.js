@@ -3,6 +3,7 @@ const logger = require('logger').createLogger({className: __filename});
 class SymptomScanTimeService {
     constructor(serviceLocator) {
         this._symptomScanTimeRepository = serviceLocator.repositories.symptomScanTimeRepository;
+        this._userService = serviceLocator.services.userService
     }
 
     async getSymptomScanTimes() {
@@ -20,6 +21,22 @@ class SymptomScanTimeService {
             return symptomScanTime;
         } catch(err) {
             logger.error(err);    
+        }
+    }
+
+    async getCurrentlyCheckedIn() {
+        try {
+            let symptomScanTimes = await this._symptomScanTimeRepository.getCurrentlyCheckedIn();
+            symptomScanTimes = await Promise.all(symptomScanTimes.map(async (scanTime) => {
+                const user = await this._userService.getUserByUid(scanTime.uid)
+                return {
+                    ...scanTime,
+                    name: user.name
+                }
+            }))
+            return symptomScanTimes;
+        } catch(err) {
+            logger.error(err);
         }
     }
 

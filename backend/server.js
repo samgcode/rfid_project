@@ -10,7 +10,7 @@ const router = require('./routes');
 
 const app = new Koa();
 
-const port = 3000;
+const port = 3001;
 
 process.on('unhandledRejection', function(err) {
     logger.error(err);

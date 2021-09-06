@@ -68,6 +68,15 @@ class SymptomScanTimeController {
         }
     }
 
+    async getCurrentlyCheckedIn(ctx) {
+        try {
+            const symptomScanTimes = await this._symptomScanTimeService.getCurrentlyCheckedIn();
+            ctx.body = symptomScanTimes;
+        } catch(err) { 
+            ctx.throw(err);
+        }
+    }
+
     sendEventsToAll(symptomScanTimeEvent) {
         clients.forEach(c => c.res.write({data: `${JSON.stringify(symptomScanTimeEvent)}\n\n`}));
     }
