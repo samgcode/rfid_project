@@ -7,6 +7,7 @@ import Export from '../components/Export/Export';
 import Goodbye from '../components/Goodbye/Goodbye';
 import EnterName from '../components/Name/EnterName';
 import ThanksForChecking from '../components/Symptoms/ThanksForChecking'
+import SignedInList from '../components/SignedInList/SignedInList'
 
 Vue.use(Router);
 
@@ -39,6 +40,10 @@ export default new Router({
       path: '/enterName/:id/:changeName',
       name: 'EnterName',
       component: EnterName
+    }, {
+      path: '/signedInList',
+      name: 'SignedInList',
+      component: SignedInList
     }
   ],
   scrollBehavior() {

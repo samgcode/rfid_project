@@ -21,6 +21,11 @@ class UserService {
 
         return response;
     }
+
+    async getCurrentlySignedIn() {
+        const respose = await axios.get(`http://${baseUrl}/currentlyCheckedIn`)
+        return respose.data
+    }
 }
 
 export default UserService;
