@@ -9,6 +9,7 @@
       <h3 class="text-secondary">
         Please scan card to check symptoms
       </h3>
+      <signed-in-list></signed-in-list>
     </div>
   </div>
 </template>
@@ -17,12 +18,13 @@
 import OrbitLoader from '../Loading/OrbitLoader.vue';
 import serviceLocator from '../../services/serviceLocator';
 import ErrorDisplay from '../Error/ErrorDisplay';
+import SignedInList from '../signedInList/SignedInList.vue';
 
 // const logger = require('logger').logger;
 const eventService = serviceLocator.services.eventService;
 
 export default {
-  components: { OrbitLoader, ErrorDisplay },
+  components: { OrbitLoader, ErrorDisplay, SignedInList },
   name: 'home',
   data() {
     return {
@@ -49,37 +51,38 @@ export default {
       this.loading = true;
       this.error = true;
     },
+    goToPath: function(location, matchUrl, params) {
+      if(this.$router.currentRoute.path != matchUrl) {
+        this.$router.push({
+          name: location,
+          params
+        });
+      }
+    },
     scanEvent: function(data) {
+      console.log(data)
       if(data.checkSypmtomsRequired) {
         if(data.needName) {
-          if(this.$router.currentRoute.path != `/enterName/${encodeURIComponent(data.id)}/false`) {
-            this.$router.push({
-              name: `EnterName`,
-              params: {
-                  id: data.id,
-                  changeName: false
-                }
-            });
-          }
+          this.goToPath('EnterName', `/enterName/${encodeURIComponent(data.id)}/false`, 
+            {id: data.id, changeName: false}
+          )
         } else {
-          if(this.$router.currentRoute.path != `/symptoms/${encodeURIComponent(data.id)}/${data.name}`) {
-            this.$router.push({
-              name: `Symptoms`,
-              params: {
-                id: data.id,
-                name: data.name
-              }
-            });
-          }
+          this.goToPath('Symptoms', `/symptoms/${encodeURIComponent(data.id)}/${data.name}`, 
+            {id: data.id, name: data.name}
+          )
         }
       } else {
-        if(this.$router.currentRoute.path != `/goodbye`) {
+        if(data.checkedIn) {
+          this.goToPath('Goodbye', '/goodbye', 
+              {name: data.name}
+          )
+        } else {
           this.$router.push({
-            name: `Goodbye`,
+            name: `Thanks`,
             params: {
-                name: data.name
-              }
-          });
+                name: data.name,
+            }
+        });
         }
       }
     }

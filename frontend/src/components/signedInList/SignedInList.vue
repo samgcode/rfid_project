@@ -3,12 +3,12 @@
     <orbit-loader :loading="loading" />
     <error-display :message="errorMessage" :class="{ 'd-none': !error }" />
     <div :class="{ 'd-none': loading }">
-      <div class="display-4 text-secondary">See who is currently signed in</div>
+      <h3 class="text-secondary">Who is currently signed in?</h3>
       <ul>
         <li v-for="user in checkedInList" :key="user.uid" class="row">
           <h3 class="text-left">{{user.name}}</h3>
           <h3 v-show="user.signedIn" class="text-right px-5 text-success">Signed in</h3>
-          <h3 v-show="!user.signedIn" class="text-right px-5 text-danger">Signed in</h3>
+          <h3 v-show="!user.signedIn" class="text-right px-5 text-danger">Signed out</h3>
         </li>
       </ul>
     </div>

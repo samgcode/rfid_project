@@ -1,7 +1,7 @@
 <template>
   <div id="home" class="main">
     <div class="display-4 text-secondary">
-      Thank you for checking your symptoms
+      Thank you for checking in
     </div>
     <h2 class="text-secondary">
       Have a great day {{ name }}!

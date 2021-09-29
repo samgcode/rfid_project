@@ -44,24 +44,41 @@ class RfidEventService {
                 const symptomScanTime = symptomScanTimes[0];
                 logger.info(symptomScanTime);
                 if(symptomScanTime.checkedSymptoms) {
-                    if(this.checkCooldown(symptomScanTime)) {
-                        logger.info({ id: uid, name: name, checkSypmtomsRequired: false });
-                        this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: false });
-                        this._symptomScanTimeService.updateSymptomScanTime(uid);
-                    }
+                    this.updateScanTime(symptomScanTime, uid, name);
                 } else {
-                    logger.info({ id: uid, name: name, checkSypmtomsRequired: true });
-                    this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: true });
+                    this.checkSymptoms(uid, name);
                 }
             } else {
-                logger.info({ id: uid, name: name, checkSypmtomsRequired: true });
-                this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: true });
-                await this._symptomScanTimeService.addSymptomScanTime(uid, false);
+                await this.createNewScanTime(uid, name);
             }
         } else {
-            logger.info({ id: uid, needName: true, checkSypmtomsRequired: true })
-            this._events.emit('data', { id: uid, needName: true, checkSypmtomsRequired: true });
+            this.createNewUser(uid);
         } 
+    }
+
+    updateScanTime(symptomScanTime, uid, name) {
+        if(this.checkCooldown(symptomScanTime)) {
+            logger.info({ id: uid, name: name, checkSypmtomsRequired: false, checkedIn: symptomScanTime.checkedIn });
+            this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: false, checkedIn: symptomScanTime.checkedIn });
+            this._symptomScanTimeService.updateSymptomScanTime(uid);
+            this._symptomScanTimeService.toggleCheckedIn(uid);
+        }
+    }
+
+    checkSymptoms(uid, name) {
+        logger.info({ id: uid, name: name, checkSypmtomsRequired: true });
+        this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: true });
+    }
+
+    async createNewScanTime(uid, name) {
+        logger.info({ id: uid, name: name, checkSypmtomsRequired: true });
+        this._events.emit('data', { id: uid, name: name, checkSypmtomsRequired: true });
+        await this._symptomScanTimeService.addSymptomScanTime(uid, false);
+    }
+
+    createNewUser(uid) {
+        logger.info({ id: uid, needName: true, checkSypmtomsRequired: true })
+        this._events.emit('data', { id: uid, needName: true, checkSypmtomsRequired: true });
     }
 
     wakeScreen() {

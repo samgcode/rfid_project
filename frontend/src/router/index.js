@@ -40,10 +40,6 @@ export default new Router({
       path: '/enterName/:id/:changeName',
       name: 'EnterName',
       component: EnterName
-    }, {
-      path: '/signedInList',
-      name: 'SignedInList',
-      component: SignedInList
     }
   ],
   scrollBehavior() {

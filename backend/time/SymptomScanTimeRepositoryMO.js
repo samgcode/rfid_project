@@ -45,16 +45,9 @@ class SymptomScanTimeRepository {
 
         let scanTimes = await this.getSymptomScanTimesByDate(yesterday, tommarow)
         scanTimes = scanTimes.map(scanTime => {
-            if(scanTime.timeOut) {
-                return {
-                    uid: scanTime.uid,
-                    signedIn: false
-                }
-            } else {
-                return {
-                    uid: scanTime.uid,
-                    signedIn: true
-                }
+            return {
+                uid: scanTime.uid,
+                signedIn: scanTime.checkedIn
             }
         })
         console.log(scanTimes)
@@ -87,6 +80,7 @@ class SymptomScanTimeRepository {
             timeIn: date.getTime(),
             timeOut: '',
             checkedSymptoms: checkedSymptoms,
+            checkedIn: true,
         });
         await symptomScanTime.save();
         return `Added: ${uid}`;
@@ -125,6 +119,27 @@ class SymptomScanTimeRepository {
         if(id) {
             await SymptomScanTime.findByIdAndUpdate(id, {checkedSymptoms: checkedSymptoms});
             return `Updated: ${uid}`;
+        }
+        return 'Not found';
+    }
+
+    async toggleCheckedIn(uid) {
+        const data = await SymptomScanTime.find({'uid': uid}, (symptomScanTimes) => {
+            return symptomScanTimes;
+        });
+        let id = null;
+        let checkedIn = false;
+        const date = new Date();
+        data.forEach(symptomScanTime => {
+            const time = moment(symptomScanTime.timeIn);
+            if(time.isSame(moment(date), 'day')) {
+               id = symptomScanTime._id;
+               checkedIn = symptomScanTime.checkedIn;
+            }
+        });
+        if(id) {
+            await SymptomScanTime.findByIdAndUpdate(id, {checkedIn: !checkedIn});
+            return `Toggled: ${uid}`;
         }
         return 'Not found';
     }
