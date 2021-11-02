@@ -3,7 +3,7 @@ const moment = require('moment');
 const logger = require('logger').createLogger({className: __filename});
 const exec = require('exec');
 
-const scanCooldown = 1;//min
+const scanCooldown = 0.5;//min
 const sleepTime = 5;//sec
 
 class RfidEventService {

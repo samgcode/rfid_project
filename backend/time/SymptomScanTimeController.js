@@ -123,7 +123,8 @@ class SymptomScanTimeController {
 
     async removeOldRecords(ctx) {
         try {
-            const response = await this._symptomScanTimeService.removeOldRecords();
+            const days = ctx.params.days;
+            const response = await this._symptomScanTimeService.removeOldRecords(days);
             ctx.body = response;
         } catch(err) {
             ctx.throw(err);

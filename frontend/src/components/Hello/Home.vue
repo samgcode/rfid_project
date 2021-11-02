@@ -2,7 +2,7 @@
   <div id="home" class="main">
     <orbit-loader :loading="loading"/>
     <error-display :message="errorMessage" :class="{'d-none': !error}"/>
-    <div :class="{'d-none': loading}">
+    <div :class="{'d-none': loading}" class="sticky">
       <div class="display-3 text-secondary">
         Hello
       </div>
@@ -98,3 +98,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.sticky {
+  position: sticky;
+}
+</style>

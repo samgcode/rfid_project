@@ -75,9 +75,9 @@ class SymptomScanTimeService {
         }
     }
 
-    async removeOldRecords() {
+    async removeOldRecords(days) {
         try {
-            const response = await this._symptomScanTimeRepository.removeOldRecords();
+            const response = await this._symptomScanTimeRepository.removeOldRecords(days);
             return response;
         } catch(err) {
             logger.error(err);

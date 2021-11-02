@@ -144,9 +144,8 @@ class SymptomScanTimeRepository {
         return 'Not found';
     }
 
-    async removeOldRecords() {
-        const olderThan = moment().subtract(30, 'days').toDate();
-        console.log(olderThan);
+    async removeOldRecords(days) {
+        const olderThan = moment().subtract(days || 0, 'days').toDate();
         SymptomScanTime.find({timeIn: {$lte: olderThan}}).remove().exec();
         return 'Removed old records';
     }
